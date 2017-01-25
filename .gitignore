@@ -1,2 +1,12 @@
-.DS_Store
-.irb-history
+# Packages #
+###################
+*.apk
+*.app
+
+# OS generated files #
+######################
+*.DS_Store
+
+# Logs and databases #
+######################
+*.irb-history
