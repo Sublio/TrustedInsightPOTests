@@ -85,9 +85,13 @@ end
 #ENV['SCREENSHOT_PATH'] = 'ipad__'
 
 =begin
+
+bundle identitifer = com.thetrustedinsight.app
+ip = 10.1.0.139
 Управление таймаутом у симулятора- дефолтное значение!!!
 RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 60
 simulators = {
+  iPhone(Denis Mordvinov) (10.2) [5cdb1910f92bf7645bc981e80d47ec67fda487ca]	
   iPad 2 (9.3) [33BA997F-7A73-4D7B-B46C-D1124E03E4B8] (Simulator)
   iPad Air (9.3) [1E5D7407-2925-49E5-A122-1920E6B43AD7] (Simulator)
   iPad Air 2 (9.3) [E228D9FC-0938-4450-AE93-20357FB84816] (Simulator)
@@ -107,7 +111,7 @@ simulators = {
 
 
 
-RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 180
+RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 300
 
 #launcher = Calabash::Launcher.launcher
 
