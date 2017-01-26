@@ -1,23 +1,33 @@
-require 'calabash-cucumber/ibase'
+require 'calabash-android/ibase'
+
 
 
 #IOS
 
+
 class LoginPage < Calabash::IBase
 
-  
+
   def trait
 
-    "button marked:'ACCESS WITH EMAIL'"
-    
+    "TITextField" #this is a textField locator
+
+  end
+
+
+  def tapBackButton 
+
+    touch("* id:'iconTopCancel'") #this is a backButton locator
+    page(WelcomePage).await(timeout: 30)
+
   end
 
 
+  def inputUserEmail(email)
 
-  def tap_on_access_button
-
-    touch(trait())
+    enter_text(email, use_keyboard: true, wait:false)
 
   end
+
 
 end

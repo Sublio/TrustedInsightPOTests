@@ -20,3 +20,6 @@ elsif target == 'ios'
 else
   puts "Invalid target #{target}"
 end
+
+
+#if you wanna take a report after test, add this command after exec command --format html --out reports.html

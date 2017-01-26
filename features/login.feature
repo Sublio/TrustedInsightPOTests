@@ -7,6 +7,6 @@ Feature: Initial experience
 
   Scenario: Tapping on Access with email button
 
-  	Given I am on the first screen
-  	#And I tap on Access wit email button
-  	#Then I see Text field for inputting my email
+  	Given I am on the welcome screen
+  	And I tap on Access wit email button
+  	Then I see Text field for inputting my email

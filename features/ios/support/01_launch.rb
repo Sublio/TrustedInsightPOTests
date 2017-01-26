@@ -70,7 +70,7 @@ Before("@no_relaunch") do
 end
 
 
-ENV['DEVICE_TARGET'] = 'iPhone 5 (10.2)'
+#ENV['DEVICE_TARGET'] = 'iPhone 5 (10.2)'
 #ENV['DEVICE_TARGET'] = '5cdb1910f92bf7645bc981e80d47ec67fda487ca'
 #ENV['DEVICE_ENDPOINT'] = 'http://10.1.0.140:37265'
 #ENV['BUNDLE_ID'] = 'com.thetrustedinsight.app'
@@ -111,7 +111,7 @@ simulators = {
 
 
 
-RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 300
+RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 180
 
 #launcher = Calabash::Launcher.launcher
 

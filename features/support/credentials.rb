@@ -9,7 +9,7 @@ CREDENTIALS = {
         password: 'true'
     },
     invalid_user: {
-        mail: 'donaldTrump@whitehoouse.gov',
+        mail: 'donaldTrump@whitehouse.gov',
         password: 'wrong'
     },
 
