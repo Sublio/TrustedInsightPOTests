@@ -8,7 +8,7 @@ class LoginPage < Calabash::IBase
   
   def trait
 
-    "label index:0"
+    "button marked:'ACCESS WITH EMAIL'"
     
   end
 
