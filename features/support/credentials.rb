@@ -6,7 +6,7 @@ password = Faker::Ancient.god
 CREDENTIALS = {
     valid_user: {
         mail: 'sublio1260@gmail.com',
-        password: 'avatar1260'
+        password: 'true'
     },
     invalid_user: {
         mail: 'donaldTrump@whitehoouse.gov',
