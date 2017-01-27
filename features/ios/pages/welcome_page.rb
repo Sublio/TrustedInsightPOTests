@@ -39,4 +39,16 @@ class WelcomePage < Calabash::IBase
 
   end
 
+  def tap_terms_of_use
+
+  	tap_text_position("* id:'join_terms_t'","Terms of Use")
+
+  end
+
+  def tap_privacy_policy
+
+  	tap_text_position("* id:'join_terms_t'","Privacy Policy")
+
+  end
+
 end

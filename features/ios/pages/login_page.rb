@@ -1,4 +1,4 @@
-require 'calabash-android/ibase'
+require 'calabash-cucumber/ibase'
 
 
 
