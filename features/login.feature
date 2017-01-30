@@ -17,3 +17,4 @@ Feature: Initial experience
       When I tap on Terms of Use link
       Then I see WebView with terms of using  
       
+
