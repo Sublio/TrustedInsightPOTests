@@ -1,6 +1,7 @@
 require 'calabash-cucumber/ibase'
 
 
+
 #IOS
 
 class WelcomePage < Calabash::IBase
@@ -50,5 +51,6 @@ class WelcomePage < Calabash::IBase
   	tap_text_position("* id:'join_terms_t'","Privacy Policy")
 
   end
+
 
 end
