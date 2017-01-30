@@ -24,7 +24,6 @@ end
 
 Then(/^I tap on Terms of Use link$/) do
 
-  @current_page.tap_terms_of_use
-  sleep(10)
-
+  @current_page.tap_privacy_policy
+  
 end
