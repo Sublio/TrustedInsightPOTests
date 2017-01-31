@@ -1,7 +1,6 @@
  
 
 Given(/^I am on the welcome screen$/) do
-
   @current_page = page(WelcomePage).await(timeout: 60)
   @current_page.ensureYouAreOnWelcomePage
 
@@ -22,9 +21,15 @@ Then(/^I see Text field for inputting my email$/) do
 end
 
 
-Then(/^I tap on Terms of Use link$/) do
+When(/^I tap on Terms of Use link$/) do
 
-  @current_page.tap_privacy_policy
-  sleep(10)
+  @current_page.tap_terms_of_use
 
+end
+
+Then(/^I see WebView with terms of using$/)do
+	
+	@current_page = page(TermsOfUsePage).await(timeout:60)
+	@current_page.ensureWebViewHasLoadedContent
+	
 end
