@@ -1,4 +1,5 @@
 require 'calabash-cucumber/ibase'
+require_relative '../ios_helpers/i_helpers.rb'
 
 
 
@@ -42,13 +43,13 @@ class WelcomePage < Calabash::IBase
 
   def tap_terms_of_use
 
-  	tap_text_position("* id:'join_terms_t'","Terms of Use")
+  	tap_text_position("TTTAttributedLabel","Terms of Use")
 
   end
 
   def tap_privacy_policy
 
-  	tap_text_position("* id:'join_terms_t'","Privacy Policy")
+  	tap_text_position("TTTAttributedLabel","Privacy Policy")
 
   end
 
