@@ -10,3 +10,10 @@
 # Logs and databases #
 ######################
 *.irb-history
+
+
+#sublime porjects#
+
+###################
+*.sublime-project
+*.sublime-workspace

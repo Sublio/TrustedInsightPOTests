@@ -18,14 +18,25 @@ class LoginPage < Calabash::IBase
   def tapBackButton 
 
     touch("* id:'iconTopCancel'") #this is a backButton locator
-    page(WelcomePage).await(timeout: 30)
-
+    
   end
 
 
   def inputUserEmail(email)
 
     enter_text(email, use_keyboard: true, wait:false)
+
+  end
+
+  def nextButton
+
+    "* marked:'NEXT'"
+
+  end
+
+  def invalidEmailAlert 
+
+    "* marked:'Invalid Email'"
 
   end
 

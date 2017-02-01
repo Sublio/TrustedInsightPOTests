@@ -15,7 +15,6 @@ class LoginPage < Calabash::ABase
   def tapBackButton 
 
     touch("* id:'join_email_back'") #this is a backButton locator
-    page(WelcomePage).await(timeout: 30)
 
   end
 
@@ -25,6 +24,16 @@ class LoginPage < Calabash::ABase
     enter_text(email, use_keyboard: true, wait:false)
 
   end
+
+
+  def nextButton
+
+    "* id:'join_action_button'"
+
+  end
+
+
+  #on Android there is no alert about invalid email!!!
 
 end
 

@@ -4,11 +4,11 @@ require 'calabash-android/abase'
 
 #Android
 
-class TermsOfUsePage < Calabash::ABase
+class PrivacyPolicy < Calabash::ABase
 
 	def trait
 
-		"textView text:'Terms of Use'"
+		"textView text:'Privacy Policy'"
 		    
 	end
 
