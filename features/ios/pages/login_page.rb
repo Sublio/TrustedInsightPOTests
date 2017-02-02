@@ -23,7 +23,7 @@ class LoginPage < Calabash::IBase
 
   def inputUserEmail(email)
 
-    enter_text(email, use_keyboard: true, wait:false)
+    keyboard_enter_text(email)
 
   end
 

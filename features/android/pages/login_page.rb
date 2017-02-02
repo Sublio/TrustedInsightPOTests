@@ -21,7 +21,7 @@ class LoginPage < Calabash::ABase
 
   def inputUserEmail(email)
 
-    enter_text(email, use_keyboard: true, wait:false)
+    keyboard_enter_text(email)
 
   end
 
@@ -30,6 +30,12 @@ class LoginPage < Calabash::ABase
 
     "* id:'join_action_button'"
 
+  end
+
+  def unableToConnect
+
+    "* text:'Unable to connect'"
+    
   end
 
 

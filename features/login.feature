@@ -11,7 +11,7 @@ Feature: Login experience
   	Then I see Text field for inputting my email
     
 
-
+  @test
   Scenario: Input Email and proceed to Input Password screen
       When I input valid User mail
       And I tap Next button
