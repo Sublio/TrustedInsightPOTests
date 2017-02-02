@@ -24,6 +24,6 @@ When(/^I input not registered User mail$/) do
 
 end
 
-Then(/^I see first screen of Sign new user process$/) do
+Then(/^I see first screen of Sign new user flow$/) do
   @current_page = page(NewToTrustedInsightPage).await(timeout: 60) #first page of sign up flow
 end

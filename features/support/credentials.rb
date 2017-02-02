@@ -8,8 +8,8 @@ lastname = Faker::Name.last_name
 CREDENTIALS = {
     valid_user: {
         mail: 'sublio1260@gmail.com',
-        password:  'true'
-        firstname: 'Denis'
+        password:  'true',
+        firstname: 'Denis',
         lastname:  'Test'
     },
     invalid_user: {
@@ -19,8 +19,8 @@ CREDENTIALS = {
 
     random_user: {
     	mail: mail,
-    	password: password
-        firstname: firstname
+    	password: password,
+        firstname: firstname,
         lastname: lastname
         
     },
