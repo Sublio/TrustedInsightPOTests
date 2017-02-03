@@ -9,39 +9,16 @@ class HomePage < Calabash::IBase
 
   def trait
 
-    "TITextField" #this is a textField locator
+    "view marked:'iconNavSearch'" #this is a home cell locator for Search button from topBar
 
   end
 
 
-  def tapBackButton 
 
-    touch("* id:'iconTopCancel'") #this is a backButton locator
+  def searchButton
+
+    "button marked:'iconNavSearch'"
     
   end
-
-
-  def inputUserEmail(email)
-
-    keyboard_enter_text(email)
-
-  end
-
-  def nextButton
-
-    "* marked:'NEXT'"
-
-  end
-
-  def ensureInvalidEmailAlert 
-
-    touch(nextButton)
-    
-    if !element_exists("* marked:'Invalid Email'")
-      fail("There is no alert!")
-    end
-    
-  end
-
 
 end
