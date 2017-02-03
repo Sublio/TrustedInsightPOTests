@@ -13,7 +13,7 @@ CREDENTIALS = {
         lastname:  'Test'
     },
     invalid_user: {
-        mail: 'donaldTrump@whitehouse.gov',
+        mail: 'donaldTrump@w',
         password: 'wrong'
     },
 
@@ -24,4 +24,5 @@ CREDENTIALS = {
         lastname: lastname
         
     },
+
 }

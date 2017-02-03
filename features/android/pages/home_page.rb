@@ -3,11 +3,11 @@ require 'calabash-android/abase'
 
 #Android
 
-class LoginPage < Calabash::ABase
+class HomePage < Calabash::ABase
 
   def trait
 
-    "* id:'join_input_et'"   #this is a textField locator
+    "* id:'op_search'"   #this is a search field locator
 
   end
 

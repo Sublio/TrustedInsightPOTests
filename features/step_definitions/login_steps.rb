@@ -18,6 +18,7 @@ Then(/^I see password input page$/)do
 end
 
 When(/^I input not registered User mail$/) do
+  sleep(2)
   @current_page = page(LoginPage).await(timeout: 60)
   user = CREDENTIALS[:random_user]                                    
   @current_page.inputUserEmail(user[:mail])
@@ -27,3 +28,16 @@ end
 Then(/^I see first screen of Sign new user flow$/) do
   @current_page = page(NewToTrustedInsightPage).await(timeout: 60) #first page of sign up flow
 end
+
+When(/^I input invalid email$/) do
+  sleep(2)
+  @current_page = page(LoginPage).await(timeout: 60)
+  user = CREDENTIALS[:invalid_user]                                    
+  @current_page.inputUserEmail(user[:mail])
+end
+
+Then(/^I shouldnt be able to proceed next$/) do
+  @current_page.ensureInvalidEmailAlert
+end
+
+
