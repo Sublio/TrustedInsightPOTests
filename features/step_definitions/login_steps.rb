@@ -1,3 +1,6 @@
+require "awesome_print"
+require 'faker'
+
 
 When(/^I input valid User mail$/) do
   @current_page = page(LoginPage).await(timeout: 60)
@@ -18,10 +21,13 @@ Then(/^I see password input page$/)do
 end
 
 When(/^I input not registered User mail$/) do
+  
+  puts "I input not registered User mail called"
   sleep(2)
+  ap "Entry point"
   @current_page = page(LoginPage).await(timeout: 60)
-  user = CREDENTIALS[:random_user]                                    
-  @current_page.inputUserEmail(user[:mail])
+  user = CREDENTIALS[:random_user]                                  
+  @current_page.inputUserEmail(Faker::Internet.email)
 
 end
 
@@ -33,7 +39,7 @@ When(/^I input invalid email$/) do
   sleep(2)
   @current_page = page(LoginPage).await(timeout: 60)
   user = CREDENTIALS[:invalid_user]                                    
-  @current_page.inputUserEmail(user[:mail])
+  @current_page.inputUserEmail(Faker::Internet.email)
 end
 
 Then(/^I shouldnt be able to proceed next$/) do

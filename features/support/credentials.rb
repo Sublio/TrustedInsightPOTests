@@ -1,9 +1,9 @@
 require 'faker'
 
-mail = Faker::Internet.email
-password = Faker::Vehicle.vin
-firstname = Faker::Name.first_name
-lastname = Faker::Name.last_name
+mail = Faker::Internet.unique.email
+password = Faker::Vehicle.unique.vin
+firstname = Faker::Name.unique.name
+lastname = Faker::Name.unique.last_name
 
 
 CREDENTIALS = {
@@ -27,4 +27,3 @@ CREDENTIALS = {
     },
 }
 
-#hello
