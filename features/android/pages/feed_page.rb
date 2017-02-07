@@ -6,7 +6,7 @@ require 'calabash-android/abase'
 
 
 
-class HomePage < Calabash::ABase
+class FeedPage < Calabash::ABase
 
   def trait
 

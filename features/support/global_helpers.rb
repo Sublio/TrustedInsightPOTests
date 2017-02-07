@@ -1,10 +1,9 @@
-require 'rspec'
 require 'gmail'
-require 'awesome_print'
 
 
 def cellRecognizer(cellContainterQuery, cellIndex)
 
+	###########################################TODO!###########################
 			
 
 end
@@ -12,7 +11,7 @@ end
 
 def mailChecker(mail, password)
 
-	#working only wit gmail accounts 
+	#working only with gmail accounts!!!
 
 	gmail = Gmail.connect(mail, password)
 

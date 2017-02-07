@@ -4,7 +4,7 @@ require 'calabash-cucumber/ibase'
 #IOS
 
 
-class HomePage < Calabash::IBase
+class FeedPage < Calabash::IBase
 
 
   def trait
