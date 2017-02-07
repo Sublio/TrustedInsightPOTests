@@ -1,9 +1,10 @@
 require 'faker'
 
-mail = Faker::Internet.email
-password = Faker::Vehicle.vin
-firstname = Faker::Name.first_name
-lastname = Faker::Name.last_name
+mail = Faker::Internet.unique.email
+password = Faker::Vehicle.unique.vin
+firstname = Faker::Name.unique.name
+lastname = Faker::Name.unique.last_name
+
 
 CREDENTIALS = {
     valid_user: {
@@ -14,7 +15,9 @@ CREDENTIALS = {
     },
     invalid_user: {
         mail: 'donaldTrump@w',
-        password: 'wrong'
+        password: 'wrong',
+        firstname: 'qqqqqqqqqqwwwwwwwwwweeeeeeeeeer',
+        lastname: 'qqqqqqqqqqwwwwwwwwwweeeeeeeeeer'
     },
 
     untestor_user: {
@@ -23,12 +26,15 @@ CREDENTIALS = {
         password: 'untestor1260'
     },
 
+
     random_user: {
     	mail: mail,
     	password: password,
         firstname: firstname,
-        lastname: lastname
-        
+        lastname: lastname       
     },
-
 }
+
+
+
+
