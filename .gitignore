@@ -17,3 +17,13 @@
 ###################
 *.sublime-project
 *.sublime-workspace
+
+
+
+#credentials file
+
+
+
+##################
+
+credentials.rb
