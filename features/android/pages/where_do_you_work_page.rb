@@ -29,6 +29,22 @@ class WhereDoYouWorkPage < Calabash::ABase
 
   end
 
+  #############################
+
+  def availJobs
+
+    query("recyclerview id:'job_titles_container' * id:'title'")
+
+  end
+
+  def pickedJob
+
+    availJobs[rand(0..availJobs.length - 1)]
+
+  end
+
+
+
   def companyTitleEdit
 
     "* id:'business_company_et'"

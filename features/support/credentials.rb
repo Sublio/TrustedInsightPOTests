@@ -1,6 +1,6 @@
 require 'faker'
 
-mail = Faker::Internet.email
+mail = Faker::Internet.unique.email
 password = Faker::Vehicle.vin
 firstname = Faker::Name.first_name
 lastname = Faker::Name.last_name
