@@ -13,8 +13,7 @@ Feature: Password inputing experience
     
     
   Scenario: Forgot Password feature
-	  When I press the "Forgot password?" button
-	  Then I wait for 2 seconds
+	  When I tap the Forgot password? button
+	  Then I wait for two seconds
 	  And I press Reset button
-	  Then I should see "To reset your password, visit the link sent to your email"
 	  And I should receive mail for reseting password

@@ -10,7 +10,7 @@ Feature: Sign In experience
       * I input not registered User mail
       * I tap Next button
       * I see first screen of Sign new user flow
-
+  @reinstall
   Scenario: On New to Trusted Insight? screen I can input invalid data and receive 
 
       * I input incorrect first name 
@@ -24,7 +24,7 @@ Feature: Sign In experience
       * I input incorrect password
       * I tap on "SIGN UP" button
       * I wait for wrong password alert to appear
-
+  @reinstall    
   Scenario: On "New to Trusted Insight?" screen I can input valid data and proceed
       * I input correct first name
       * I input correct last name 

@@ -37,7 +37,7 @@ When(/^I input invalid email$/) do
   sleep(2)
   @current_page = page(LoginPage).await(timeout: 60)
   user = CREDENTIALS[:invalid_user]                                    
-  @current_page.inputUserEmail(Faker::Internet.email)
+  @current_page.inputUserEmail(user[:mail])
 end
 
 Then(/^I shouldnt be able to proceed next$/) do
