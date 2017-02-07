@@ -1,9 +1,10 @@
 require 'faker'
 
 mail = Faker::Internet.email
-password = Faker::Ancient.god
+password = Faker::Vehicle.vin
 firstname = Faker::Name.first_name
 lastname = Faker::Name.last_name
+
 
 CREDENTIALS = {
     valid_user: {
@@ -14,15 +15,16 @@ CREDENTIALS = {
     },
     invalid_user: {
         mail: 'donaldTrump@w',
-        password: 'wrong'
+        password: 'wrong',
+        firstname: 'qqqqqqqqqqwwwwwwwwwweeeeeeeeeer',
+        lastname: 'qqqqqqqqqqwwwwwwwwwweeeeeeeeeer'
     },
-
     random_user: {
     	mail: mail,
     	password: password,
         firstname: firstname,
-        lastname: lastname
-        
+        lastname: lastname       
     },
-
 }
+
+#hello

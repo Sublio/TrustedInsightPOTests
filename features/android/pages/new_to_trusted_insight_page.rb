@@ -6,7 +6,7 @@ require 'calabash-android/abase'
 
 class NewToTrustedInsightPage < Calabash::ABase
 
-def trait
+  def trait
 
 	hide_soft_keyboard #we need to hide keyb in case it will cover some ui that will be in trait :(
     "* marked:'New to Trusted Insight?'" #this is a NEW TO TRUSTED INSIGHT? label locator
@@ -20,24 +20,50 @@ def trait
     
   end
 
+  def firstName
+
+    "* id:'firstname_et'"
+
+  end
+
+  def lastName
+
+    "* id:'lastname_et'"
+
+  end
+
+  def passwd
+
+    "* id:'password_et'"
+
+  end
+
 
   def inputFirstName(firstName)
 
-  	touch('* marked:"First name"')
-    keyboard_enter_text(firstName)
+  	#touch('* marked:"First name"')
+    #keyboard_enter_text(firstName)
+
+    enter_text("* id:'firstname_et'", firstName)
 
   end
 
   def inputLastName(lastName)
 
-  	touch('* marked:"Last name"')
-  	keyboard_enter_text(lastName)
+  	#touch('* marked:"Last name"')
+  	#keyboard_enter_text(lastName)
+
+    enter_text("* id:'lastname_et'", lastName)
+
   end
 
   def inputPassword(password)
 
-  	touch("* marked:'Password'")
-  	keyboard_enter_text(password)
+  	#touch("* marked:'Password'")
+  	#keyboard_enter_text(password)
+
+    enter_text("* id:'password_et'", password)
+
   end
 
   def signUpButton
@@ -54,10 +80,23 @@ def trait
 
   end
 
+  def passwordVisibleOrHidden(passwdField, eyeButton)
 
-  def invalidpPasswordAlert
+    passwd_visible = query(passwdField, :inputType).first
+    touch(eyeButton)
+    passwd_hidden = query(passwdField, :inputType).first
+    if passwd_visible == passwd_hidden 
+      fail('Password didnt show up')
+    elsif passwd_visible != passwd_hidden
+      puts('Password show up!')
+    end
+      
+  end
 
-  	"* marked:'Invalid password'"
+
+  def invalidPasswordAlert
+
+  	wait_for_elements_exist("* marked:'Invalid password'")
 
   end
 
@@ -75,5 +114,10 @@ def trait
 
   end
 
+  def invalidFirstLastNameSnack
+
+    wait_for_elements_exist("* text:'First Name and Last name should be less than 30 characters!'")
+
+  end
 
 end
