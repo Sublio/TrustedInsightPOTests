@@ -22,9 +22,7 @@ end
 
 When(/^I input not registered User mail$/) do
   
-  puts "I input not registered User mail called"
   sleep(2)
-  ap "Entry point"
   @current_page = page(LoginPage).await(timeout: 60)
   user = CREDENTIALS[:random_user]                                  
   @current_page.inputUserEmail(Faker::Internet.email)
