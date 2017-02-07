@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    CFPropertyList (2.3.4)
+    CFPropertyList (2.3.5)
     awesome_print (1.7.0)
     builder (3.2.3)
     calabash-android (0.9.0)
@@ -40,12 +40,12 @@ GEM
     diff-lcs (1.3)
     edn (1.1.1)
     escape (0.0.4)
-    faker (1.7.2)
+    faker (1.7.3)
       i18n (~> 0.5)
-    geocoder (1.4.1)
+    geocoder (1.4.2)
     gherkin (4.0.0)
     httpclient (2.8.3)
-    i18n (0.7.0)
+    i18n (0.8.0)
     json (1.8.6)
     luffa (2.0.0)
       awesome_print (~> 1.2)
@@ -56,7 +56,7 @@ GEM
     multi_test (0.1.2)
     retriable (2.0.2)
     rubyzip (1.2.0)
-    run_loop (2.2.4)
+    run_loop (2.3.0)
       CFPropertyList (~> 2.2)
       awesome_print (~> 1.2)
       command_runner_ng (>= 0.0.2)
@@ -72,8 +72,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  calabash-android (= 0.9.0)
-  calabash-cucumber (= 0.20.4)
+  calabash-android
+  calabash-cucumber
   faker
 
 BUNDLED WITH

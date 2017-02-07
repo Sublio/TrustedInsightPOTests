@@ -144,7 +144,7 @@ Before do |scenario|
   end
 
   if relaunch
-    launcher.relaunch(options)
+    launcher.relaunch({:timeout => 300,:relaunch_simulator => false})
   end
 
   ENV["RESET_BETWEEN_SCENARIOS"] = "0"
