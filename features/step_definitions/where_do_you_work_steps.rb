@@ -1,37 +1,37 @@
+When(/^I check if Close button clear firm textfield$/) do
+  @current_page = page(WhereDoYouWorkPage).await(timeout: 60)
+  @current_page.checkIfCleared(@current_page.firmTitleEdit, @current_page.firmTitlesContainer, @current_page.firmTitlesCloseButton)
+end
+
+When(/^I check if Close button clear job textfield$/) do
+  @current_page = page(WhereDoYouWorkPage).await(timeout: 60)
+  @current_page.checkIfCleared(@current_page.jobTitleEdit, @current_page.jobTitlesContainer, @current_page.jobTitlesCloseButton)
+end
 
 When(/^I enter random character as job title to get results$/) do
 
   @current_page = page(WhereDoYouWorkPage).await(timeout: 60)
-  enter_text(jobTitleEdit, 1.times.map { [*'a'..'x'].sample }.join)
-  wait_for_elements_exist(jobTitlesContainer)
+  enter_text(@current_page.jobTitleEdit, 1.times.map { [*'a'..'x'].sample }.join)
+  wait_for_elements_exist(@current_page.jobTitlesContainer)
 
 end
 
-When(/^I check if Close button clear job textfield$/) do
+When(/^I pick random job title from given results$/) do
 
   @current_page = page(WhereDoYouWorkPage).await(timeout: 60)
-  touch(jobTitlesCloseButton)
-  if jobTitleEdit.emtpy?
-  	puts("Clear!")
-  end
-
+  @current_page.pickItemFromAutocompleteList(@current_page.jobTitleEdit, @current_page.jobTitlesContainer, @current_page.availElements)
 end
 
 When(/^I pick random firm title from given results$/) do
 
   @current_page = page(WhereDoYouWorkPage).await(timeout: 60)
-  picked_job_title = @current_page.picked_job["text"]
-  puts ("Picked job title is #{picked_job_title}")
-  sleep 1
-touch(picked_job)
-sleep 2
-final_job_title = query("* id:'business_job_title_et'").first["text"]
-puts ("Final job title is #{final_job_title}")
-sleep 2
-if (final_job_title.include? picked_job_title) == true
-	puts("Job picked successfully")
-else
-	puts("Job doesn't match!")
+  @current_page.pickItemFromAutocompleteList(@current_page.firmTitleEdit, @current_page.firmTitlesContainer, @current_page.availElements)
+
 end
+
+When(/^I pick country and make sure that it appears$/) do
+
+  @current_page = page(WhereDoYouWorkPage).await(timeout: 60)
+  @current_page.pickCountryFromTheList(@current_page.countryTitleEdit, @current_page.countryContainer, @current_page.countryItself, @current_page.countryOkButton)
 
 end

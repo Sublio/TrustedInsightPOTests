@@ -16,6 +16,10 @@ Then /^I proceed as worker$/ do
 
 	@current_page = page(YourBackgroundPage).await(timeout: 60)
 
+	wait_for_elements_exist(@current_page.levelsCells)
+
+	sleep 5
+
 	@current_page.levelsCells.each do |cell|
 	if (cell["text"].include? "Student") == false
 		cells2 = []

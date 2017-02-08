@@ -59,17 +59,16 @@ Then /^I wait for wrong password alert to appear$/ do
 
 	@current_page = page(NewToTrustedInsightPage).await(timeout: 60)
 	@current_page.invalidPasswordAlert
-	touch(@current_page.okButton)
+	@current_page.okButton
 
 end
 
 Then /^I clear first and last name and password$/ do
 
 	@current_page = page(NewToTrustedInsightPage).await(timeout: 60)
-	clear_text_in(@current_page.firstName)
-	clear_text_in(@current_page.lastName)
-	hide_soft_keyboard
-	clear_text_in(@current_page.passwd)
+	@current_page.clearFirstName
+	@current_page.clearLastName
+	@current_page.clearPasswd
 
 
 end

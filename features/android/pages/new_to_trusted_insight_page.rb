@@ -66,6 +66,25 @@ class NewToTrustedInsightPage < Calabash::ABase
 
   end
 
+  def clearFirstName
+
+    clear_text_in("* id:'firstname_et'")
+
+  end
+
+  def clearLastName
+
+    clear_text_in("* id:'lastname_et'")
+
+  end
+
+  def clearPasswd
+
+    hide_soft_keyboard
+    clear_text_in("* id:'password_et'")
+
+  end  
+
   def signUpButton
 
   	hide_soft_keyboard
@@ -110,7 +129,7 @@ class NewToTrustedInsightPage < Calabash::ABase
 
   def okButton
 
-  	"* marked:'OK'"
+  	touch("* marked:'OK'")
 
   end
 

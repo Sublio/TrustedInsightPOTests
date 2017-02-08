@@ -20,6 +20,28 @@ class NewToTrustedInsightPage < Calabash::IBase
     
   end
 
+  def firstName
+
+    "TITextField index:0"
+
+  end
+
+  def lastName
+
+    "TITextField index:1"
+
+  end
+
+  def passwd
+
+    "TITextField index:2"
+
+  end
+
+=begin
+#############################
+#doesn't work cross-platform#
+#############################
 
   def inputFirstName(firstName)
 
@@ -38,7 +60,45 @@ class NewToTrustedInsightPage < Calabash::IBase
 
   	touch("label marked:'Password'")
   	keyboard_enter_text(password)
+
   end
+=end
+
+  def inputFirstName(firstName)
+
+    enter_text("TITextField index:0", firstName)
+
+  end
+
+  def inputLastName(lastName)
+
+    enter_text("TITextField index:1", lastName)
+
+  end
+
+  def inputPassword(password)
+
+    enter_text("TITextField index:2", password)
+
+  end
+
+  def clearFirstName
+
+    clear_text("TITextField index:0")
+
+  end
+
+  def clearLastName
+
+    clear_text("TITextField index:1")
+
+  end
+
+  def clearPasswd
+
+    clear_text("TITextField index:2")
+
+  end  
 
   def signUpButton
 
@@ -52,10 +112,16 @@ class NewToTrustedInsightPage < Calabash::IBase
 
   end
 
+  def passwordVisibleOrHidden(passwdField, eyeButton)
 
-  def invalidpPasswordAlert
+    puts("Not yet released")
+      
+  end
 
-  	"view marked:'Invalid password'"
+
+  def invalidPasswordAlert
+
+    wait_for_elements_exist("* marked:'Invalid password'")
 
   end
 
@@ -70,6 +136,13 @@ class NewToTrustedInsightPage < Calabash::IBase
   def okButton
 
   	"view marked:'OK'"
+
+  end
+
+  def invalidFirstLastNameSnack
+
+    wait_for_elements_exist("* text:'First Name and Last name should be less than 30 characters!'")
+    touch("* marked:'OK'")
 
   end
 

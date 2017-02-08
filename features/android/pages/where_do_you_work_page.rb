@@ -7,7 +7,7 @@ class WhereDoYouWorkPage < Calabash::ABase
 
   def trait
 
-    "* marked:'Where do you work?'"   #this is a textField locator
+    "AppCompatEditText id:'business_job_title_et'"  
 
   end
 
@@ -29,35 +29,29 @@ class WhereDoYouWorkPage < Calabash::ABase
 
   end
 
-  #############################
+###############################
 
-  def availJobs
+  def availElements
 
-    query("recyclerview id:'job_titles_container' * id:'title'")
-
-  end
-
-  def pickedJob
-
-    availJobs[rand(0..availJobs.length - 1)]
+    "recyclerview * id:'title'"
 
   end
 
+#################################
 
-
-  def companyTitleEdit
+  def firmTitleEdit
 
     "* id:'business_company_et'"
 
   end
 
-  def companyTitlesContainer
+  def firmTitlesContainer
 
     "* id:'firms_container'"
 
   end
 
-  def companyTitlesCloseButton
+  def firmTitlesCloseButton
 
     "* id:'business_company_close_btn'"
 
@@ -132,3 +126,63 @@ class WhereDoYouWorkPage < Calabash::ABase
   end
 
 end
+
+#######################
+
+  def pickItemFromAutocompleteList(textfield, container, element)
+
+    enter_text(textfield, 1.times.map { [*'a'..'x'].sample }.join)
+    wait_for_elements_exist(container)
+    elements = query(element)
+    picked_element = elements[rand(0..elements.length - 1)]
+    picked_element_title = picked_element["text"]
+    puts ("Picked element title is #{picked_element_title}")
+    sleep 1
+    touch(picked_element)
+    sleep 1
+    final_element_title = query(textfield).first["text"]
+    puts ("Final element title is #{final_element_title}")
+    sleep 1
+    if final_element_title.include? picked_element_title
+      puts("Element picked successfully")
+    else
+      puts("Element doesn't match!")
+    end
+
+  end
+
+
+  def checkIfCleared(textfield, container, closebutton)
+
+    enter_text(textfield, 1.times.map { [*'a'..'x'].sample }.join)
+    wait_for_elements_exist(container)
+    text_before = query(textfield).first["text"]
+    puts(text_before)
+    touch(closebutton)
+    text_after = query(textfield).first["text"]
+    puts(text_after)
+    if text_after.empty?
+      puts("Clear!")
+    end
+
+  end
+
+  def pickCountryFromTheList(countryfield, container, country, confirmbutton)
+
+    touch(countryfield)
+    rand(0..48).times do
+      pan container, :up
+    end
+    selected_country = query(country)[(rand(0..query(country).length - 1))]
+    selected_country_title = selected_country["text"]
+    touch(selected_country)
+    sleep 1
+    touch(confirmbutton)
+    final_country_title = query(countryfield).first["text"]
+    if selected_country_title == final_country_title
+      puts("Country picked successfully")
+    elsif selected_country_title != final_country_title
+      puts("Country doesn't match!")
+    end
+
+  end

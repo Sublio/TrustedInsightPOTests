@@ -17,16 +17,8 @@ Feature: As new user I can select job and firm title using autocomplete and sele
       * I proceed as worker
 
   Scenario: I can select job and firm title and country
-      * I enter random character as job title to get results
       * I check if Close button clear job textfield
-      * I enter random character as job title to get results
-      * I pick random firm title from given results
-      * I enter random character as firm title to get results
       * I check if Close button clear firm textfield
-      * I enter random character as firm title to get results
+      * I pick random job title from given results
       * I pick random firm title from given results
-      * I open countries list and tap Cancel
-      * I open countries list and scroll to the random page
       * I pick country and make sure that it appears
-      * I can try options
-      * I tap Next button and make sure Im on Investor Level screen
