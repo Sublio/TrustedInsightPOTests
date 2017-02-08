@@ -109,10 +109,10 @@ simulators = {
   iPhone 6s Plus (9.3) + Apple Watch - 42mm (2.2) [6F153363-D3F0-4749-AFB3-A44F35826ACD] (Simulator)
 }
 =end
+#export BUNDLE_ID='com.thetrustedinsight.app' DEVICE_TARGET='5cdb1910f92bf7645bc981e80d47ec67fda487ca' DEVICE_ENDPOINT='http://10.1.0.124:37265'
 
 
-
-RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 180
+RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 90
 
 #launcher = Calabash::Launcher.launcher
 

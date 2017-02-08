@@ -1,19 +1,16 @@
+require 'calabash-android'
+require 'calabash-cucumber'
 
-
-
+=begin
 Before('@shouldLogin') do
   
 	touch("button marked:'ACCESS WITH EMAIL'")
-	#user = CREDENTIALS[:valid_user]
-	#keyboard_enter_text(user[:mail])
 	keyboard_enter_text("sublio1260@gmail.com")
-	wait_for(:timeout => 15) { element_exists("* marked:'NEXT'") }
-	touch("* marked:'NEXT'")
-	#keyboard_enter_text(user[:password])
-	keyboard_enter_text("avatar1260")
-	wait_for(:timeout => 15) { element_exists("* marked:'LOG IN''") }
-	touch("* marked:'LOG IN'")
+	touch("* marked:'NEXT'") 
 	sleep(4)
+	keyboard_enter_text("avatar1260")
+	touch("* marked:'LOG IN'")
+	sleep(6)
 
 	if element_exists(" marked:'ENABLE NOTIFICATIONS'")
 
@@ -26,5 +23,14 @@ end
 
 After('@shouldLogin') do
 
+	touch("* marked:'Settings'")
+	scroll("UITableView", :down)
+	sleep(1)
+	touch("* marked:'Log out'")
+	sleep(2)
 
 end
+
+
+
+=end
