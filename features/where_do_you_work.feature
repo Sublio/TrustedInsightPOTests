@@ -1,4 +1,4 @@
-Feature: Select background experience
+Feature: As new user I can select job and firm title using autocomplete and select country, also I can apply options such Retired and In transition
 
 
   Background:
@@ -14,15 +14,11 @@ Feature: Select background experience
       * I input correct password
       * I tap on "SIGN UP" button
       * I tap on "SIGN UP" button and wait for Your Background
-  
-  @reinstall
-  Scenario: I can select Student as my background and proceed as student
-
-      * I proceed as student
-
-  @reinstall
-  Scenario: I can select everything except Student and proceed as worker
-
       * I proceed as worker
 
-  
+  Scenario: I can select job and firm title and country
+      * I check if Close button clear job textfield
+      * I check if Close button clear firm textfield
+      * I pick random job title from given results
+      * I pick random firm title from given results
+      * I pick country and make sure that it appears
