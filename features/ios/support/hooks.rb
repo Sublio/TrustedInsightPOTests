@@ -4,7 +4,7 @@
 Before('@shouldLogin') do
   
 	touch("button marked:'ACCESS WITH EMAIL'")
-	user = CREDENTIALS[:valid_user]
+	#user = CREDENTIALS[:valid_user]
 	#keyboard_enter_text(user[:mail])
 	keyboard_enter_text("sublio1260@gmail.com")
 	wait_for(:timeout => 15) { element_exists("* marked:'NEXT'") }
