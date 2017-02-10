@@ -1,7 +1,4 @@
-
-
-#TODO - rewrite using android locators
-
+###Android hooks
 
 Before('@shouldLogin') do
   	wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}

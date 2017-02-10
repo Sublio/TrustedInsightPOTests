@@ -1,3 +1,5 @@
+#IOS hooks
+
 
 Before('@shouldLogin') do
   	wait_for(:timeout => 20) { element_exists("button marked:'ACCESS WITH EMAIL'")}
