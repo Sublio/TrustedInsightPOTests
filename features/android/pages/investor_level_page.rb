@@ -1,4 +1,4 @@
-require 'calabash-cucumber/abase'
+require 'calabash-android/abase'
 
 
 #Android
@@ -7,7 +7,7 @@ class InvestorType < Calabash::ABase
 
   def trait
 
-    "* marked:'Select your investor type'"
+    "* id:'types_title'"
 
   end
 

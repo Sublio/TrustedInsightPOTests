@@ -190,6 +190,6 @@ end
     elsif selected_country_title != final_country_title
       puts("Country doesn't match!")
     end
-    touch(textbutton)
+    touch(nextbutton)
 
   end
