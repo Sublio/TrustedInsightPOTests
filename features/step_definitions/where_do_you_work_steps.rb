@@ -31,7 +31,13 @@ end
 
 When(/^I pick country and make sure that it appears$/) do
 
-  @current_page = page(WhereDoYouWorkPage).await(timeout: 30)
-  @current_page.pickCountryFromTheList(@current_page.countryTitleEdit, @current_page.countryContainer, @current_page.countryItself, @current_page.countryOkButton)
+  @current_page = page(WhereDoYouWorkPage).await(timeout: 60)
+  @current_page.pickCountryFromTheList(@current_page.countryTitleEdit, @current_page.countryContainer, @current_page.countryItself, @current_page.countryOkButton, @current_page.NextButton)
+
+end
+
+When(/^I wait for next page$/) do
+
+  @current_page = page(InvestorType).await(timeout: 60)
 
 end

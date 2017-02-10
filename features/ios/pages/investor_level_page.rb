@@ -1,9 +1,9 @@
-require 'calabash-cucumber/abase'
+require 'calabash-cucumber/ibase'
 
 
 #Android
 
-class InvestorType < Calabash::ABase
+class InvestorType < Calabash::IBase
 
   def trait
 
