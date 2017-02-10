@@ -13,8 +13,12 @@ class YourBackgroundPage < Calabash::IBase
 
   def levelsCells
 
-    query("recyclerview cardview appcompattextview")
+    query("UITableViewLabel")
     
+  end
+
+  def pickCell
+
   end
 
   def tapRandomCell

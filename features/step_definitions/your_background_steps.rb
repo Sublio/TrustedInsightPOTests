@@ -14,19 +14,16 @@ end
 
 Then /^I proceed as worker$/ do
 
-	@current_page = page(YourBackgroundPage).await(timeout: 60)
-
-	wait_for_elements_exist(@current_page.levelsCells)
-
+	@current_page = page(YourBackgroundPage).await(timeout: 30)
 	sleep 5
-
+	cells2 = []
 	@current_page.levelsCells.each do |cell|
-	if (cell["text"].include? "Student") == false
-		cells2 = []
-		cells2 << cell
-		touch(cells2[rand(0..cells2.length - 1)])
-		@current_page = page(WhereDoYouWorkPage).await(timeout: 30)
+		if (cell["text"].include? "Student") == false
+			cells2 << cell
+		end
 	end
-end
+	touch(cells2[rand(0..cells2.length - 1)])
+
+@current_page = page(WhereDoYouWorkPage).await(timeout: 30)
 
 end
