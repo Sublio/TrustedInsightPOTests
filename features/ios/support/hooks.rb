@@ -1,31 +1,45 @@
 
 Before('@shouldLogin') do
-  
-  	sleep(5)
+  	wait_for(:timeout => 20) { element_exists("button marked:'ACCESS WITH EMAIL'")}
 	touch("button marked:'ACCESS WITH EMAIL'")
-	keyboard_enter_text("sublio1260@gmail.com") #login
+	enter_text("TITextField","sublio1260@gmail.com") #login
 	touch("* marked:'NEXT'") 
-	sleep(4)
-	keyboard_enter_text('avatar1260') #password
+	wait_for(:timeout => 20) { element_exists("button marked:'Forgot password?'")}
+	enter_text("TITextField","avatar1260") #password
 	touch("* marked:'LOG IN'")
-	sleep(6)
-
+	
+	wait_for_none_animating()
 	if element_exists(" marked:'ENABLE NOTIFICATIONS'")
 
-		touch(" marked:'ENABLE NOTIFICATIONS'")
+		touch("button marked:'ENABLE NOTIFICATIONS'")
 	end
 
+	wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
 
 end
 
 
 After('@shouldLogin') do
 
+	wait_for(:timeout => 20) { element_exists("* marked:'Settings'")}
+	touch("* marked:'Settings'")
+	sleep(3)
+	scroll("UITableView", :down)
+	wait_for(:timeout => 20) { element_exists("* marked:'Log out'")}
+	touch("* marked:'Log out'")
+	page(WelcomePage).await(timeout: 60) 
+
+end
+
+
+
+After('@shoudlLogout') do
+
+	wait_for(:timeout => 20) { element_exists("* marked:'Settings'")}
 	touch("* marked:'Settings'")
 	scroll("UITableView", :down)
-	sleep(1)
+	wait_for(:timeout => 20) { element_exists("* marked:'Log out'")}
 	touch("* marked:'Log out'")
-	sleep(2)
 
 end
 

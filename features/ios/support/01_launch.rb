@@ -71,16 +71,17 @@ end
 
 
 #ENV['DEVICE_TARGET'] = 'iPhone 5 (9.3)'
-ENV['DEVICE_TARGET'] = 'iPhone 5 (10.2)'
-#ENV['DEVICE_TARGET'] = '5cdb1910f92bf7645bc981e80d47ec67fda487ca'
-#ENV['DEVICE_ENDPOINT'] = 'http://10.1.0.28:37265'
-#ENV['BUNDLE_ID'] = 'com.thetrustedinsight.app'
+#ENV['DEVICE_TARGET'] = 'iPhone 5 (10.2)'
+ENV['DEVICE_TARGET'] = '5cdb1910f92bf7645bc981e80d47ec67fda487ca'
+ENV['DEVICE_ENDPOINT'] = 'http://10.1.0.124:37265'
+ENV['BUNDLE_ID'] = 'com.thetrustedinsight.app'
 #ENV['RESET_BETWEEN_SCENARIOS'] = '0'
 #ENV['NO_LAUNCH'] = '1'
 #ENV['QUIT_APP_AFTER_SCENARIO'] = '1'
+#ENV['MAX_CONNECT_RETRY'] = '20'
 
-#ENV['DEBUG'] = '1'
-#ENV['DEBUG_HTTP'] = '1'
+ENV['DEBUG'] = '1'
+ENV['DEBUG_HTTP'] = '1'
 #ENV['QUIT_APP_AFTER_SCENARIO'] = '0'
 #ENV['RESET_BETWEEN_SCENARIOS'] = '1'
 #ENV['SCREENSHOT_PATH'] = 'ipad__'
@@ -90,7 +91,7 @@ ENV['DEVICE_TARGET'] = 'iPhone 5 (10.2)'
 Управление таймаутом у симулятора- дефолтное значение!!!
 #RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 60
 =end
-RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 180
+#RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 180
 
 
 Before do |scenario|
@@ -100,7 +101,7 @@ Before do |scenario|
     #:uia_strategy => :host
     #:uia_strategy => :shared_element
     #:uia_strategy => :preferences
-    :relaunch_simulator => false
+    #:relaunch_simulator => false
   }
 
   relaunch = true
@@ -123,7 +124,11 @@ Before do |scenario|
     launcher.relaunch(options)
   end
 
-  ENV["RESET_BETWEEN_SCENARIOS"] = "0"
+  if @keychain_clear
+
+    keychain_clear
+
+  end
 
   # Re-installing the app on a device does not clear the Keychain settings,
   # so we must clear them manually.
