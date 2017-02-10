@@ -72,16 +72,16 @@ end
 
 #ENV['DEVICE_TARGET'] = 'iPhone 5 (9.3)'
 #ENV['DEVICE_TARGET'] = 'iPhone 5 (10.2)'
-ENV['DEVICE_TARGET'] = '5cdb1910f92bf7645bc981e80d47ec67fda487ca'
-ENV['DEVICE_ENDPOINT'] = 'http://10.1.0.124:37265'
-ENV['BUNDLE_ID'] = 'com.thetrustedinsight.app'
+#ENV['DEVICE_TARGET'] = '5cdb1910f92bf7645bc981e80d47ec67fda487ca'
+#ENV['DEVICE_ENDPOINT'] = 'http://10.1.0.124:37265'
+#ENV['BUNDLE_ID'] = 'com.thetrustedinsight.app'
 #ENV['RESET_BETWEEN_SCENARIOS'] = '0'
 #ENV['NO_LAUNCH'] = '1'
 #ENV['QUIT_APP_AFTER_SCENARIO'] = '1'
 #ENV['MAX_CONNECT_RETRY'] = '20'
 
-ENV['DEBUG'] = '1'
-ENV['DEBUG_HTTP'] = '1'
+#ENV['DEBUG'] = '1'
+#ENV['DEBUG_HTTP'] = '1'
 #ENV['QUIT_APP_AFTER_SCENARIO'] = '0'
 #ENV['RESET_BETWEEN_SCENARIOS'] = '1'
 #ENV['SCREENSHOT_PATH'] = 'ipad__'
@@ -92,6 +92,17 @@ ENV['DEBUG_HTTP'] = '1'
 #RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 60
 =end
 #RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 180
+
+
+Calabash::Cucumber::WaitHelpers::DEFAULT_OPTS[:screenshot_on_error] = false #switch off screenshot generating on failer
+#RunLoop::Shell::DEFAULT_OPTIONS[:timeout] = 300  #default timeout for launch
+#RunLoop::Shell::DEFAULT_OPTIONS[:log_cmd] = true 
+RunLoop::CoreSimulator::DEFAULT_OPTIONS[:launch_app_timeout] = 60
+RunLoop::CoreSimulator::DEFAULT_OPTIONS[:wait_for_state_timeout] = 60
+RunLoop::CoreSimulator::DEFAULT_OPTIONS[:app_launch_retries] = 10
+
+
+puts RunLoop::Core.default_simulator #print default system simulator
 
 
 Before do |scenario|
