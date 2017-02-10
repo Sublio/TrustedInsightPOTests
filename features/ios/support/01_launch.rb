@@ -143,7 +143,7 @@ Before do |scenario|
 
   # Re-installing the app on a device does not clear the Keychain settings,
   # so we must clear them manually.
-  if scenario.source_tag_names.include?("@reset_device_settings")
+  if scenario.source_tag_names.include?("@reinstall")
     if xamarin_test_cloud? || LaunchControl.target_is_physical_device?
       keychain_clear
     end
