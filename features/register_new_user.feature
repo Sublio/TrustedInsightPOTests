@@ -25,6 +25,7 @@ Feature: Sign In experience
       * I tap on "SIGN UP" button
       * I wait for wrong password alert to appear
      
+  @reinstall   
   Scenario: On "New to Trusted Insight?" screen I can input valid data and proceed
       * I input correct first name
       * I input correct last name 

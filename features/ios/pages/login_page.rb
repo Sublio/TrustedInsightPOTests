@@ -36,11 +36,11 @@ class LoginPage < Calabash::IBase
   def ensureInvalidEmailAlert 
 
     touch(nextButton)
-    
-    if !element_exists("* marked:'Invalid Email'")
-      fail("There is no alert!")
-    end
-    
+
+    wait_for(timeout: 60,
+         timeout_message: "Could not find alert") do
+       element_exists("* marked:'Invalid Email'")
+    end  
   end
 
 

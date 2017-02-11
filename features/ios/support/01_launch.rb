@@ -1,4 +1,5 @@
 require 'calabash-cucumber/launcher'
+require 'calabash-cucumber'
 
 # You can find examples of more complicated launch hooks in these
 # two repositories:
@@ -144,9 +145,7 @@ Before do |scenario|
   # Re-installing the app on a device does not clear the Keychain settings,
   # so we must clear them manually.
   if scenario.source_tag_names.include?("@reinstall")
-    if xamarin_test_cloud? || LaunchControl.target_is_physical_device?
       keychain_clear
-    end
   end
 end
 

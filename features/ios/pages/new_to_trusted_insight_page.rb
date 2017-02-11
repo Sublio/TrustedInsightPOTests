@@ -141,9 +141,10 @@ class NewToTrustedInsightPage < Calabash::IBase
 
   def invalidFirstLastNameSnack
 
-    wait_for_elements_exist("* text:'First Name and Last name should be less than 30 characters!'")
+    wait_for_elements_exist("* text:'First Name and Last name should be less than 30 characters!'")    
+    wait_for_elements_exist("* marked:'OK'")
+    sleep(3)
     touch("* marked:'OK'")
-
   end
 
 

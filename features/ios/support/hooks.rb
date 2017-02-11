@@ -39,9 +39,11 @@ After('@shoudlLogout') do
 
 	wait_for(:timeout => 20) { element_exists("* marked:'Settings'")}
 	touch("* marked:'Settings'")
+	sleep(3)
 	scroll("UITableView", :down)
 	wait_for(:timeout => 20) { element_exists("* marked:'Log out'")}
 	touch("* marked:'Log out'")
+	page(WelcomePage).await(timeout: 60)
 
 end
 
