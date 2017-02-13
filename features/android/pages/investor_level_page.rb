@@ -3,7 +3,7 @@ require 'calabash-android/abase'
 
 #Android
 
-class InvestorType < Calabash::ABase
+class InvestorTypePage < Calabash::ABase
 
   def trait
 
