@@ -46,6 +46,23 @@ After('@shouldLogout') do
 end
 
 
+Before('@shouldLogoutBefore') do
+
+	
+	if element_exists("* id:'bottomBarItemFive'") 
+		touch("* id:'bottomBarItemFive'")
+		sleep(3)
+		scroll("ResponsiveScrollView", :down)
+		wait_for(:timeout => 20) { element_exists("* text:'Log out'")}
+		touch("* text:'Log out'")
+		page(WelcomePage).await(timeout: 60) 
+		
+	else
+		puts ("Can't logout")
+	end
+end
+
+
 
 
 

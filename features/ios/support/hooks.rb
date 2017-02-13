@@ -1,8 +1,26 @@
 #IOS hooks
+require_relative '../ios_helpers/i_helpers.rb'
 
+
+
+Before('@shouldLogoutBefore') do
+
+	if element_exists("* marked:'Settings'") 
+		wait_for(:timeout => 20) { element_exists("* marked:'Settings'")}
+		touch("* marked:'Settings'")
+		sleep(3)
+		scroll("UITableView", :down)
+		wait_for(:timeout => 20) { element_exists("* marked:'Log out'")}
+		touch("* marked:'Log out'")
+		page(WelcomePage).await(timeout: 60) 
+		
+	else
+		puts ("Can't logout")
+	end
+end
 
 Before('@shouldLogin') do
-  	wait_for(:timeout => 20) { element_exists("button marked:'ACCESS WITH EMAIL'")}
+  	wait_for(:timeout => 60) { element_exists("button marked:'ACCESS WITH EMAIL'")}
 	touch("button marked:'ACCESS WITH EMAIL'")
 	enter_text("TITextField","sublio1260@gmail.com") #login
 	touch("* marked:'NEXT'") 

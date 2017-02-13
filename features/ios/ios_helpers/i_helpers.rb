@@ -19,3 +19,6 @@ def tap_text_position(query, text_to_find)
   end
 
 end
+
+
+

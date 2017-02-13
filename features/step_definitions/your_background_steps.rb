@@ -24,6 +24,6 @@ Then /^I proceed as worker$/ do
 	end
 	touch(cells2[rand(0..cells2.length - 1)])
 
-@current_page = page(WhereDoYouWorkPage).await(timeout: 30)
+	@current_page = page(WhereDoYouWorkPage).await(timeout: 30)
 
 end
