@@ -1,3 +1,4 @@
+
 ###Android hooks
 
 Before('@shouldLogin') do
@@ -48,7 +49,7 @@ end
 
 Before('@shouldLogoutBefore') do
 
-	
+	sleep(5)
 	if element_exists("* id:'bottomBarItemFive'") 
 		touch("* id:'bottomBarItemFive'")
 		sleep(3)

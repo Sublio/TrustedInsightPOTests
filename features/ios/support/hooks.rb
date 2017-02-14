@@ -1,6 +1,6 @@
 #IOS hooks
 require_relative '../ios_helpers/i_helpers.rb'
-
+require 'calabash-cucumber'
 
 
 Before('@shouldLogoutBefore') do
