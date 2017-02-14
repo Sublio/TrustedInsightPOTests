@@ -139,16 +139,18 @@ class WhereDoYouWorkPage < Calabash::IBase
     enter_text(textfield, 1.times.map { [*'a'..'x'].sample }.join)
     wait_for_elements_exist(container)
     elements = query(element)
-    picked_element = elements[rand(0..elements.length - 1)]
+    picknum = (rand(0..elements.length - 1)).to_i
+    puts(picknum)
+    picked_element = elements[picknum]
     picked_element_title = picked_element["text"]
     puts ("Picked element title is #{picked_element_title}")
     sleep 1
     touch(picked_element)
-    sleep 1
+    sleep 2
     final_element_title = query(textfield).first["text"]
     puts ("Final element title is #{final_element_title}")
     sleep 1
-    if final_element_title.include? picked_element_title
+    if picked_element_title.include? final_element_title
       puts("Element picked successfully")
     else
       puts("Element doesn't match!")
@@ -176,7 +178,8 @@ class WhereDoYouWorkPage < Calabash::IBase
   def pickCountryFromTheList(countryfield, container, country, confirmbutton, nextbutton)
 
     touch(countryfield)
-    rand(0..48).times do
+    sleep 2
+    rand(0..5).times do
       swipe :up, query: "UIPickerTableView index:1", force: :light
     end
     #touch(confirmbutton)

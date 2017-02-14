@@ -7,7 +7,7 @@ class YourInterestsPage < Calabash::ABase
 
   def trait
 
-    "* marked:'What are your interests?'"
+    "* id:'levels_title'"
 
   end
 
