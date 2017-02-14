@@ -1,4 +1,4 @@
-Feature: As new user I can select job and firm title using autocomplete and select country, also I can apply options such Retired and In transition
+Feature: As new user I can select investor type
 
 
   Background:
@@ -15,11 +15,12 @@ Feature: As new user I can select job and firm title using autocomplete and sele
       * I tap on "SIGN UP" button
       * I tap on "SIGN UP" button and wait for Your Background
       * I proceed as worker
-
-  Scenario: I can select job and firm title and country
-      * I check if Close button clear job textfield
-      * I check if Close button clear firm textfield
       * I pick random job title from given results
       * I pick random firm title from given results
       * I pick country and make sure that it appears
       * I wait for Investor Type page
+
+  Scenario: I can select investor type
+
+      * I select investor type
+      * I wait for Your Interests Page

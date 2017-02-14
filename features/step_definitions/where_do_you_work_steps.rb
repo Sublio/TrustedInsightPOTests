@@ -36,8 +36,8 @@ When(/^I pick country and make sure that it appears$/) do
 
 end
 
-When(/^I wait for next page$/) do
+When(/^I wait for Investor Type page$/) do
 
-  @current_page = page(InvestorType).await(timeout: 60)
+  @current_page = page(InvestorTypePage).await(timeout: 60)
 
 end

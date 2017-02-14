@@ -121,7 +121,7 @@ class WhereDoYouWorkPage < Calabash::ABase
 
   def NextButton
 
-    "* marked:'NEXT'"
+    "* id:'next_btn'"
 
   end  
 
