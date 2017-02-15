@@ -1,5 +1,5 @@
 
 
-When(/^I scroll by one cell$/) do
+When(/^I add first cell to bookmarks$/) do
   @current_page = page(FeedPage).await(timeout: 60)                                    
 end

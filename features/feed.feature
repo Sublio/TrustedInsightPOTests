@@ -5,6 +5,8 @@ Feature: Feed Feature.
 
 
 
-	@shouldLogin
-	Scenario: Scroll on Feed by one cell
-		Then I scroll by one cell
+	@landingHome
+	Scenario: Can add first cell from feed to bookmark
+		Then I add first cell to bookmarks
+		And I Open Bookmarks tab
+		Then I should see first cell on Bookmark tab

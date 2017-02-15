@@ -1,4 +1,5 @@
 require 'calabash-android/abase'
+require 'calabash-android/operations'
 
 
 #Android
@@ -17,6 +18,28 @@ class FeedPage < Calabash::ABase
   def searchButton
 
     "* contentDescription:'Search'"
+  end
+
+  def scrollToTheTopOfFeed
+
+    scroll_to_row("android.support.v7.widget.RecyclerView",0)
+
+  end
+
+  def scroll_table(text)
+
+    scrollToTheTopOfFeed
+
+    scroll_count = 30
+    result = query("* text:'#{text}'")
+
+    scroll_count.times {
+
+      scroll("android.support.v7.widget.RecyclerView",:down)
+      break if element_exists("* text:'#{text}'")
+    }
+    end
+
   end
 
 
