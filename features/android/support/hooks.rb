@@ -67,7 +67,7 @@ end
 
 
 
-######################Landing Hooks Android##############################
+######################Landing Hooks Android#############################
 
 
 #Landing Home
