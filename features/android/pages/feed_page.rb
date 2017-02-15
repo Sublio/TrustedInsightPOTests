@@ -24,7 +24,7 @@ class FeedPage < Calabash::ABase
   def firstCell
 
     scrollToTheTopOfFeed
-    touch("UITableViewCell")[1]
+    "FrameLayout index:0"
 
   end
 
@@ -55,6 +55,4 @@ class FeedPage < Calabash::ABase
 
   end
 
-
-end
 
