@@ -20,15 +20,15 @@ Before('@shouldLogoutBefore') do
 end
 
 Before('@shouldLogin') do
-  	wait_for(:timeout => 60) { element_exists("button marked:'ACCESS WITH EMAIL'")}
+  wait_for(:timeout => 60) { element_exists("button marked:'ACCESS WITH EMAIL'")}
 	touch("button marked:'ACCESS WITH EMAIL'")
-	enter_text("TITextField","sublio1260@gmail.com") #login
+	keyboard_enter_text("sublio1260@gmail.com") #login
 	touch("* marked:'NEXT'") 
 	wait_for(:timeout => 20) { element_exists("button marked:'Forgot password?'")}
-	enter_text("TITextField","avatar1260") #password
+	keyboard_enter_text("avatar1260") #password
 	touch("* marked:'LOG IN'")
 	
-	wait_for_none_animating()
+	wait_for_none_animating
 	if element_exists(" marked:'ENABLE NOTIFICATIONS'")
 
 		touch("button marked:'ENABLE NOTIFICATIONS'")
@@ -65,6 +65,165 @@ After('@shoudlLogout') do
 
 end
 
+
+
+######################Landing Hooks IOS##############################
+
+
+#Landing Home
+
+
+Before('@landingHome') do
+
+  if element_exists("* marked:'Home'")
+    touch("* marked:'Home'")
+  else
+
+		wait_for(:timeout => 60) { element_exists("button marked:'ACCESS WITH EMAIL'")}
+		touch("button marked:'ACCESS WITH EMAIL'")
+		keyboard_enter_text("sublio1260@gmail.com") #login
+		touch("* marked:'NEXT'")
+		wait_for(:timeout => 20) { element_exists("button marked:'Forgot password?'")}
+		keyboard_enter_text("avatar1260") #password
+		touch("* marked:'LOG IN'")
+
+		wait_for_none_animating
+
+		sleep(2)
+
+		if element_exists(" marked:'ENABLE NOTIFICATIONS'")
+
+			touch("button marked:'ENABLE NOTIFICATIONS'")
+		end
+
+		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
+
+  end
+
+end
+#Landing Bookmarks
+
+
+Before('@landingBookmarks') do
+
+  if element_exists("* marked:'Bookmarks'")
+    touch("* marked:'Bookmarks'")
+  else
+
+		wait_for(:timeout => 60) { element_exists("button marked:'ACCESS WITH EMAIL'")}
+		touch("button marked:'ACCESS WITH EMAIL'")
+		keyboard_enter_text("sublio1260@gmail.com") #login
+		touch("* marked:'NEXT'")
+		wait_for(:timeout => 20) { element_exists("button marked:'Forgot password?'")}
+		keyboard_enter_text("avatar1260") #password
+		touch("* marked:'LOG IN'")
+
+		wait_for_none_animating
+
+		sleep(2)
+
+		if element_exists(" marked:'ENABLE NOTIFICATIONS'")
+
+			touch("button marked:'ENABLE NOTIFICATIONS'")
+		end
+
+		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
+    touch("* marked:'Bookmarks'")
+
+  end
+
+end
+
+#Landing Contacts
+
+
+Before('@landingContacts') do
+	if element_exists("* marked:'Contacts'")
+		touch("* marked:'Contacts'")
+	else
+
+		wait_for(:timeout => 60) { element_exists("button marked:'ACCESS WITH EMAIL'")}
+		touch("button marked:'ACCESS WITH EMAIL'")
+		keyboard_enter_text("sublio1260@gmail.com") #login
+		touch("* marked:'NEXT'")
+		wait_for(:timeout => 20) { element_exists("button marked:'Forgot password?'")}
+		keyboard_enter_text("avatar1260") #password
+		touch("* marked:'LOG IN'")
+
+		wait_for_none_animating
+
+		sleep(2)
+
+		if element_exists(" marked:'ENABLE NOTIFICATIONS'")
+
+			touch("button marked:'ENABLE NOTIFICATIONS'")
+		end
+
+		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
+		touch("* marked:'Contacts'")
+
+	end
+end
+
+#Landing Notifications
+
+Before('@landingNotifications') do
+	if element_exists("* marked:'Notifications'")
+		touch("* marked:'Notifications'")
+	else
+
+		wait_for(:timeout => 60) { element_exists("button marked:'ACCESS WITH EMAIL'")}
+		touch("button marked:'ACCESS WITH EMAIL'")
+		keyboard_enter_text("sublio1260@gmail.com") #login
+		touch("* marked:'NEXT'")
+		wait_for(:timeout => 20) { element_exists("button marked:'Forgot password?'")}
+		keyboard_enter_text("avatar1260") #password
+		touch("* marked:'LOG IN'")
+
+		wait_for_none_animating
+
+		sleep(2)
+
+		if element_exists(" marked:'ENABLE NOTIFICATIONS'")
+
+			touch("button marked:'ENABLE NOTIFICATIONS'")
+		end
+
+		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
+		touch("* marked:'Notifications'")
+
+	end
+end
+
+#Landing Settings
+
+Before('@landingSettings') do
+	if element_exists("* marked:'Settings'")
+		touch("* marked:'Settings'")
+	else
+
+		wait_for(:timeout => 60) { element_exists("button marked:'ACCESS WITH EMAIL'")}
+		touch("button marked:'ACCESS WITH EMAIL'")
+		keyboard_enter_text("sublio1260@gmail.com") #login
+		touch("* marked:'NEXT'")
+		wait_for(:timeout => 20) { element_exists("button marked:'Forgot password?'")}
+		keyboard_enter_text("avatar1260") #password
+		touch("* marked:'LOG IN'")
+
+		wait_for_none_animating
+
+		sleep(2)
+
+		if element_exists(" marked:'ENABLE NOTIFICATIONS'")
+
+			touch("button marked:'ENABLE NOTIFICATIONS'")
+		end
+
+		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
+		touch("* marked:'Settings'")
+
+	end
+end
 
 
 

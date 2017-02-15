@@ -81,7 +81,7 @@ end
 #ENV['QUIT_APP_AFTER_SCENARIO'] = '1'
 #ENV['MAX_CONNECT_RETRY'] = '20'
 
-ENV['DEBUG'] = '1'
+#ENV['DEBUG'] = '1'
 #ENV['DEBUG_HTTP'] = '1'
 #ENV['QUIT_APP_AFTER_SCENARIO'] = '0'
 #ENV['RESET_BETWEEN_SCENARIOS'] = '1'
@@ -101,6 +101,8 @@ Calabash::Cucumber::WaitHelpers::DEFAULT_OPTS[:screenshot_on_error] = false #swi
 RunLoop::CoreSimulator::DEFAULT_OPTIONS[:launch_app_timeout] = 60
 RunLoop::CoreSimulator::DEFAULT_OPTIONS[:wait_for_state_timeout] = 60
 RunLoop::CoreSimulator::DEFAULT_OPTIONS[:app_launch_retries] = 10
+RunLoop::DeviceAgent::Client::DEFAULTS[:http_timeout] = 120
+RunLoop::DeviceAgent::Client::DEFAULTS[:device_agent_install_timeout] = 120
 
 
 puts RunLoop::Core.default_simulator #print default system simulator
