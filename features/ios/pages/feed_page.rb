@@ -21,12 +21,22 @@ class FeedPage < Calabash::IBase
     
   end
 
+  def bookmarkTab
+
+    "* marked:'Bookmarks'"
+
+  end
+
 
   def firstCell
 
-    scrollToTheTopOfFeed
-    touch("UITableViewCell")[1]
+    "UITableViewCell label"
 
+  end
+
+  def cellBookmarksButton
+
+    "* marked:'Bookmark'"
   end
 
   def scrollToTheTopOfFeed

@@ -35,5 +35,14 @@ CREDENTIALS = {
 }
 
 
+FEED_CELL_TYPE = {
+
+    plain_news: "TIFeedNewsTableViewCell",
+    big_news: "TIFeedNewsBigTableViewCell",
+    job_search:"TIJobSearchAndHiresTableViewCell",
+
+}
+
+
 
 

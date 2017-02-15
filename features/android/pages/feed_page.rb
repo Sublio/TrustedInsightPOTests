@@ -20,6 +20,19 @@ class FeedPage < Calabash::ABase
     "* contentDescription:'Search'"
   end
 
+
+  def firstCell
+
+    scrollToTheTopOfFeed
+    touch("UITableViewCell")[1]
+
+  end
+
+  def cellBookmarksButton
+
+    "* text:'Bookmark'"
+  end
+
   def scrollToTheTopOfFeed
 
     scroll_to_row("android.support.v7.widget.RecyclerView",0)
