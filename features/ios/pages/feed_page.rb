@@ -34,6 +34,12 @@ class FeedPage < Calabash::IBase
 
   end
 
+  def firstCellHeader
+
+    query("UITableViewCell label",:text).first
+
+  end
+
   def cellBookmarksButton
 
     "* marked:'Bookmark'"

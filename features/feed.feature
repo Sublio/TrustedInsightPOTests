@@ -9,4 +9,4 @@ Feature: Feed Feature.
 	Scenario: Can add first cell from feed to bookmark
 		Then I add first cell to bookmarks
 		And I Open Bookmarks tab
-		Then I should see first cell on Bookmark tab
+		Then I should see first cell on Bookmark tab with the same description as on feed page

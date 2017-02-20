@@ -66,6 +66,19 @@ After('@shoudlLogout') do
 end
 
 
+After('shouldLogoutAfter') do
+
+	wait_for(:timeout => 20) { element_exists("* marked:'Settings'")}
+	touch("* marked:'Settings'")
+	sleep(3)
+	scroll("UITableView", :down)
+	wait_for(:timeout => 20) { element_exists("* marked:'Log out'")}
+	touch("* marked:'Log out'")
+	page(WelcomePage).await(timeout: 60)
+
+end
+
+
 
 ######################Landing Hooks IOS##############################
 
@@ -103,7 +116,22 @@ Before('@landingHome') do
 
 end
 
-#Landing Bookmarks
+
+After ('@landingHome') do
+
+  sleep(2)
+	wait_for(:timeout => 20) { element_exists("* marked:'Settings'")}
+	touch("* marked:'Settings'")
+	sleep(3)
+	scroll("UITableView", :down)
+	wait_for(:timeout => 20) { element_exists("* marked:'Log out'")}
+	touch("* marked:'Log out'")
+	page(WelcomePage).await(timeout: 60)
+
+end
+
+#Landing BookmarksTag: @@landingHome
+
 
 
 Before('@landingBookmarks') do

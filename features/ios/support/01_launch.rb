@@ -72,7 +72,7 @@ end
 
 
 #ENV['DEVICE_TARGET'] = 'iPhone 5 (9.3)'
-#ENV['DEVICE_TARGET'] = 'iPhone 5 (10.2)'
+#ENV['DEVICE_TARGET'] = 'iPhone 6 (10.2)'
 #ENV['DEVICE_TARGET'] = '5cdb1910f92bf7645bc981e80d47ec67fda487ca'
 #ENV['DEVICE_ENDPOINT'] = 'http://10.1.0.121:37265'
 #ENV['BUNDLE_ID'] = 'com.thetrustedinsight.app'
