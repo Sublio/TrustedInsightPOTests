@@ -7,24 +7,34 @@ require 'calabash-android/abase'
 class BookmarksPage < Calabash::ABase
 
   def trait
-    "* marked:'All bookmarks'" #empty bookmarks label locator
+    "* text:'All'" #empty bookmarks label locator
   end
 
   def firstCell
 
-    "UITableViewCell label"
+    "android.support.v7.widget.RecyclerView descendant android.widget.FrameLayout index:0 RelativeLayout"
+
   end
 
   def firstCellHeader
 
-    query("UITableViewCell label",:text).first
+    query ("android.support.v7.widget.RecyclerView descendant android.widget.FrameLayout index:0 RelativeLayout android.widget.TextView")
 
   end
 
 
   def cellBookmarksButton
 
-    "* marked:'Bookmark'"
+    #"* text:'Bookmark'"
+    puts("There is no way to swipe and tap on user pannel skipped!!!!") #we need to return something, cuz touch method can't receive nil!!!
+    "* text:'All'"
+
+  end
+
+  def swipeOnFirstCellInRightSide
+
+    #perform_action('swipe', 'right')
+    puts("There is no way to swipe on bookmark in Android") #we need to return something, cuz touch method can't receive nil!!!
 
   end
 

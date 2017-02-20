@@ -76,4 +76,10 @@ class FeedPage < Calabash::IBase
 
   end
 
+
+  def swipeOnFirstCellInRightSide
+
+    swipe :left, :query => "UITableViewCell label", :offset => {:x => 123, :y => 30}, :"swipe-delta" =>{:vertical => {:dx=> 0, :dy=> 250} }
+  end
+
 end

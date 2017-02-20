@@ -20,12 +20,24 @@ class FeedPage < Calabash::ABase
     "* contentDescription:'Search'"
   end
 
+  def bookmarkTab
+
+    "* id:'bottomBarItemTwo'"
+
+  end
+
 
   def firstCell
 
     scrollToTheTopOfFeed
-    "FrameLayout index:0"
+    "android.support.v7.widget.RecyclerView descendant android.widget.FrameLayout index:0 RelativeLayout"
 
+  end
+
+
+  def firstCellHeader
+
+   query("android.support.v7.widget.RecyclerView descendant android.widget.FrameLayout index:0 RelativeLayout android.widget.TextView") #return all text from cell!!!!!!!
   end
 
   def cellBookmarksButton
@@ -51,7 +63,14 @@ class FeedPage < Calabash::ABase
       scroll("android.support.v7.widget.RecyclerView",:down)
       break if element_exists("* text:'#{text}'")
     }
-    end
+  end
+
+
+  def swipeOnFirstCellInRightSide
+
+    perform_action('swipe', 'right')
+
+  end
 
   end
 
