@@ -136,31 +136,48 @@ end
 
 Before('@landingBookmarks') do
 
-  if element_exists("* marked:'Bookmarks'")
-    touch("* marked:'Bookmarks'")
-  else
+	if element_exists("* marked:'Home'")
+		touch("* marked:'Home'")
+	else
 
 		wait_for(:timeout => 60) { element_exists("button marked:'ACCESS WITH EMAIL'")}
 		touch("button marked:'ACCESS WITH EMAIL'")
 		keyboard_enter_text("sublio1260@gmail.com") #login
 		touch("* marked:'NEXT'")
+		sleep(5)
 		wait_for(:timeout => 20) { element_exists("button marked:'Forgot password?'")}
 		keyboard_enter_text("avatar1260") #password
 		touch("* marked:'LOG IN'")
 
-		wait_for_none_animating
-
-		sleep(2)
+		sleep(5)
 
 		if element_exists(" marked:'ENABLE NOTIFICATIONS'")
 
 			touch("button marked:'ENABLE NOTIFICATIONS'")
 		end
 
-		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
-    touch("* marked:'Bookmarks'")
+		sleep(4)
 
-  end
+    touch("* marked:'Bookmarks'")
+    sleep(1)
+
+		wait_for(:timeout => 20) { element_exists("* marked:'All bookmarks'")}
+
+	end
+
+end
+
+
+After('@landingBookmarks') do
+
+	sleep(2)
+	wait_for(:timeout => 20) { element_exists("* marked:'Settings'")}
+	touch("* marked:'Settings'")
+	sleep(3)
+	scroll("UITableView", :down)
+	wait_for(:timeout => 20) { element_exists("* marked:'Log out'")}
+	touch("* marked:'Log out'")
+	page(WelcomePage).await(timeout: 60)
 
 end
 

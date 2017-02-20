@@ -28,6 +28,11 @@ class BookmarksPage < Calabash::IBase
 
   end
 
+  def emptyBookmarksTableLabel
+
+    "* marked:'No bookmarks added yet'"
+  end
+
 
   def swipeOnFirstCellInRightSide
 

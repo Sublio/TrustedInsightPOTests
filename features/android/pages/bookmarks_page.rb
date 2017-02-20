@@ -31,6 +31,12 @@ class BookmarksPage < Calabash::ABase
 
   end
 
+  def emptyBookmarksTableLabel
+
+    "* text:'No bookmarks added yet'"
+  end
+
+
   def swipeOnFirstCellInRightSide
 
     #perform_action('swipe', 'right')
