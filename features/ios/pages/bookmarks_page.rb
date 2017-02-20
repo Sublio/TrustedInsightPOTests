@@ -39,4 +39,15 @@ class BookmarksPage < Calabash::IBase
     swipe :left, :query => "UITableViewCell label", :offset => {:x => 123, :y => 30}, :"swipe-delta" =>{:vertical => {:dx=> 0, :dy=> 250} }
   end
 
+
+  def selectTypeFromTypePicker(type)
+
+      touch("TIDropDownButton")
+
+      sleep(1)
+
+      touch("view marked:'#{type}'")
+
+  end
+
 end

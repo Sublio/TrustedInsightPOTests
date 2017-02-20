@@ -5,12 +5,19 @@ Feature: Bookmark Feature.
 
 
 
-    @landingBookmarks
-    Scenario: There is a placeholder when no any bookmarks saved
-      When I Open empty Bookmarks page
-      And I Ensure there is no any bookmarks
-      Then there should be label No bookmarks added yet
+#    @landingBookmarks
+ #   Scenario: There is a placeholder when no any bookmarks saved
+
+  #    When I Open empty Bookmarks page
+   #   And I Ensure there is no any bookmarks
+    #  Then there should be label No bookmarks added yet
 
 
     @landingBookmarks
-    Scenario:
+    Scenario: Can arrange my bookmarks by content-type
+
+      When I add one bookmark with news content
+      And I tap on Bookmark tab
+      And I Tap on Jobs selector type
+      Then I Ensure there is no any bookmarks
+      And there should be label No bookmarks added yet

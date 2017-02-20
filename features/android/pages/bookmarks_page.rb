@@ -44,4 +44,11 @@ class BookmarksPage < Calabash::ABase
 
   end
 
+
+  def selectTypeFromTypePicker(type)
+
+
+
+  end
+
 end
