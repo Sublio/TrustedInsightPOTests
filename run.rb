@@ -13,7 +13,7 @@ EOF
   exit(false)
 end
 
-target = 'android'
+target = 'ios'
 
 if target == 'android'
   exec("export APP=prebuilt/TrustedInsight.apk && bundle exec calabash-android run $APP -p android features/bookmarks.feature  #{ARGV.join(' ')}")

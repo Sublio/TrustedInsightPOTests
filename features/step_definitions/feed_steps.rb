@@ -1,4 +1,5 @@
 require 'calabash-cucumber'
+require '../support/global_helpers'
 
 
 When(/^I add first cell to bookmarks$/) do
@@ -38,4 +39,10 @@ Then (/^I should see first cell on Bookmark tab with the same description as on 
   touch(@current_page.cellBookmarksButton)
 
 end
+
+When(/^I use cellRecognizer with some cell from feed$/) do
+
+
+end
+
 

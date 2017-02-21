@@ -22,8 +22,10 @@ Feature: Bookmark Feature.
       Then I Ensure there is no any bookmarks
       And there should be label No bookmarks added yet
 
+
+
     @landingBookmarks
-    Scenario: Delete one bookmark from previous scenario
+    Scenario: Delete all bookmarks from previous scenario
 
       When I delete all bookmarks
       Then there should be label No bookmarks added yet

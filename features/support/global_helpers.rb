@@ -3,11 +3,12 @@ require 'gmail'
 
 def cellRecognizer(cellContainterQuery, cellIndex)
 
-	###########################################TODO!###########################
-			
+		cellType = {:jobs =>'jobs', :news =>'news', :events=>'events', :syndicates=>'syndicates',
+								:profiles=>'profiles', :rankings=>'rankings', :search_hires=>'search_hires', :firms=>'firms'}
+
+		cellContainer =query(cellContainterQuery).first
 
 end
-
 
 def mailChecker(mail, password)
 

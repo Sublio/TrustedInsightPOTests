@@ -19,7 +19,8 @@ end
 
 Then (/^there should be label No bookmarks added yet$/) do
 
-  check_element_exists(@currentPage.emptyBookmarksTableLabel)
+   check_element_exists(@currentPage.emptyBookmarksTableLabel)
+
 end
 
 When (/^I add one bookmark with news content$/) do
@@ -43,6 +44,7 @@ end
 And (/^I delete all bookmarks$/) do
 
   @currentPage = page(BookmarksPage).await(timeout:30)
+  sleep(3)
   @currentPage.deleteAllBookmarks
   @bottomBar=page(BottomNavBarPage).await(timeout:20)
   touch(@bottomBar.feedButton)

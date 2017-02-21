@@ -53,6 +53,22 @@ class BookmarksPage < Calabash::IBase
   def deleteAllBookmarks
 
 
+    cellsCount = query("UITableViewCell").count
+
+
+    cellsCount.times do
+
+      wait_for_none_animating
+      wait_for_element_exists("UITableViewCell")
+
+      touch("UITableViewCell") #touch first cell from tableView
+      wait_for_element_exists("view marked:'iconNavBookmarkFull'")
+      touch("view marked:'iconNavBookmarkFull'")
+      wait_for_element_exists("view marked:'iconTopBack'")
+      touch("view marked:'iconTopBack'")
+
+    end
+
   end
 
 end

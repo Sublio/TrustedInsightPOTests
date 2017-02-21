@@ -1,7 +1,7 @@
 require 'calabash-android/abase'
 
 
-#IOS
+#Android
 
 
 class BookmarksPage < Calabash::ABase
@@ -67,10 +67,6 @@ class BookmarksPage < Calabash::ABase
 
 
   def deleteAllBookmarks
-
-      #get all cells from bookmarks
-      cells=query("recyclerView id:'bookmarks_container' relativeLayout")
-
       while query("* text:'No bookmarks added yet'").empty?
 
         touch("recyclerView id:'bookmarks_container' relativeLayout")
