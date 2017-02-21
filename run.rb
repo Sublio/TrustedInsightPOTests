@@ -16,9 +16,9 @@ end
 target = 'ios'
 
 if target == 'android'
-  exec("export APP=prebuilt/TrustedInsight.apk && bundle exec calabash-android run $APP -p android features/bookmarks.feature  #{ARGV.join(' ')}")
+  exec("export APP=prebuilt/TrustedInsight.apk && bundle exec calabash-android run $APP -p android features/feed.feature  #{ARGV.join(' ')}")
 elsif target == 'ios'
-  exec("export APP=prebuilt/TrustedInsight.app && export APP_BUNDLE_PATH=$APP && bundle exec cucumber -p ios features/bookmarks.feature  #{ARGV.join(' ')}")
+  exec("export APP=prebuilt/TrustedInsight.app && export APP_BUNDLE_PATH=$APP && bundle exec cucumber -p ios features/feed.feature  #{ARGV.join(' ')}")
 else
   puts "Invalid target #{target}"
 end

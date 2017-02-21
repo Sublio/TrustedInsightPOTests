@@ -1,5 +1,5 @@
 require 'calabash-cucumber'
-require '../support/global_helpers'
+require_relative '../support/global_helpers'
 
 
 When(/^I add first cell to bookmarks$/) do
@@ -41,6 +41,8 @@ Then (/^I should see first cell on Bookmark tab with the same description as on 
 end
 
 When(/^I use cellRecognizer with some cell from feed$/) do
+
+  cellRecognizer("UITableView",2)
 
 
 end
