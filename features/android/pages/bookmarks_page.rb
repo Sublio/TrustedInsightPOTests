@@ -47,8 +47,41 @@ class BookmarksPage < Calabash::ABase
 
   def selectTypeFromTypePicker(type)
 
+    sleep(1)
+
+    bookmarksTypeRecycler = query("recyclerView id:'bookmarks_filters_container'").first
+
+    attempts=0  #attempts counter
+
+    while (query("* text:'#{type}'")).empty?
+
+      pan("recyclerView id:'bookmarks_filters_container'", :left)
+      attempts+=1
+      break if attempts == 10
+
+    end
+
+    touch("* text:'#{type}'")
+
+  end
 
 
+  def deleteAllBookmarks
+
+      #get all cells from bookmarks
+      cells=query("recyclerView id:'bookmarks_container' relativeLayout")
+
+      while query("* text:'No bookmarks added yet'").empty?
+
+        touch("recyclerView id:'bookmarks_container' relativeLayout")
+        sleep(2)
+        touch("* contentDescription:'Add Bookmark'")
+        sleep(1)
+        touch("* contentDescription:'Navigate up'")
+        sleep(1)
+        touch("* id:'bb_bottom_bar_item_container' descendant * id:'bottomBarItemOne'")
+        touch("* id:'bb_bottom_bar_item_container' descendant * id:'bottomBarItemTwo'")
+      end
   end
 
 end

@@ -50,4 +50,9 @@ class BookmarksPage < Calabash::IBase
 
   end
 
+  def deleteAllBookmarks
+
+
+  end
+
 end

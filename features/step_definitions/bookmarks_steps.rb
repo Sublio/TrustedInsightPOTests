@@ -38,6 +38,19 @@ When (/^I add one bookmark with news content$/) do
 end
 
 
+
+
+And (/^I delete all bookmarks$/) do
+
+  @currentPage = page(BookmarksPage).await(timeout:30)
+  @currentPage.deleteAllBookmarks
+  @bottomBar=page(BottomNavBarPage).await(timeout:20)
+  touch(@bottomBar.feedButton)
+  touch(@bottomBar.bookmarkButton)
+
+end
+
+
 And (/^I tap on Bookmark tab$/) do
 
     touch(@bottomBar.bookmarkButton)

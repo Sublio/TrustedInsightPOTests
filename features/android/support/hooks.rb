@@ -5,9 +5,11 @@ Before('@shouldLogin') do
   wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
 	touch("* text:'ACCESS WITH EMAIL'")
 	enter_text("* id:'join_input_et'","sublio1260@gmail.com") #login
+  sleep(1)
 	touch("* id:'join_action_button'") 
 	wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
 	enter_text("* id:'join_input_et'","avatar1260") #password
+  sleep(1)
 	touch("* id:'join_action_button'")
 	
 	if element_exists("* text:'ENABLE NOTIFICATIONS'")
@@ -82,9 +84,11 @@ Before('@landingHome') do
 		wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
 		touch("* text:'ACCESS WITH EMAIL'")
 		enter_text("* id:'join_input_et'","sublio1260@gmail.com") #login
+    sleep(1)
 		touch("* id:'join_action_button'")
 		wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
 		enter_text("* id:'join_input_et'","avatar1260") #password
+    sleep(1)
 		touch("* id:'join_action_button'")
 		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
 		touch("* id:'bottomBarItemOne'")
@@ -123,9 +127,11 @@ Before('@landingBookmarks') do
 		wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
 		touch("* text:'ACCESS WITH EMAIL'")
 		enter_text("* id:'join_input_et'","sublio1260@gmail.com") #login
+    sleep(1)
 		touch("* id:'join_action_button'")
 		wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
 		enter_text("* id:'join_input_et'","avatar1260") #password
+    sleep(1)
 		touch("* id:'join_action_button'")
 
 		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
@@ -164,9 +170,11 @@ Before('@landingContacts') do
 		wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
 		touch("* text:'ACCESS WITH EMAIL'")
 		enter_text("* id:'join_input_et'","sublio1260@gmail.com") #login
+    sleep(1)
 		touch("* id:'join_action_button'")
 		wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
 		enter_text("* id:'join_input_et'","avatar1260") #password
+    sleep(1)
 		touch("* id:'join_action_button'")
 
 		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
@@ -185,9 +193,11 @@ Before('@landingNotifications') do
 		wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
 		touch("* text:'ACCESS WITH EMAIL'")
 		enter_text("* id:'join_input_et'","sublio1260@gmail.com") #login
+    sleep(1)
 		touch("* id:'join_action_button'")
 		wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
 		enter_text("* id:'join_input_et'","avatar1260") #password
+    sleep(1)
 		touch("* id:'join_action_button'")
 
 		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
@@ -206,9 +216,11 @@ Before('@landingSettings') do
 		wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
 		touch("* text:'ACCESS WITH EMAIL'")
 		enter_text("* id:'join_input_et'","sublio1260@gmail.com") #login
+    sleep(1)
 		touch("* id:'join_action_button'")
 		wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
 		enter_text("* id:'join_input_et'","avatar1260") #password
+    sleep(1)
 		touch("* id:'join_action_button'")
 
 		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}

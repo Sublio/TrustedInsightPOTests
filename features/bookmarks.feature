@@ -5,12 +5,12 @@ Feature: Bookmark Feature.
 
 
 
-#    @landingBookmarks
- #   Scenario: There is a placeholder when no any bookmarks saved
+    @landingBookmarks
+    Scenario: There is a placeholder when no any bookmarks saved
 
-  #    When I Open empty Bookmarks page
-   #   And I Ensure there is no any bookmarks
-    #  Then there should be label No bookmarks added yet
+      When I Open empty Bookmarks page
+      And I Ensure there is no any bookmarks
+      Then there should be label No bookmarks added yet
 
 
     @landingBookmarks
@@ -21,3 +21,9 @@ Feature: Bookmark Feature.
       And I Tap on Jobs selector type
       Then I Ensure there is no any bookmarks
       And there should be label No bookmarks added yet
+
+    @landingBookmarks
+    Scenario: Delete one bookmark from previous scenario
+
+      When I delete all bookmarks
+      Then there should be label No bookmarks added yet

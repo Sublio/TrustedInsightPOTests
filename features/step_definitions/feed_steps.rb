@@ -11,6 +11,7 @@ end
 
 
 And(/^I Open Bookmarks tab$/) do
+    @current_page=page(BottomNavBarPage).await(timeout:30)
     touch(@current_page.bookmarkTab)
     sleep(2)
 end
