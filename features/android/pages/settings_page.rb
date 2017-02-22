@@ -6,7 +6,7 @@ require 'calabash-android/abase'
 class SettingsPage < Calabash::ABase
 
   def trait
-    "TextView text:'Settings'"   #this is a title of Settings screen
+    "* marked:'Settings'"   #this is a title of Settings screen
   end
 
   def SettingsAvatar   
@@ -55,16 +55,11 @@ class SettingsPage < Calabash::ABase
 
   def PhoneNumberConfirmedButton
   "* id:'settings_text_phone_number_confirmed'" # Visible if text is not empty
+  end
 
   def AboutButton
     "* id:'settings_about'"
-end
- #   about_button = query("* id:'settings_about'","text").first
- #   if (about_button.empty?)
- #       scroll("ResponsiveScrollView",:down)
- # end
- #   about_button = query("* id:'settings_about'","text").first
-
+  end
 
   def SettingsTermsButton
     "* id:'settings_terms'"
@@ -83,8 +78,7 @@ end
   end
 
   def GoToBottom
- scroll("ResponsiveScrollView",:down)
+      scroll("ResponsiveScrollView",:down)
   end
 
- end 
 end
