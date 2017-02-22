@@ -70,7 +70,7 @@ Before("@no_relaunch") do
 end
 
 
-#ENV['DEVICE_TARGET'] = 'iPhone 5 (10.2)'
+ENV['DEVICE_TARGET'] = 'iPhone 6 (9.3)'
 #ENV['DEVICE_TARGET'] = '5cdb1910f92bf7645bc981e80d47ec67fda487ca'
 #ENV['DEVICE_TARGET'] = '0fbff6cd1375484092c78e2d5d633ee47c8b7d4f' ipad3 white
 #ENV['DEVICE_ENDPOINT'] = 'http://10.1.0.124:37265'

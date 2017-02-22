@@ -34,3 +34,35 @@ end
 
 
 =end
+
+
+Before('@shouldLoginAsCherepashkin') do
+  
+	touch("button marked:'ACCESS WITH EMAIL'")
+	enter_text("* id:'join_email_et'", 'test1@xttk.ru')
+	touch("* marked:'NEXT'") 
+	sleep(4)
+	keyboard_enter_text("Qwerty123")
+	touch("* marked:'LOG IN'")
+	sleep(6)
+
+	if element_exists("* marked:'ENABLE NOTIFICATIONS'")
+
+		touch("* marked:'ENABLE NOTIFICATIONS'")
+	end
+
+
+end
+
+
+After('@shouldLoginAsCherepashkin') do
+
+	touch("* marked:'Settings'")
+#	scroll("UITableView", :down)
+#	sleep(1)
+#	touch("* marked:'Log out'")
+#	sleep(2)
+end
+
+#user = CREDENTIALS[:random_user:]
+#mail = user[:mail]
