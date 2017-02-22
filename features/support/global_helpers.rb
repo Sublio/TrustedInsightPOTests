@@ -1,25 +1,35 @@
 require 'gmail'
 
-
 def cellRecognizer(cellContainterQuery, cellIndex)
+
 
 		celltype = {:jobs =>'jobs', :news =>'news', :events=>'events', :syndicates=>'syndicates', :profiles=>'profiles', :rankings=>'rankings', :search_hires=>'search_hires', :firms=>'firms'}
 		cellcontainer =query(cellContainterQuery).first
-		scroll_to_row(cellContainterQuery,cellIndex) #we need to scroll to cell destination for avoiding nasty errors!
-		cell = query("tableViewCell index:#{cellIndex}").first
 
-		if cell["class"].include? "NewsTableViewCell"
-			puts celltype[:news]
-		elsif cell["class"].include? "People"
-			puts celltype[:profiles]
-		elsif cell["class"].include? "SearchAndHires"
-			puts celltype[:search_hires]
-		elsif cell["class"].include? "Rankings"
-			puts celltype[:rankings]
-		else
-			puts "Unknown cell type"
-		end
+    if cellContainterQuery.include? "TableView"
 
+      scroll_to_row(cellContainterQuery,cellIndex) #we need to scroll to cell destination for avoiding nasty errors!
+      cell = query("tableViewCell index:#{cellIndex}").first
+
+
+      if cell["class"].include? "NewsTableViewCell"
+        celltype[:news]
+      elsif cell["class"].include? "People"
+        celltype[:profiles]
+      elsif cell["class"].include? "SearchAndHires"
+        celltype[:search_hires]
+      elsif cell["class"].include? "Rankings"
+        celltype[:rankings]
+      else
+        "Separator or Plate cell"
+      end
+    else
+      scroll_to_row("android.support.v7.widget.RecyclerView", cellIndex)
+      cell =query("")
+
+
+
+    end
 end
 
 def mailChecker(mail, password)

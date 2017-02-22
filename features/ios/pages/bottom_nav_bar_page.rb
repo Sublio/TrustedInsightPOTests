@@ -8,7 +8,7 @@ class BottomNavBarPage < Calabash::IBase
 
     def trait
 
-      "UITabBar" #tabbar locator
+      "UITabBar UITabBarButton marked:'Bookmarks'" #tabbar bookmark locator
 
     end
 

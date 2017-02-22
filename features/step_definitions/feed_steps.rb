@@ -2,6 +2,7 @@ require 'calabash-cucumber'
 require_relative '../support/global_helpers'
 
 
+
 When(/^I add first cell to bookmarks$/) do
   @current_page = page(FeedPage).await(timeout: 60)
   @cellHeaderBefore = @current_page.firstCellHeader
@@ -12,7 +13,8 @@ end
 
 
 And(/^I Open Bookmarks tab$/) do
-    @current_page=page(BottomNavBarPage).await(timeout:30)
+    sleep(2)
+    @current_page=page(FeedPage).await(timeout:30)
     touch(@current_page.bookmarkTab)
     sleep(2)
 end
@@ -42,7 +44,7 @@ end
 
 When(/^I use cellRecognizer with some cell from feed$/) do
 
-  cellRecognizer("UITableView",2)
+  puts cellRecognizer("UITableView",2)
 
 
 end

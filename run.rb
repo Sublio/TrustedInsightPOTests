@@ -13,7 +13,7 @@ EOF
   exit(false)
 end
 
-target = 'ios'
+target = 'android'
 
 if target == 'android'
   exec("export APP=prebuilt/TrustedInsight.apk && bundle exec calabash-android run $APP -p android features/feed.feature  #{ARGV.join(' ')}")
@@ -22,6 +22,7 @@ elsif target == 'ios'
 else
   puts "Invalid target #{target}"
 end
+
 
 
 #if you wanna take a report after test, add this command after exec command --format html --out reports.html
