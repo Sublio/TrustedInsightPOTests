@@ -26,7 +26,7 @@ def cellRecognizer(cellContainterQuery, cellIndex)
     else
       scroll_to_row("android.support.v7.widget.RecyclerView", cellIndex)
       cell =query("")
-
+      #TODO!!!
 
 
     end

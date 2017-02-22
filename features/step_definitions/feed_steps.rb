@@ -44,8 +44,14 @@ end
 
 When(/^I use cellRecognizer with some cell from feed$/) do
 
-  puts cellRecognizer("UITableView",2)
+  @type = cellRecognizer("UITableView",2)
 
+
+end
+
+Then (/^returns me contentType of the selected cell$/) do
+
+  puts @type
 
 end
 

@@ -15,4 +15,9 @@ Feature: Feed Feature.
 	@landingHome
 	Scenario: CellRecognizerTest
 		When I use cellRecognizer with some cell from feed
-		#Then returns me contentType of the selected cell
+		Then returns me contentType of the selected cell
+
+	@landingHome
+	Scenario: Can Share first cell from Feed
+		When I swipe on first cell
+		And I tap Share
