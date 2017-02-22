@@ -17,7 +17,15 @@ Feature: Feed Feature.
 		When I use cellRecognizer with some cell from feed
 		Then returns me contentType of the selected cell
 
+
 	@landingHome
 	Scenario: Can Share first cell from Feed
 		When I swipe on first cell
 		And I tap Share
+        Then I see system shareView
+
+     @landingHome
+     Scenario: Clean all Bookmarks after tests in feed feature
+       When I Open Bookmarks tab
+       And I delete all bookmarks
+       Then I Ensure there is no any bookmarks

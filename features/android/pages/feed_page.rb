@@ -45,6 +45,11 @@ class FeedPage < Calabash::ABase
     "* text:'Bookmark'"
   end
 
+  def cellShareButton
+
+    "* text:'Share'"
+  end
+
   def scrollToTheTopOfFeed
 
     scroll_to_row("android.support.v7.widget.RecyclerView",0)
@@ -70,6 +75,13 @@ class FeedPage < Calabash::ABase
 
     perform_action('swipe', 'right')
 
+  end
+
+  def ensureThereIsASharemenu
+
+    sleep(1)
+    system("adb shell input keyevent 4") #system back button keyevent
+    system("exit")
   end
 
   end

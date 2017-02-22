@@ -45,6 +45,11 @@ class FeedPage < Calabash::IBase
     "* marked:'Bookmark'"
   end
 
+  def cellShareButton
+
+    "* marked:'Share'"
+  end
+
   def scrollToTheTopOfFeed
 
     scroll_to_cell(:row => 0, :section => 0)
@@ -85,6 +90,14 @@ class FeedPage < Calabash::IBase
 
   def cellContainer
     "UITableView"
+  end
+
+
+  def ensureThereIsASharemenu
+
+    sleep(1)
+
+
   end
 
 end

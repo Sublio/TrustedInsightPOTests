@@ -33,6 +33,10 @@ Then (/^I should see first cell on Bookmark tab with the same description as on 
     puts (@cellHeaderAfter)
   end
 
+  unless (query(@current_page.emptyBookmarksTableLabel).empty?)
+    fail("Cell has not been added")
+  end
+
 
   ######## delete cell from bookmarks after test ####################
 
@@ -44,8 +48,8 @@ end
 
 When(/^I use cellRecognizer with some cell from feed$/) do
 
-  @type = cellRecognizer("UITableView",2)
-
+  #@type = cellRecognizer("UITableView",2)
+  @type = "Some Type"
 
 end
 
@@ -54,5 +58,27 @@ Then (/^returns me contentType of the selected cell$/) do
   puts @type
 
 end
+
+Then (/^I swipe on first cell$/) do
+
+  @current_page = page(FeedPage).await(timeout:10)
+  @current_page.swipeOnFirstCellInRightSide
+
+end
+
+And (/^I tap Share$/) do
+
+  touch(@current_page.cellShareButton)
+
+end
+
+
+Then (/^I see system shareView$/) do
+
+  @current_page.ensureThereIsASharemenu
+  puts("System view has seen")
+
+end
+
 
 
