@@ -25,6 +25,12 @@ CREDENTIALS = {
         password: 'untestor1260'
     },
 
+    borsch_user: {
+        mail: 'test@xttk.ru',
+        password:  'Qwerty123',
+        firstname: 'Vladislav',
+        lastname:  'Borsch'
+    },
 
     random_user: {
     	mail: mail,
