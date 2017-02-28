@@ -27,10 +27,10 @@ Then (/^I should see first cell on Bookmark tab with the same description as on 
 
   @cellHeaderAfter = @current_page.firstCellHeader
 
-  unless @cellHeaderBefore == @cellHeaderAfter
+  unless @cellHeaderBefore.include?(@cellHeaderAfter)
     fail("Cell has different header on Feed and Bookmark page!")
-    puts (@cellHeaderBefore)
-    puts (@cellHeaderAfter)
+    msg(@cellHeaderBefore)
+    msg(@cellHeaderAfter)
   end
 
   unless (query(@current_page.emptyBookmarksTableLabel).empty?)

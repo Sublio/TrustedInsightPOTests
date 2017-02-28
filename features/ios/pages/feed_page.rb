@@ -36,7 +36,7 @@ class FeedPage < Calabash::IBase
 
   def firstCellHeader
 
-    query("UITableViewCell label",:text).first
+    query("UITableViewCell index:0 label",:text).first
 
   end
 
@@ -84,7 +84,8 @@ class FeedPage < Calabash::IBase
 
   def swipeOnFirstCellInRightSide
 
-    swipe :left, :query => "UITableViewCell label", :offset => {:x => 123, :y => 30}, :"swipe-delta" =>{:vertical => {:dx=> 0, :dy=> 250} }
+    swipe :left, :query => "UITableViewCell index:0", :offset => {:x => 123, :y => 30}, :"swipe-delta" =>{:vertical => {:dx=> 0, :dy=> 250} }
+    wait_for_none_animating
   end
 
 
@@ -95,7 +96,9 @@ class FeedPage < Calabash::IBase
 
   def ensureThereIsASharemenu
 
-    sleep(1)
+    sleep(2)
+    wait_for_element_exists("view marked:'ActivityListView'", timeout: 10)
+    touch("button marked:'Cancel'")
 
 
   end

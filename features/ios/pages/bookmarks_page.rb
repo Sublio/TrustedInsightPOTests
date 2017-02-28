@@ -17,7 +17,7 @@ class BookmarksPage < Calabash::IBase
 
   def firstCellHeader
 
-    query("UITableViewCell label",:text).first
+    query("UITableViewCell index:0 label",:text).first
 
   end
 
