@@ -39,7 +39,9 @@ end
 Before('@shouldLoginAsCherepashkin') do
   
 	touch("button marked:'ACCESS WITH EMAIL'")
-	enter_text("* id:'join_email_et'", 'test1@xttk.ru')
+	sleep(3)
+	keyboard_enter_text("test1@xttk.ru")
+#	enter_text("* id:'join_email_et'", 'test1@xttk.ru')
 	touch("* marked:'NEXT'") 
 	sleep(4)
 	keyboard_enter_text("Qwerty123")

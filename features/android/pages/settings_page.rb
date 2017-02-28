@@ -55,6 +55,7 @@ class SettingsPage < Calabash::ABase
 
   def PhoneNumberConfirmedButton
   "* id:'settings_text_phone_number_confirmed'" # Visible if text is not empty
+end
 
   def AboutButton
     "* id:'settings_about'"
@@ -74,6 +75,10 @@ end
     "* id:'settings_privacy_policy'"
   end
 
+  def FeedbackButton
+    "* id:'settings_leave_feedback'"
+  end
+
   def LogOutButton
     "* id:'settings_logout'"
   end
@@ -86,5 +91,8 @@ end
  scroll("ResponsiveScrollView",:down)
   end
 
- end 
+def ShowBottom
+perform_action('drag', 50, 50, 70, 20, 30)
 end
+
+ end 

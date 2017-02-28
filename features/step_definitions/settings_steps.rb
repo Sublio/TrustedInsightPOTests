@@ -106,28 +106,19 @@ And /^I see Add phone number button$/ do
 end
 
 
-And /^I want to find$/ do
-scroll("ResponsiveScrollView",:down)
+And /^I want to scroll this page to bottom$/ do
+@current_page.ShowBottom
 end
 
 And /^I see About button$/ do
 	sleep(2)
-	@current_page = page(SettingsPage).await(timeout:10)
-#	about_button = query(@current_page.SettingsAboutButton)
-#		if (about_button.empty?)
-#		@current_page.GoToBottom
-#	end
-#	puts(about_button)
+	@current_page = page(SettingsPage)
 	about_button = query(@current_page.AboutButton)
 		if (about_button.empty?)
-#			fail("About button not found")
-#		else
-#			puts("About button has been detected")
-#
-#if (@current_page.SettingsAboutButton).empty?
+
 			fail("About button not found")
 		else
-			puts(about_button)
+			puts("About button has been detected")
 		end
 end
 	
@@ -175,12 +166,12 @@ And /^I see Log out button$/ do
 		end
 end
 
-And /^II see label TrustedInsight at bottom of screen$/ do
+And /^I see label TrustedInsight at bottom of screen$/ do
 	@current_page = page(SettingsPage)
 	appversion = query(@current_page.AppVersion,"text").first
 		if (appversion.empty?)
-			fail("Firm name not found")
+			fail("AppVersion not found")
 		else
-			puts("Firm #{firmname} appears on your Settings screen")
+			puts("AppVersion #{appversion} appears on your Settings screen")
 		end
 end

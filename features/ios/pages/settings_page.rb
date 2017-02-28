@@ -1,7 +1,7 @@
 require 'calabash-cucumber/ibase'
 
 
-#Android
+#iOS
 
 class SettingsPage < Calabash::ABase
 
@@ -91,7 +91,7 @@ def SettingsFirmNameButton
     "label {text BEGINSWITH 'TrustedInsight '}"
   end
 
-  def GoToBottom
+  def ShowBottom
     scroll("UITableView", :down)
   end
 

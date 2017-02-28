@@ -1,6 +1,8 @@
+@reinstall
 Feature: Settings screen features
 As an Rosberry Tester
 I want to log in and open Settings screen 
+
 
 @shouldLoginAsCherepashkin
 Scenario: Check all elements exist on Settings screen
@@ -15,9 +17,10 @@ And I see Manage Interests button
 And I see Preferences button
 And I see Change password button
 And I see Add phone number button
+And I want to scroll this page to bottom
 And I see About button
-# And I see Terms of Use button
-# And I see Privacy Policy button
-# And I see Leave Feedback button
-# And I see Log out button
-# And I see label TrustedInsight at bottom of screen
+And I see Terms of Use button
+And I see Privacy Policy button
+And I see Leave Feedback button
+And I see Log out button
+And I see label TrustedInsight at bottom of screen
