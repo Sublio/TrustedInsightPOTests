@@ -13,10 +13,10 @@ EOF
   exit(false)
 end
 
-target = 'ios'
+target = 'android'
 
 if target == 'android'
-  exec("export APP=prebuilt/TrustedInsight.apk && bundle exec calabash-android run $APP -p android features/feed.feature #{ARGV.join(' ')}")
+  exec("export APP=prebuilt/TrustedInsight.apk && bundle exec calabash-android run $APP -p android  #{ARGV.join(' ')}")
 elsif target == 'ios'
   exec("export APP=prebuilt/TrustedInsight.app && export APP_BUNDLE_PATH=$APP && bundle exec cucumber -p ios features/feed.feature #{ARGV.join(' ')}")
 else
