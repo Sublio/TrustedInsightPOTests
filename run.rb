@@ -13,13 +13,16 @@ EOF
   exit(false)
 end
 
+target = 'android'
+
 if target == 'android'
-  exec("export APP=prebuilt/TrustedInsight.apk && bundle exec calabash-android run $APP -p android #{ARGV.join(' ')}")
+  exec("export APP=prebuilt/TrustedInsight.apk && bundle exec calabash-android run $APP -p android  #{ARGV.join(' ')}")
 elsif target == 'ios'
-  exec("export APP=prebuilt/TrustedInsight.app && export APP_BUNDLE_PATH=$APP && bundle exec cucumber -p ios #{ARGV.join(' ')}")
+  exec("export APP=prebuilt/TrustedInsight.app && export APP_BUNDLE_PATH=$APP && bundle exec cucumber -p ios features/feed.feature #{ARGV.join(' ')}")
 else
   puts "Invalid target #{target}"
 end
 
 
-#if you wanna take a report after test, add this command after exec command --format html --out reports.html
+
+#if you wanna get a report after test, add this command after exec command --format html --out reports.html

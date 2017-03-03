@@ -15,12 +15,12 @@ Feature: Select background experience
       * I tap on "SIGN UP" button
       * I tap on "SIGN UP" button and wait for Your Background
   
-  @reinstall
+  @shouldLogoutBefore
   Scenario: I can select Student as my background and proceed as student
 
       * I proceed as student
 
-  @reinstall
+  @shouldLogoutBefore
   Scenario: I can select everything except Student and proceed as worker
 
       * I proceed as worker

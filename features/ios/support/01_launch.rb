@@ -1,4 +1,5 @@
 require 'calabash-cucumber/launcher'
+require 'calabash-cucumber'
 
 # You can find examples of more complicated launch hooks in these
 # two repositories:
@@ -70,14 +71,16 @@ Before("@no_relaunch") do
 end
 
 
-ENV['DEVICE_TARGET'] = 'iPhone 6 (9.3)'
+
+#ENV['DEVICE_TARGET'] = 'iPhone 5 (9.3)'
+#ENV['DEVICE_TARGET'] = 'iPhone 6 (10.2)'
 #ENV['DEVICE_TARGET'] = '5cdb1910f92bf7645bc981e80d47ec67fda487ca'
-#ENV['DEVICE_TARGET'] = '0fbff6cd1375484092c78e2d5d633ee47c8b7d4f' ipad3 white
-#ENV['DEVICE_ENDPOINT'] = 'http://10.1.0.124:37265'
+#ENV['DEVICE_ENDPOINT'] = 'http://10.1.0.136:37265'
 #ENV['BUNDLE_ID'] = 'com.thetrustedinsight.app'
 #ENV['RESET_BETWEEN_SCENARIOS'] = '0'
-#ENV['NO_LAUNCH'] = '0'
+#ENV['NO_LAUNCH'] = '1'
 #ENV['QUIT_APP_AFTER_SCENARIO'] = '1'
+#ENV['MAX_CONNECT_RETRY'] = '20'
 
 #ENV['DEBUG'] = '1'
 #ENV['DEBUG_HTTP'] = '1'
@@ -87,35 +90,24 @@ ENV['DEVICE_TARGET'] = 'iPhone 6 (9.3)'
 
 =begin
 
-bundle identitifer = com.thetrustedinsight.app
-ip = 10.1.0.139
 Управление таймаутом у симулятора- дефолтное значение!!!
 RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 60
-simulators = {
-  iPhone(Denis Mordvinov) (10.2) [5cdb1910f92bf7645bc981e80d47ec67fda487ca]	
-  iPad 2 (9.3) [33BA997F-7A73-4D7B-B46C-D1124E03E4B8] (Simulator)
-  iPad Air (9.3) [1E5D7407-2925-49E5-A122-1920E6B43AD7] (Simulator)
-  iPad Air 2 (9.3) [E228D9FC-0938-4450-AE93-20357FB84816] (Simulator)
-  iPad Pro (9.3) [4D511C2C-80DE-4603-997A-5C7A5F292999] (Simulator)
-  iPad Retina (9.3) [9C28A531-42EE-435E-9E67-AD0B604C194B] (Simulator)
-  iPhone 4s (9.3) [F0E14A4F-0D58-4BA1-A4CB-F6B22D8CD76A] (Simulator)
-  iPhone 5 (9.3) [7DD7D19F-D07D-4EC5-8769-06F661A0A863] (Simulator)
-  iPhone 5s (9.3) [BDAC15C8-1857-443B-9E86-B60D65B0BD81] (Simulator)
-  iPhone 6 (9.3) [71318C8D-234F-49D1-84EF-30F97BFADE66] (Simulator)
-  iPhone 6 Plus (9.3) [53A6BCB7-34A4-48AA-BACB-79107C5327F8] (Simulator)
-  iPhone 6s (9.3) [D39F7E8F-ED89-4D7B-9B3D-510907D780E7] (Simulator)
-  iPhone 6s (9.3) + Apple Watch - 38mm (2.2) [822E873B-507E-4594-AA5E-5CF02CC94836] (Simulator)
-  iPhone 6s Plus (9.3) [3751C23D-FF41-4540-A34B-D4C2979D6F13] (Simulator)
-  iPhone 6s Plus (9.3) + Apple Watch - 42mm (2.2) [6F153363-D3F0-4749-AFB3-A44F35826ACD] (Simulator)
-}
 =end
-#export BUNDLE_ID='com.thetrustedinsight.app' DEVICE_TARGET='5cdb1910f92bf7645bc981e80d47ec67fda487ca' DEVICE_ENDPOINT='http://10.1.0.124:37265'
+#RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 180
 
 
-RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 90
+Calabash::Cucumber::WaitHelpers::DEFAULT_OPTS[:screenshot_on_error] = false #switch off screenshot generating on failer
+#RunLoop::Shell::DEFAULT_OPTIONS[:timeout] = 300  #default timeout for launch
+#RunLoop::Shell::DEFAULT_OPTIONS[:log_cmd] = true 
+#RunLoop::CoreSimulator::DEFAULT_OPTIONS[:launch_app_timeout] = 180
+#RunLoop::CoreSimulator::DEFAULT_OPTIONS[:wait_for_state_timeout] = 180
+#RunLoop::CoreSimulator::DEFAULT_OPTIONS[:app_launch_retries] = 20
+#RunLoop::DeviceAgent::Client::DEFAULTS[:http_timeout] = 180
+#RunLoop::DeviceAgent::Client::DEFAULTS[:device_agent_install_timeout] = 180
 
-#launcher = Calabash::Launcher.launcher
 
+puts RunLoop::Core.default_simulator #print default system simulator
+#puts RunLoop::Xcrun::DEFAULT_OPTIONS
 
 
 Before do |scenario|
@@ -125,6 +117,7 @@ Before do |scenario|
     #:uia_strategy => :host
     #:uia_strategy => :shared_element
     #:uia_strategy => :preferences
+    #:relaunch_simulator => false
   }
 
   relaunch = true
@@ -144,17 +137,19 @@ Before do |scenario|
   end
 
   if relaunch
-    launcher.relaunch({:timeout => 300,:relaunch_simulator => false})
+    launcher.relaunch(options)
   end
 
-  ENV["RESET_BETWEEN_SCENARIOS"] = "0"
+  if @keychain_clear
+
+    keychain_clear
+
+  end
 
   # Re-installing the app on a device does not clear the Keychain settings,
   # so we must clear them manually.
-  if scenario.source_tag_names.include?("@reset_device_settings")
-    if xamarin_test_cloud? || LaunchControl.target_is_physical_device?
+  if scenario.source_tag_names.include?("@reinstall")
       keychain_clear
-    end
   end
 end
 
@@ -174,3 +169,4 @@ After do |scenario|
 
   end
 end
+

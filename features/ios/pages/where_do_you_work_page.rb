@@ -1,31 +1,31 @@
-require 'calabash-android/abase'
+require 'calabash-cucumber/ibase'
 
 
-#Android
+#IOS
 
-class WhereDoYouWorkPage < Calabash::ABase
+class WhereDoYouWorkPage < Calabash::IBase
 
   def trait
 
-    "AppCompatEditText id:'business_job_title_et'"  
+    "TITextField index:0"  
 
   end
 
   def jobTitleEdit
 
-    "* id:'business_job_title_et'"
+    "TITextField index:0"
 
   end
 
   def jobTitlesCloseButton
 
-    "* id:'business_job_title_close_btn'"
+    "UIButton"
 
   end
 
   def jobTitlesContainer
 
-    "* id:'job_titles_container'"
+    "UITableView"
 
   end
 
@@ -33,7 +33,7 @@ class WhereDoYouWorkPage < Calabash::ABase
 
   def availElements
 
-    "recyclerview * id:'title'"
+    "UITableView UILabel"
 
   end
 
@@ -41,25 +41,25 @@ class WhereDoYouWorkPage < Calabash::ABase
 
   def firmTitleEdit
 
-    "* id:'business_company_et'"
+    "TITextField index:1"
 
   end
 
   def firmTitlesContainer
 
-    "* id:'firms_container'"
+    "UITableView"
 
   end
 
   def firmTitlesCloseButton
 
-    "* id:'business_company_close_btn'"
+    "UIButton"
 
   end
 
   def countryTitleEdit
 
-    "* id:'business_country_et'"
+    "TITextField index:2"
 
   end
 
@@ -77,45 +77,45 @@ class WhereDoYouWorkPage < Calabash::ABase
 
   def countryItself
 
-    "* id:'title'"
+    puts(" ")
 
   end
 
   def countryContainer
 
-    "listview"
+    "UIPickerTableView"
 
   end
 
 
   def inTransitionCheckbox
 
-    "* id:'currently_transition'" 
+    touch("UIButtonLabel marked:'Currently in transition'")
 
   end
 
   def retiredCheckbox 
 
-    touch("* id:'retired'")
+    touch("UIButtonLabel marked:'Retired'")
 
   end
 
   def tapBackButton 
 
-    touch("* id:'back_btn'") #this is a backButton locator
+    touch("* marked:'BACK'") #this is a backButton locator
 
   end
 
   def tapSkipButton
 
-    touch("* id:'skip_btn'")
+    touch("* marked:'SKIP'")
 
   end
 
 
   def tapNextButton
 
-    touch("* id:'back_btn'")
+    touch("* marked:'NEXT'")
 
   end
 
@@ -131,7 +131,6 @@ class WhereDoYouWorkPage < Calabash::ABase
     
   end
 
-end
 
 #######################
 
@@ -160,14 +159,15 @@ end
 
   def checkIfCleared(textfield, container, closebutton)
 
-    enter_text(textfield, 1.times.map { [*'a'..'x'].sample }.join)
+    enter_text(textfield, 1.times.map{[*'a'..'x'].sample}.join)
     wait_for_elements_exist(container)
-    text_before = query(textfield).first["text"]
-    puts(text_before)
+    #text_before = query(textfield).first["text"]
+    wait_for_elements_exist(closebutton)
+    #puts(text_before)
     touch(closebutton)
-    text_after = query(textfield).first["text"]
-    puts(text_after)
-    if text_after.empty?
+    #text_after = query(textfield).first["text"]
+    #puts("This is text after clear => #{text_after} <= here should be nothing!")
+    if textfield.empty?
       puts("Clear!")
     end
 
@@ -177,19 +177,13 @@ end
 
     touch(countryfield)
     rand(0..48).times do
-      pan container, :up
+      swipe :up, query: "UIPickerTableView index:1", force: :light
     end
-    selected_country = query(country)[(rand(0..query(country).length - 1))]
-    selected_country_title = selected_country["text"]
-    touch(selected_country)
-    sleep 1
-    touch(confirmbutton)
-    final_country_title = query(countryfield).first["text"]
-    if selected_country_title == final_country_title
-      puts("Country picked successfully")
-    elsif selected_country_title != final_country_title
-      puts("Country doesn't match!")
-    end
+    #touch(confirmbutton)
+    #final_country_title = query(countryfield)["text"]
+    #puts(final_country_title)
     touch(nextbutton)
 
   end
+
+end

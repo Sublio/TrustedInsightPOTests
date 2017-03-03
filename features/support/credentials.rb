@@ -21,7 +21,6 @@ CREDENTIALS = {
     },
 
     untestor_user: {
-
         mail: 'untestor@gmail.com',
         password: 'untestor1260'
     },
@@ -40,6 +39,7 @@ CREDENTIALS = {
         lastname: lastname       
     },
 }
+
 
 
 
