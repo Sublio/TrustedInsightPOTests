@@ -37,7 +37,7 @@ And /^I see alert with constant text$/ do
 		if (alert_text.empty?)
 			fail("Alert text not found")
 		end
-	puts("Alert: \n #{alert_title} \n#{alert_text} \n appears!")
+	puts("Alert: \n #{alert_title} \n #{alert_text} \n")
 end	
 
 And /^I tap Cancel button to return to Edit Profile screen$/ do

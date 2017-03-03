@@ -229,19 +229,19 @@ Before('@landingSettings') do
 	end
 end
 
-
+#Login and go to Settings
 Before('@shouldLoginAsCherepashkin') do
   
 	touch("* id:'join_email'")
 	keyboard_enter_text("test1@xttk.ru")
 	touch("* id:'join_action_button'") 
-	sleep(4)
+sleep(4)
 	keyboard_enter_text("Qwerty123")
-	sleep(3)
+sleep(3)
 	touch("* id:'join_action_button'")
-	sleep(6)
+sleep(6)
 	touch("* id:'bottomBarItemFive'")
-	sleep(1)
+sleep(1)
 
 end
 
