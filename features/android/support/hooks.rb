@@ -39,6 +39,7 @@ After('@shouldLoginAsCherepashkin') do
 #	if element_exists("ResponsiveScrollView")
 #		scroll("ResponsiveScrollView",:down)
 #	end
+	perform_action('drag', 50, 50, 70, 20, 30)
 	touch("* id:'settings_logout'")
 	sleep(2)
 
