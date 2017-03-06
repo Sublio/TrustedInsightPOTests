@@ -278,7 +278,8 @@ end
 
 
 Before('@shouldLoginAsCherepashkin') do
-  
+	checkWelcome
+	sleep(1)	
 	touch("button marked:'ACCESS WITH EMAIL'")
 	sleep(3)
 	keyboard_enter_text("test1@xttk.ru")
@@ -293,7 +294,8 @@ Before('@shouldLoginAsCherepashkin') do
 
 		touch("* marked:'ENABLE NOTIFICATIONS'")
 	end
-
+	sleep(2)
+	touch("* marked:'Settings'")
 
 end
 
@@ -310,3 +312,116 @@ end
 #user = CREDENTIALS[:random_user:]
 #mail = user[:mail]
 
+#Return to "Welcome Screen" hook
+#Before('@checkWelcome') do
+
+#####################################################
+#Check Welcome 
+#####################################################
+def checkWelcome
+	welcomescreen = query("* marked:'Welcome to Trusted Insight'")
+ 	if (welcomescreen.empty?)
+ 		findBottomBar
+	else 
+		puts("Congrats! \nYou are on Welcome screen.\n Let's run your test!")
+	end
+end
+
+def findBottomBar
+	checkBottomBar = query("UITabBarButton")
+	if (checkBottomBar.empty?)
+		returnToPreviousScreen
+#		checkWelcome
+	else
+		touch("* marked:'Settings'")
+		touch("* marked:'Settings'")
+		touch("* marked:'Settings'")
+		sleep(1)
+		scroll("UITableView", :down)
+		sleep(1)
+		touch("* marked:'Log out'")
+		sleep(2)
+	end
+	checkWelcome
+end
+
+def returnToPreviousScreen
+tapiconTopBack
+tapContinue
+tapiconTopCancel
+tapCancel
+arrowOnWizard
+skipOnWizard
+
+#	touch("* marked:'iconTopBack'")
+#	findBottomBar
+checkWelcome
+end
+
+def tapiconTopBack
+iconTopBack = query("* marked:'iconTopBack'")
+	if (iconTopBack.empty?)
+		puts("Please wait...")
+	else
+		touch("* marked:'iconTopBack'")
+	end
+
+end
+
+def tapiconTopCancel
+iconTopCancel = query("* marked:'iconTopCancel'")	
+	if (iconTopCancel.empty?)
+		puts("Please wait...")
+	else
+		touch("* marked:'iconTopCancel'")
+	end
+end
+
+def tapContinue
+contunue_button = query("* marked:'Continue'")
+	if (contunue_button.empty?)
+			puts("Please wait...")
+	else
+		touch("* marked:'Continue'")
+	end
+end	
+
+def tapCancel
+cancel_button = query("* marked:'Cancel'")
+	if (cancel_button.empty?)
+		puts("Please wait...")
+	else
+		touch("* marked:'Cancel'")
+	end
+end
+
+def arrowOnWizard
+arrow_on_wizard = query("* marked:'iconArrowActionBlue'")
+	if (arrow_on_wizard.empty?)
+			puts("Please wait...")
+	else
+		touch("* marked:'iconArrowActionBlue'")
+	end
+end	
+
+def skipOnWizard
+skip_on_wizard = query("* marked:'SKIP'")
+	if (skip_on_wizard.empty?)
+			puts("Please wait...")
+	else
+		touch("* marked:'SKIP'")
+	end
+end	
+
+ # Just a hook for checkWelcome
+Before('@checkWelcome') do
+welcomescreen = query("* marked:'Welcome to Trusted Insight'")
+ 	if (welcomescreen.empty?)
+ 		findBottomBar
+	else 
+		puts("Congrats! \nYou are on Welcome screen.\n Let's run your test!")
+	end
+end
+
+After('@checkWelcome') do
+end

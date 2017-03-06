@@ -3,7 +3,7 @@ require 'calabash-cucumber/ibase'
 
 #iOS
 
-class EditProfilePage < Calabash::ABase
+class EditProfilePage < Calabash::IBase
 
     def trait
     "UINavigationBar id:'Edit profile'"  #this is a title of Edit profile screen

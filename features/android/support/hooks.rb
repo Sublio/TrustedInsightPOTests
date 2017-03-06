@@ -231,7 +231,7 @@ end
 
 #Login and go to Settings
 Before('@shouldLoginAsCherepashkin') do
-  
+checkWelcome  
 	touch("* id:'join_email'")
 	keyboard_enter_text("test1@xttk.ru")
 	touch("* id:'join_action_button'") 
@@ -258,4 +258,125 @@ After('@shouldLoginAsCherepashkin') do
 	sleep(2)
 
 end
+
+#Return to "Welcome Screen" hook
+def checkWelcome
+	if element_exists("* id:'join_welcome'")
+		puts("Congrats! \nYou are on Welcome screen.\n Let's run your test!")
+	else 
+		findBottomBar
+	end
+end
+
+def findBottomBar
+	checkBottomBar = query("BottomBar")
+	if (checkBottomBar.empty?)
+		returnToPreviousScreen
+	else
+		touch("* id:'bottomBarItemFive'")
+		sleep(1)
+		perform_action('drag', 50, 50, 70, 20, 30)
+		touch("* id:'settings_logout'")
+		sleep(3)
+	end
+	checkWelcome
+end
+
+def returnToPreviousScreen
+tapiconTopBack
+tap_password_back
+tapContinue
+tap_email_back
+tapCancel
+tapLevelOnWizard
+skipOnWizard
+tapBackOnSearch
+
+checkWelcome
+end
+
+def tapiconTopBack
+iconTopBack = query("* marked:'Navigate up'")
+	if (iconTopBack.empty?)
+		puts("Please wait...")
+	else
+		touch("* marked:'Navigate up'")
+	end
+
+end
+
+def tap_email_back
+join_email_back = query("* marked:'join_email_back'")
+	if (join_email_back.empty?)
+		puts("Please wait...")
+	else
+		touch("* marked:'join_email_back'")
+	end
+
+end
+
+def tap_password_back
+join_password_back = query("* marked:'join_password_back'")
+	if (join_password_back.empty?)
+		puts("Please wait...")
+	else
+		touch("* marked:'join_password_back'")
+	end
+
+end
+
+def tapCancel
+cancel_button = query("* marked:'Cancel'")
+	if (cancel_button.empty?)
+		puts("Please wait...")
+	else
+		touch("* marked:'Cancel'")
+	end
+end
+
+def tapLevelOnWizard
+level_container = query("* id:'level_container'")
+	if (level_container.empty?)
+		puts("Please wait...")
+	else
+		touch("* id:'level_container'")
+	end
+end	
+
+def skipOnWizard
+skip_on_wizard = query("* marked:'SKIP'")
+	if (skip_on_wizard.empty?)
+		puts("Please wait...")
+	else
+		touch("* marked:'SKIP'")
+	end
+end	
+
+def tapContinue
+contunue_button = query("* marked:'Continue'")
+	if (contunue_button.empty?)
+		puts("Please wait...")
+	else
+		touch("* marked:'Continue'")
+	end
+end	
+
+def tapBackOnSearch
+back_from_search = query("* id:'action_up_btn'")
+	if (back_from_search.empty?)
+		puts("Please wait...")
+	else
+		touch("* id:'action_up_btn'")
+	end
+end	
+
+ # Just a hook for checkWelcome
+Before('@checkWelcome') do
+	if element_exists("* id:'join_welcome'")
+puts("Congrats! \nYou are on Welcome screen.\n Let's run your test!")
+	else 
+	findBottomBar
+	end
+end
+
 

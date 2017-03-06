@@ -3,7 +3,7 @@ require 'calabash-cucumber/ibase'
 
 #iOS
 
-class SettingsPage < Calabash::ABase
+class SettingsPage < Calabash::IBase
 
   def trait
    "UINavigationBar id:'Settings'"   #this is a title of Settings screen

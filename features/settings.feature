@@ -3,7 +3,6 @@ Feature: Settings screen features
 As an Rosberry Tester
 I want to log in and open Settings screen 
 
-
 @shouldLoginAsCherepashkin
 Scenario: Check all elements exist on Settings screen
 Then I see title of Settings screen
