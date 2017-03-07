@@ -1,8 +1,8 @@
 #Victor Bezrodin
 
-And /^I am on Settings screen$/ do
+And /^I am on Settings screen and check user name$/ do
 @current_page = page(SettingsPage).await(timeout:60)
-name_before = query(@current_page.SettingsName)
+@name_before = (@current_page.SettingsName)
 end
 
 And /^I tap Edit Profile button on Settings screen$/ do
@@ -62,12 +62,18 @@ end
 
 And /^I check that I returned to Settings screen$/ do
 	@current_page = page(SettingsPage).await(timeout:60)
-=begin
-	name_after = query(@current_page.SettingsName)
-	if name_before <=> name_after
-		puts("All good! You return to Settings screen witout changes!")
+
+end
+
+And /^I check that changes has not been applied$/ do
+	@current_page = page(SettingsPage).await(timeout:60)
+	sleep(3)
+	name_after = (@current_page.SettingsName)
+	result = @name_before <=> name_after
+	if result == 0
+		puts("All good! You return to Settings screen without changes!")
 	else
 		fail("Something went wrong!!! Name before test and after test are different.")
 	end
-=end
+
 end
