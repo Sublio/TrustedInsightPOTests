@@ -106,5 +106,9 @@ class EditProfilePage < Calabash::ABase
     perform_action('drag', 50, 50, 70, 20, 30)
     end
 
+    def HideKeyboard
+        hide_soft_keyboard
+    end
+
 
 end

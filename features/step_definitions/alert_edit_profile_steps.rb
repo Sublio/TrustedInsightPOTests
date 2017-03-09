@@ -23,6 +23,9 @@ end
 
 And /^I try to leave Edit Profile screen without saving$/ do
 	@current_page = page(EditProfilePage)
+	@current_page.hide_soft_keyboard
+
+	sleep(1)
 	touch(@current_page.BackButton)
 	 sleep(3)
 end	

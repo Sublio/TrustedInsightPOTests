@@ -1,4 +1,3 @@
-@reinstall
 Feature: Alert on Edit Profile screen
 As an Rosberry Tester
 I want to check an alert when user tries to leave Edit profile screen w/o saving
