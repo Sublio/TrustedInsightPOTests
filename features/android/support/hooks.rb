@@ -231,18 +231,31 @@ end
 
 #Login and go to Settings
 Before('@shouldLoginAsCherepashkin') do
-findWelcome  
+findWelcome
+=begin  #old login
 	touch("* id:'join_email'")
 	keyboard_enter_text("test1@xttk.ru")
 	touch("* id:'join_action_button'") 
-sleep(4)
+=end
+		wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
+		touch("* text:'ACCESS WITH EMAIL'")
+		enter_text("* id:'join_input_et'","test1@xttk.ru") #login
+sleep(1)
+=begin #old password
 	keyboard_enter_text("Qwerty123")
 	perform_action('drag', 50, 50, 70, 20, 30)
-sleep(3)
-	touch("* id:'join_action_button'")
-sleep(6)
-	touch("* id:'bottomBarItemFive'")
+=end
+		touch("* id:'join_action_button'")
+		wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
+		enter_text("* id:'join_input_et'","Qwerty123")
+		hide_soft_keyboard
+#		perform_action('drag', 50, 50, 70, 20, 30) #password
 sleep(1)
+		touch("* id:'join_action_button'")
+sleep(1)
+		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
+		touch("* id:'bottomBarItemFive'")
+sleep(2)
 
 end
 
@@ -386,3 +399,6 @@ puts("Welcome to Welcome screen.")
 end
 
 
+    def HideKeyboard
+            hide_soft_keyboard
+    end

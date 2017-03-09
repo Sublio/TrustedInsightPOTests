@@ -83,19 +83,19 @@ class EditProfilePage < Calabash::ABase
     end       
  
     def TitleOnAlert
-   "AppCompatTextView id:'title'"# This is a 
+   "AppCompatTextView id:'title'"# This is a title of alert
     end 
 
     def TextOnAlert
-   "AppCompatTextView id:'content'"# This is a 
+   "AppCompatTextView id:'content'"# This is a text on alert
     end 
 
     def CancelOnAlert
-   "* marked:'Cancel'"# This is a 
+   "* marked:'Cancel'"# This is a Cancel button
     end 
 
     def ContinueOnAlert
-   "* marked:'Continue'"# This is a 
+   "* marked:'Continue'"# This is a Continue button
     end 
 
      def GoToBottom
@@ -104,6 +104,10 @@ class EditProfilePage < Calabash::ABase
 
     def ShowBottom
     perform_action('drag', 50, 50, 70, 20, 30)
+    end
+
+    def HideKeyboard
+        hide_soft_keyboard
     end
 
 
