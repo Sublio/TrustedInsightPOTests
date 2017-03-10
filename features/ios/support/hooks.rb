@@ -33,15 +33,21 @@ end
 
 
 
-After('@shoudlLogout') do
+Before('@shoudlLogout') do
 
-	wait_for(:timeout => 20) { element_exists("* marked:'Settings'")}
-	touch("* marked:'Settings'")
-	scroll("UITableView", :down)
-	wait_for(:timeout => 20) { element_exists("* marked:'Log out'")}
-	touch("* marked:'Log out'")
+  wait_for_none_animating
+  if element_does_not_exist("* text:'Welcome\nto Trusted Insight'")
+    wait_for(:timeout => 20) { element_exists("* marked:'Settings'")}
+    wait_for_none_animating
+    touch("* marked:'Settings'")
+    wait_for_none_animating
+    scroll("UITableView", :down)
+    wait_for(:timeout => 20) { element_exists("* marked:'Log out'")}
+    touch("* marked:'Log out'")
+  end
 
 end
+
 
 
 

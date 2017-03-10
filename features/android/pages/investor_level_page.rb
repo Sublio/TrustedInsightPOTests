@@ -13,56 +13,36 @@ class InvestorTypePage < Calabash::ABase
 
   def cell
 
-  	"recyclerview relativelayout"
+    "recyclerview relativelayout"
 
   end
 
-  def cellText
+  def proceed_as_partner(partner_string)
 
-  	"recyclerview relativelayout appcompattextview"
-
-  end
-
-  def pick_first_cell(cell)
-
-  	levels = query(cell)
-  	touch(levels[rand(0..levels.length - 1)])
-  	sleep 2
+    touch("* marked:'#{partner_string}'")
 
   end
 
-  def select_investor_type(cells)
+  def proceed_as_not_limited_partner(cell, partner_string)
 
-  	cells = query(cells)
-  	touch(cells[rand(0.celsl.length)])
-  	sleep 2
-
-  end
-
-
-  def select_investor_type(cell, text)
-
-  		header_text_before = query(text).first["text"]
-  		puts(header_text_before)
-  		scroll_count = rand(0..2)
-		sleep 1
-		scroll_count.times do
-			pan "recyclerview", :up
-		end
-		sleep 1
-		header_text_after = query(text).first["text"]
-		puts(header_text_after)
-		if header_text_before == header_text_after
-			levels_next = query(cell).drop(0)
-		elsif header_text_before != header_text_after
-		else
-			levels_next = query(cell)
-		end
-		sleep 1	
-		touch(levels_next[rand(0..levels_next.length - 1)])
-		#wait_for_elements_do_not_exist("* id:'indicator'")
+    touch("* marked:'#{partner_string}'")
+    cells = query(cell)
+    cells.drop(1).each do |cell1|
+      @current_page = page(InvestorTypePage).await(timeout: 30)
+      touch(cell1)
+      @current_page = page(YourInterestsPage).await(timeout: 30)
+      @current_page.tap_back_button
+    end
+    touch(cells.first)
 
   end
 
+  def scroll_down
 
- end
+    flick "recyclerview", :up
+    sleep 1
+
+  end
+
+end
+

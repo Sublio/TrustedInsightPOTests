@@ -15,12 +15,32 @@ Feature: As new user I can select investor type
       * I tap on "SIGN UP" button
       * I tap on "SIGN UP" button and wait for Your Background
       * I proceed as worker
-      * I pick random job title from given results
-      * I pick random firm title from given results
-      * I pick country and make sure that it appears
+      * I tap SKIP button
       * I wait for Investor Type page
 
   Scenario: I can select investor type
 
-      * I select investor type
-      * I wait for Your Interests Page
+      * I proceed as Fund of Funds
+      * I proceed as Other
+      * I proceed as Consultant
+      * I proceed as Registered Investment Adviser
+      * I proceed as General Partner
+      * I enter Limited Partner
+      * I proceed as Endowment
+      * I proceed as Insurance
+      * I proceed as Corporation
+      * I proceed as Sovereign Wealth Fund
+      * I proceed as Economic Development Agency
+      * I proceed as Asset Manager
+      * I scroll
+      * I proceed as Outsourced CIO
+      * I scroll
+      * I proceed as Financial Bank
+      * I scroll
+      * I proceed as Foundation
+      * I scroll
+      * I proceed as Pension
+      * I scroll
+      * I proceed as Family Office
+      * I scroll
+      * I proceed as Other in Limited Partner

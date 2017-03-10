@@ -21,6 +21,28 @@ class YourBackgroundPage < Calabash::IBase
 
   end
 
+  def proceedAsWorker(levelsCellsArray)
+
+    cells2 = []
+    levelsCells.each do |cell|
+      if (cell["text"].include? "Student") == false
+        cells2 << cell
+      end
+    end
+    touch(cells2[rand(0..cells2.length - 1)])
+
+  end
+
+  def proceedAsStudent(levelsCellsArray)
+
+    levelsCells.each do |cell|
+      if cell["text"].include? "Student"
+        touch(cell)
+      end
+    end
+
+  end
+
   def tapRandomCell
     touch(levelsCells[rand(0..levelsCells.length - 1)])
   end

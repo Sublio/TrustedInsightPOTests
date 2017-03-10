@@ -32,7 +32,7 @@ end
 When(/^I pick country and make sure that it appears$/) do
 
   @current_page = page(WhereDoYouWorkPage).await(timeout: 60)
-  @current_page.pickCountryFromTheList(@current_page.countryTitleEdit, @current_page.countryContainer, @current_page.countryItself, @current_page.countryOkButton, @current_page.NextButton)
+  @current_page.pickCountryFromTheList(@current_page.countryTitleEdit, @current_page.countryElementString, @current_page.countryContainer, 'Belarus', @current_page.countryOkButton, @current_page.NextButton)
 
 end
 

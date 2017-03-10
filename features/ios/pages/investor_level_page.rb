@@ -1,7 +1,7 @@
 require 'calabash-cucumber/ibase'
 
 
-#Android
+#iOS
 
 class InvestorTypePage < Calabash::IBase
 
@@ -13,40 +13,41 @@ class InvestorTypePage < Calabash::IBase
 
   def cell
 
-  	"UITableViewCellContentView"
+    "TIInvestorTypeTableViewCell"
 
   end
 
-  def cellText
+  def proceed_as_partner(partner_string)
 
-  	"UITableViewWrapperView UILabel"
-
-  end
-
-  def select_investor_type(cell, text)
-
-  	@current_page = page(InvestorTypePage).await(timeout: 30)
-  	levels = query(cell)
-  	touch(levels[rand(0..levels.length - 1)])
-  	while @current_page = page(InvestorTypePage).await(timeout: 30)
-  		header_text_before = query(text).first["text"]
-  		scroll_count = rand(0..1)
-		sleep 2
-		scroll_count.times do
-			swipe :up, query: "UITableView"
-		end
-		sleep 2
-		wait_for_elements_exist(cell)
-		header_text_after = query(text).first["text"]
-		if header_text_before == header_text_after
-			levels_next = query(cell).drop(1)
-		elsif header_text_before != header_text_after
-			levels_next = query(cell)
-		end
-		sleep 1	
-		touch(levels_next[rand(0..levels_next.length - 1)])
-	end
+    touch("* marked:'#{partner_string}'")
+    wait_for_none_animating
 
   end
 
- end
+  def proceed_as_not_limited_partner(cell, partner_string)
+
+    touch("* marked:'#{partner_string}'")
+    wait_for_none_animating
+    cells = query(cell)
+    cells.drop(1).each do |cell1|
+      @current_page = page(InvestorTypePage).await(timeout: 30)
+      touch(cell1)
+      wait_for_none_animating
+      @current_page = page(YourInterestsPage).await(timeout: 30)
+      @current_page.tap_back_button
+      wait_for_none_animating
+    end
+    touch(cells.first)
+    wait_for_none_animating
+
+  end
+
+  def scroll_down
+
+    swipe :up, :query => "UITableView", force: :strong
+    wait_for_none_animating
+    sleep 1
+
+  end
+
+end

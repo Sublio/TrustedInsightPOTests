@@ -1,4 +1,4 @@
-Feature: Select background experience
+Feature: As new user I can select avatar image and enter short bio
 
 
   Background:
@@ -14,15 +14,15 @@ Feature: Select background experience
       * I input correct password
       * I tap on "SIGN UP" button
       * I tap on "SIGN UP" button and wait for Your Background
-
-  @shoudlLogout
-  Scenario: I can select Student as my background and proceed as student
-
-      * I proceed as student
-
-  @reinstall
-  Scenario: I can select everything except Student and proceed as worker
-
       * I proceed as worker
+      * I tap SKIP button
+      * I wait for Investor Type page
+      * I tap SKIP button
+      * I tap SKIP button
 
-  
+  @shouldLogout
+  Scenario: I can select photo from gallery and type bio
+
+      * I select avatar from gallery
+      * I enter short bio
+      * I touch Done button

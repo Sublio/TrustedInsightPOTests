@@ -17,6 +17,7 @@ Feature: As new user I can select job and firm title using autocomplete and sele
       * I proceed as worker
 
   Scenario: I can select job and firm title and country
+
       * I check if Close button clear job textfield
       * I check if Close button clear firm textfield
       * I pick random job title from given results
