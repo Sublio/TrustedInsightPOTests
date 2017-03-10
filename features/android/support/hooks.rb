@@ -288,13 +288,22 @@ def findBottomBar
 	if (checkBottomBar.empty?)
 		returnToPreviousScreen
 	else
+		findSettingsButton
+	end
+	findWelcome
+end
+
+def findSettingsButton
+settings_button = query("* id:'bottomBarItemFive'") 
+	if (settings_button.empty?)
+		perform_action('drag', 50, 50, 20, 70, 30)
+	else
 		touch("* id:'bottomBarItemFive'")
 		sleep(1)
 		perform_action('drag', 50, 50, 70, 20, 30)
 		touch("* id:'settings_logout'")
 		sleep(3)
 	end
-	findWelcome
 end
 
 def returnToPreviousScreen
@@ -384,7 +393,18 @@ back_from_search = query("* id:'action_up_btn'")
 		touch("* id:'action_up_btn'")
 	end
 end
-
+=begin #How to find bottombar
+def dragToFindBottombar
+title_of_screen = query("TextView","text").first
+search_on_screen = query("* id:'op_search'","contentDescription").first
+puts title_of_screen
+	if title_of_screen == "Settings" || title_of_screen == "Notifications" || title_of_screen == "Bookmarks" || title_of_screen == "Contacts" || search_on_screen == "Search"
+		perform_action('drag', 50, 50, 20, 70, 30)
+	else
+		do_nothing
+	end
+end
+=end
 def do_nothing
     # do nothing
 end	
