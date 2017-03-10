@@ -1,3 +1,4 @@
+
 When(/^I tap SKIP button$/) do
 
   #wait_for_none_animating
@@ -145,6 +146,19 @@ When(/^I proceed as Pension$/) do
 
   @current_page = page(InvestorTypePage).await(timeout: 30)
   @current_page.proceed_as_not_limited_partner(@current_page.cell, "Pension")
+
+end
+  
+
+When(/^I select investor type$/) do
+	
+  @current_page = page(InvestorTypePage).await(timeout: 30)
+  @current_page.pick_first_cell(@current_page.cell)
+
+  while @current_page.trait do
+  	@current_page.select_investor_type(@current_page.cell, @current_page.cellText)
+  	sleep(1)
+  end
   
 end
 
