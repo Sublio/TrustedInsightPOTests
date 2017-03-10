@@ -1,7 +1,7 @@
 require 'calabash-cucumber/ibase'
 
 
-#Android
+#IOS
 
 class WhereDoYouWorkPage < Calabash::IBase
 

@@ -1,7 +1,6 @@
 require 'calabash-cucumber/ibase'
 
-
-#Android
+#iOS
 
 class WhereDoYouStudyPage < Calabash::IBase
 
@@ -12,3 +11,4 @@ class WhereDoYouStudyPage < Calabash::IBase
   end
 
 end
+

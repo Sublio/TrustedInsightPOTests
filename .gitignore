@@ -18,3 +18,8 @@
 *.sublime-project
 *.sublime-workspace
 
+
+#idea files #
+
+##############
+.idea/

@@ -150,18 +150,6 @@ When(/^I proceed as Pension$/) do
 end
   
 
-When(/^I select investor type$/) do
-	
-  @current_page = page(InvestorTypePage).await(timeout: 30)
-  @current_page.pick_first_cell(@current_page.cell)
-
-  while @current_page.trait do
-  	@current_page.select_investor_type(@current_page.cell, @current_page.cellText)
-  	sleep(1)
-  end
-  
-end
-
 When(/^I proceed as Family Office$/) do
 
   @current_page = page(InvestorTypePage).await(timeout: 30)
@@ -176,4 +164,8 @@ When(/^I proceed as Other in Limited Partner$/) do
   @current_page = page(YourInterestsPage).await(timeout: 30)
   @current_page.tap_back_button
   
+end
+
+When(/^I wait for Your Interests Page$/) do
+  @current_page = page(YourInterestsPage).await(timeout: 30)
 end

@@ -4,7 +4,7 @@ Feature: Initial experience
   and login to an existing Trusted insight account.
 
 
-  @reinstall
+  @shouldLogoutBefore
   Scenario: Tapping on Access with email button
 
   	Given I am on the welcome screen

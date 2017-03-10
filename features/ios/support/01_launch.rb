@@ -1,4 +1,5 @@
 require 'calabash-cucumber/launcher'
+require 'calabash-cucumber'
 
 # You can find examples of more complicated launch hooks in these
 # two repositories:
@@ -70,10 +71,11 @@ Before("@no_relaunch") do
 end
 
 
+
 #ENV['DEVICE_TARGET'] = 'iPhone 5 (9.3)'
-#ENV['DEVICE_TARGET'] = 'iPhone 5 (10.2)'
+#ENV['DEVICE_TARGET'] = 'iPhone 6 (10.2)'
 #ENV['DEVICE_TARGET'] = '5cdb1910f92bf7645bc981e80d47ec67fda487ca'
-#ENV['DEVICE_ENDPOINT'] = 'http://10.1.0.124:37265'
+#ENV['DEVICE_ENDPOINT'] = 'http://10.1.0.136:37265'
 #ENV['BUNDLE_ID'] = 'com.thetrustedinsight.app'
 #ENV['RESET_BETWEEN_SCENARIOS'] = '0'
 #ENV['NO_LAUNCH'] = '1'
@@ -89,7 +91,7 @@ end
 =begin
 
 Управление таймаутом у симулятора- дефолтное значение!!!
-#RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 60
+RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 60
 =end
 #RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 180
 
@@ -100,9 +102,15 @@ end
 #RunLoop::CoreSimulator::DEFAULT_OPTIONS[:launch_app_timeout] = 60
 #RunLoop::CoreSimulator::DEFAULT_OPTIONS[:wait_for_state_timeout] = 60
 #RunLoop::CoreSimulator::DEFAULT_OPTIONS[:app_launch_retries] = 10
+#RunLoop::CoreSimulator::DEFAULT_OPTIONS[:launch_app_timeout] = 180
+#RunLoop::CoreSimulator::DEFAULT_OPTIONS[:wait_for_state_timeout] = 180
+#RunLoop::CoreSimulator::DEFAULT_OPTIONS[:app_launch_retries] = 20
+#RunLoop::DeviceAgent::Client::DEFAULTS[:http_timeout] = 180
+#RunLoop::DeviceAgent::Client::DEFAULTS[:device_agent_install_timeout] = 180
 
 
 puts RunLoop::Core.default_simulator #print default system simulator
+#puts RunLoop::Xcrun::DEFAULT_OPTIONS
 
 
 Before do |scenario|

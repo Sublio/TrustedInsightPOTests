@@ -8,7 +8,7 @@ lastname = Faker::Name.unique.last_name
 
 CREDENTIALS = {
     valid_user: {
-        mail: 'sublio1260@gmail.com',
+        mail: 'sublio1260@thetrustedinsight.com',
         password:  'true',
         firstname: 'Denis',
         lastname:  'Test'
@@ -25,6 +25,12 @@ CREDENTIALS = {
         password: 'untestor1260'
     },
 
+    borsch_user: {
+        mail: 'test@xttk.ru',
+        password:  'Qwerty123',
+        firstname: 'Vladislav',
+        lastname:  'Borsch'
+    },
 
     random_user: {
     	mail: mail,
@@ -33,6 +39,7 @@ CREDENTIALS = {
         lastname: lastname       
     },
 }
+
 
 
 

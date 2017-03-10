@@ -44,3 +44,5 @@ Feature: As new user I can select investor type
       * I proceed as Family Office
       * I scroll
       * I proceed as Other in Limited Partner
+      * I wait for Your Interests Page
+
