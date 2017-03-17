@@ -5,7 +5,8 @@ Then /^I see title of Settings screen$/ do
 end
 
 And /^I logged in as Fedor Cherepashkin and I can see First and Last names$/ do
-	@current_page = page(SettingsPage)
+	@current_page = page(SettingsPage).await(timeout:60)
+	sleep(1)
 #	username = @current_page.SettingsName
 # 	puts(@current_page.SettingsName)
 		if (@current_page.SettingsName).empty?
@@ -27,7 +28,7 @@ end
 
 And /^I logged in as worker from Ros company and I can see my Company$/ do
 	@current_page = page(SettingsPage)
-	firmname = query(@current_page.SettingsFirmName,"text").first
+	firmname = @current_page.SettingsPosition
 		if (firmname.empty?)
 			fail("Firm name not found")
 		else

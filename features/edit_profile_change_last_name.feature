@@ -1,4 +1,3 @@
-@reinstall
 Feature: Changing Last name
 As an Rosberry Tester
 I want to change Last name and save it

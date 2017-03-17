@@ -26,7 +26,7 @@ class SettingsPage < Calabash::ABase
   end
 
   def SettingsFirmName
-    "* id:'settings_company_name'"#,"text" # Name of Company on on Settings screen
+    query("* id:'settings_company_name'","text").first#,"text" # Name of Company on on Settings screen
   end
 
   def SettingsFirmNameButton
@@ -82,7 +82,7 @@ class SettingsPage < Calabash::ABase
     "* id:'settings_version'"
   end
 
-  def GoToBottom
+  def goToBottom
       scroll("ResponsiveScrollView",:down)
   end
 

@@ -239,18 +239,21 @@ findWelcome
 =end
 		wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
 		touch("* text:'ACCESS WITH EMAIL'")
-		enter_text("* id:'join_input_et'","test1@xttk.ru") #login
-sleep(1)
+		enter_text("* id:'join_input_et'","test1@xttk.ru")#login
+		hide_soft_keyboard 
+sleep(2)
 =begin #old password
 	keyboard_enter_text("Qwerty123")
 	perform_action('drag', 50, 50, 70, 20, 30)
 =end
 		touch("* id:'join_action_button'")
 		wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
+		sleep(1)
 		enter_text("* id:'join_input_et'","Qwerty123")
+		sleep(2)
 		hide_soft_keyboard
 #		perform_action('drag', 50, 50, 70, 20, 30) #password
-sleep(1)
+sleep(2)
 		touch("* id:'join_action_button'")
 sleep(1)
 		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
@@ -322,7 +325,7 @@ end
 def tapiconTopBack
 iconTopBack = query("* marked:'Navigate up'")
 	if (iconTopBack.empty?)
-		do_nothing
+		hideKeyboard
 	else
 		touch("* marked:'Navigate up'")
 	end
@@ -332,7 +335,7 @@ end
 def tap_email_back
 join_email_back = query("* marked:'join_email_back'")
 	if (join_email_back.empty?)
-		do_nothing
+		hideKeyboard
 	else
 		touch("* marked:'join_email_back'")
 	end
@@ -342,7 +345,7 @@ end
 def tap_password_back
 join_password_back = query("* marked:'join_password_back'")
 	if (join_password_back.empty?)
-		do_nothing
+		hideKeyboard
 	else
 		touch("* marked:'join_password_back'")
 	end
@@ -352,7 +355,7 @@ end
 def tapCancel
 cancel_button = query("* marked:'Cancel'")
 	if (cancel_button.empty?)
-		do_nothing
+		hideKeyboard
 	else
 		touch("* marked:'Cancel'")
 	end
@@ -361,7 +364,7 @@ end
 def tapLevelOnWizard
 level_container = query("* id:'level_container'")
 	if (level_container.empty?)
-		do_nothing
+		hideKeyboard
 	else
 		touch("* id:'level_container'")
 	end
@@ -370,7 +373,7 @@ end
 def skipOnWizard
 skip_on_wizard = query("* marked:'SKIP'")
 	if (skip_on_wizard.empty?)
-		do_nothing
+		hideKeyboard
 	else
 		touch("* marked:'SKIP'")
 	end
@@ -379,7 +382,7 @@ end
 def tapContinue
 contunue_button = query("* marked:'Continue'")
 	if (contunue_button.empty?)
-		do_nothing
+		hideKeyboard
 	else
 		touch("* marked:'Continue'")
 	end
@@ -388,11 +391,16 @@ end
 def tapBackOnSearch
 back_from_search = query("* id:'action_up_btn'")
 	if (back_from_search.empty?)
-		do_nothing
+		hideKeyboard
 	else
 		touch("* id:'action_up_btn'")
 	end
 end
+
+def hideKeyboard
+            hide_soft_keyboard
+end
+
 =begin #How to find bottombar
 def dragToFindBottombar
 title_of_screen = query("TextView","text").first
@@ -414,11 +422,16 @@ Before('@findWelcome') do
 	if element_exists("* id:'join_welcome'")
 puts("Welcome to Welcome screen.")
 	else 
-	findBottomBar
+#	findBottomBar
+findWelcome
 	end
 end
 
 
-    def HideKeyboard
-            hide_soft_keyboard
-    end
+After('@findWelcome') do
+
+findWelcome 
+
+end
+
+

@@ -26,6 +26,11 @@ class FeedPage < Calabash::ABase
 
   end
 
+def SettingsTab
+
+    "* id:'bottomBarItemFive'"
+
+  end
 
   def firstCell
 

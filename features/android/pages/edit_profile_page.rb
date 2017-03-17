@@ -63,15 +63,35 @@ class EditProfilePage < Calabash::ABase
     end
 
     def CountryLabel
-    "TextInputLayout hint:'Country'"# This is a "Country" field
+    "TextInputLayout hint:'Country'"# This is a "Country" label
+    end
+
+    def countryField
+    "* tag:'Country_field'"# This is a "Country" field
+    end
+
+    def countryContainer
+    "listview"
     end   
+
+    def countryItself
+    "* id:'title'"
+    end
+
+    def countryOkButton
+    "* id:'buttonDefaultPositive'"
+    end
+
+    def countryCancelButton
+    "* id:'buttonDefaultNegative'"
+    end
 
     def ShortBioLabel
     "* :'edit_text_header'"# This is a "Bio" label
     end   
 
-    def BioField
-    "AppCompatEditText id:'edit_text'"# This is a "Short Bio" field
+    def bioField
+    "* tag:'Short Bio'"# This is a "Short Bio" field
     end
 
     def InvestorTypeLabel
@@ -98,11 +118,11 @@ class EditProfilePage < Calabash::ABase
    "* marked:'Continue'"# This is a Continue button
     end 
 
-     def GoToBottom
+     def goToBottom
     scroll("ResponsiveScrollView",:down)
     end
 
-    def ShowBottom
+    def showBottom
     perform_action('drag', 50, 50, 70, 20, 30)
     end
 
@@ -110,5 +130,73 @@ class EditProfilePage < Calabash::ABase
         hide_soft_keyboard
     end
 
+    def inputUserBio(bio)
+    keyboard_enter_text(bio)
+    end
 
-end
+    def clearTextInBio
+        clear_text_in("* tag:'Short Bio'")
+    end
+
+    def ClearTextInCompany
+        clear_text_in("* tag:'Company'")
+    end
+
+    def ClearTextInPosition
+        clear_text_in("* tag:'Title / Position'")
+    end
+
+     def clearTextInFirstName
+        clear_text_in("* tag:'First name'")
+    end
+
+    def clearTextInLastName
+        clear_text_in("* tag:'Last name'")
+    end
+
+
+    def RandomTitlePosition
+    random_set= (('A'..'Z').to_a)
+    random_title = (0...7).map { |n| random_set.sample }.join
+    end
+
+    def alertAboutMandatoryField
+    alert_mandatory = query("* marked:'Please fill out this field'","text").first
+    if (alert_mandatory.empty?)
+        fail("Alert that field is mandatory not found")
+    else
+        puts("Alert \"Please fill out this field\" appears!")
+    end
+    end
+
+    def noAlertAboutMandatoryField
+    alert_mandatory = query("* marked:'Please fill out this field'","text").first
+    if (alert_mandatory.empty?)
+        puts("Alert about mandatory field disappears")
+    else
+        fail("Alert about mandatory field still appears!")
+    end
+    end
+
+  def pickCountryFromTheList(countryfield, container, country, confirmbutton, showbottom)
+    showbottom
+    sleep(1)
+    touch(countryfield)
+    rand(0..48).times do
+      pan container, :up
+    end
+    selected_country = query(country)[(rand(0..query(country).length - 1))]
+    selected_country_title = selected_country["text"]
+    touch(selected_country)
+    sleep (1)
+    touch(confirmbutton)
+    final_country_title = query(countryfield).first["text"]
+    if selected_country_title == final_country_title
+      puts("Country picked successfully")
+    elsif selected_country_title != final_country_title
+      fail("Country doesn't match!")
+    end
+
+  end
+
+end #end of class
