@@ -96,9 +96,12 @@ RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 60
 #RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 180
 
 
-Calabash::Cucumber::WaitHelpers::DEFAULT_OPTS[:screenshot_on_error] = false #switch off screenshot generating on failer
+#Calabash::Cucumber::WaitHelpers::DEFAULT_OPTS[:screenshot_on_error] = false #switch off screenshot generating on failer
 #RunLoop::Shell::DEFAULT_OPTIONS[:timeout] = 300  #default timeout for launch
 #RunLoop::Shell::DEFAULT_OPTIONS[:log_cmd] = true 
+#RunLoop::CoreSimulator::DEFAULT_OPTIONS[:launch_app_timeout] = 60
+#RunLoop::CoreSimulator::DEFAULT_OPTIONS[:wait_for_state_timeout] = 60
+#RunLoop::CoreSimulator::DEFAULT_OPTIONS[:app_launch_retries] = 10
 #RunLoop::CoreSimulator::DEFAULT_OPTIONS[:launch_app_timeout] = 180
 #RunLoop::CoreSimulator::DEFAULT_OPTIONS[:wait_for_state_timeout] = 180
 #RunLoop::CoreSimulator::DEFAULT_OPTIONS[:app_launch_retries] = 20

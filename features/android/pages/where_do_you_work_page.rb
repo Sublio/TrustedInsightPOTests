@@ -75,9 +75,9 @@ class WhereDoYouWorkPage < Calabash::ABase
 
   end
 
-  def countryItself
+  def countryElementString
 
-    "* id:'title'"
+    "listview * id:'title'"
 
   end
 
@@ -121,7 +121,7 @@ class WhereDoYouWorkPage < Calabash::ABase
 
   def NextButton
 
-    "* marked:'NEXT'"
+    "* id:'next_btn'"
 
   end  
 
@@ -173,11 +173,39 @@ end
 
   end
 
-  def pickCountryFromTheList(countryfield, container, country, confirmbutton, nextbutton)
+#query("listview", :getAdapter).first["count"].to_i - количество позиций
+#query("ListView",{:smoothScrollToPosition=>100}) - скролл до позиции 
 
-    touch(countryfield)
+  def pickCountryFromTheList(countryTitleEditText, countryElementString, pickerViewString, countryTitleString, confirmCountryButton, nextButton)
+
+    touch(countryTitleEditText)
+    i = 0
+    loop do 
+    countries = query(countryElementString)
+    for country in countries do
+      if country["text"] == countryTitleString
+        touch(country)
+        i = i + 1
+        break
+      else
+        next
+      end
+    end
+    break if i == 1
+    pan pickerViewString, :up
+    end
+    touch(confirmCountryButton)
+    touch(nextButton)
+
+  end
+
+=begin
+#deprecated
+  def pickCountryFromTheList(countryTitleEditText, countryElementString, pickerViewString, countryTitleString, confirmCountryButton, nextButton)
+
+    touch(countryTitleEditText)
     rand(0..48).times do
-      pan container, :up
+      pan pickerViewString, :up
     end
     selected_country = query(country)[(rand(0..query(country).length - 1))]
     selected_country_title = selected_country["text"]
@@ -193,3 +221,28 @@ end
     touch(nextbutton)
 
   end
+=end
+
+=begin
+#pan until I see string
+i = 0
+loop do 
+
+  countries = query("listview * id:'title'")
+
+  for country in countries do
+    if country["text"] == "Aruba"
+      touch(country)
+      i = i + 1
+      break
+    else
+      next
+    end
+  end
+  break if i == 1
+  pan "listview", :up
+
+end
+
+
+=end

@@ -7,7 +7,7 @@ class YourBackgroundPage < Calabash::ABase
 
   def trait
 
-    "* marked:'What is your background?'"
+    "recyclerview cardview appcompattextview"
 
   end
 
@@ -15,6 +15,28 @@ class YourBackgroundPage < Calabash::ABase
 
     query("recyclerview cardview appcompattextview")
     
+  end
+
+  def proceedAsWorker(levelsCellsArray)
+
+    cells2 = []
+    levelsCells.each do |cell|
+      if (cell["text"].include? "Student") == false
+        cells2 << cell
+      end
+    end
+    touch(cells2[rand(0..cells2.length - 1)])
+
+  end
+
+  def proceedAsStudent(levelsCellsArray)
+
+    levelsCells.each do |cell|
+      if cell["text"].include? "Student"
+        touch(cell)
+      end
+    end
+
   end
 
   def tapRandomCell

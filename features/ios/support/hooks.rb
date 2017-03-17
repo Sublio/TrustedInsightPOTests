@@ -51,8 +51,6 @@ After('@shouldLogin') do
 
 end
 
-
-
 After('@shoudlLogout') do
 
 	wait_for(:timeout => 20) { element_exists("* marked:'Settings'")}
@@ -421,7 +419,4 @@ welcomescreen = query("* marked:'Welcome to Trusted Insight'")
 	else 
 		puts("Congrats! \nYou are on Welcome screen.\n Let's run your test!")
 	end
-end
-
-After('@checkWelcome') do
 end

@@ -1,20 +1,14 @@
 require 'calabash-cucumber/ibase'
 
-
-#IOS
+#iOS
 
 class WhereDoYouStudyPage < Calabash::IBase
 
- def trait
+  def trait
 
-    "* marked:'Where do you study?'"   #this is a textField locator
-
-  end
-
-  def tapBackButton 
-
-    touch("* marked:'BACK'") #this is a backButton locator
+    "TITextField index:0"
 
   end
 
 end
+
