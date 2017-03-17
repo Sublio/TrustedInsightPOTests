@@ -98,6 +98,10 @@ class EditProfilePage < Calabash::ABase
     "TextInputLayout hint:'Investor type"# This is a "Investor type" label
     end   
 
+    def investorTypeField
+    "* tag:'Investor type'"# This is a "Country" field
+    end
+
     def InvestorLevelLabel
     "TextInputLayout hint:'Investor level'"# This is a "Investor level" label
     end       
@@ -161,7 +165,7 @@ class EditProfilePage < Calabash::ABase
     end
 
     def alertAboutMandatoryField
-    alert_mandatory = query("* marked:'Please fill out this field'","text").first
+    alert_mandatory = query("* marked:'Please fill out this field'","text")
     if (alert_mandatory.empty?)
         fail("Alert that field is mandatory not found")
     else
@@ -170,7 +174,7 @@ class EditProfilePage < Calabash::ABase
     end
 
     def noAlertAboutMandatoryField
-    alert_mandatory = query("* marked:'Please fill out this field'","text").first
+    alert_mandatory = query("* marked:'Please fill out this field'","text")
     if (alert_mandatory.empty?)
         puts("Alert about mandatory field disappears")
     else

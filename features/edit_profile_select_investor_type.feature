@@ -3,7 +3,7 @@ As a Trusted Inight user
 I want to select  Investor Type on Edit Profile screen save it
 
 Background:
-
+ * I want to find Welcome screen
  * I am on the welcome screen
  * I tap on Access wit email button
  * I see Text field for inputting my email
@@ -19,7 +19,6 @@ Background:
  * I pick random job title from given results
  * I pick random firm title from given results
  * I pick country and make sure that it appears
- * I wait for next page
 
 
 Scenario: Select Investor Type
@@ -31,7 +30,9 @@ And I tap Edit Profile button on Settings screen
 And I am on Edit profile screen
 And I scroll down on Edit profile screen
 And I check that alert about mandatory field appears
-#And I select Investor type
-#And I check that alert about mandatory field disappears
-#And I tap Done button on Edit profile screen
-#And I check that I returned to Settings screen
+And I tap Investor Type field
+And I select type Other
+And I check that alert about mandatory field disappears
+And I tap Done button on Edit profile screen
+And I check that I returned to Settings screen
+ * I want to find Welcome screen

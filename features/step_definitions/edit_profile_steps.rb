@@ -275,7 +275,7 @@ And /^I check that alert about mandatory field disappears$/ do
 end
 ###Select INVESTOR TYPE
 And /^I tap Skip button on Investor type screen on wizard$/ do
-	@current_page = page(InvestorType).await(timeout: 60)
+	@current_page = page(InvestorTypePage).await(timeout: 60)
 	touch(@current_page.skipOnWizard)
 end
 
@@ -298,4 +298,13 @@ And /^I scroll down on Edit profile screen$/ do
 	@current_page = page(EditProfilePage).await(timeout: 60)
 	2.times do @current_page.showBottom
 	end
+end
+
+And /^I tap Investor Type field$/ do
+	@current_page = page(EditProfilePage).await(timeout: 60)
+	touch(@current_page.investorTypeField)
+end
+
+And /^I want to find Welcome screen$/ do
+	findWelcome 
 end
