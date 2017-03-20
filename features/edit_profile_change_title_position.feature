@@ -4,7 +4,7 @@ I want to change Title Position and save it
 
 
 @shouldLoginAsCherepashkin
-Scenario: Change Country name
+Scenario: Change Title Position name
 And I am on Settings screen and check Title Position
 And I tap Edit Profile button on Settings screen
 And I am on Edit profile screen 

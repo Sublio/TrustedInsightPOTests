@@ -9,76 +9,76 @@ class SettingsPage < Calabash::ABase
     "* marked:'Settings'"   #this is a title of Settings screen
   end
 
-  def SettingsAvatar   
+  def settingsAvatar   
     "* id:'settings_photo'" # this is avatar on Settings screen
   end
 
-  def SettingsFirmLogo
+  def settingsFirmLogo
     "* id:'settings_company_photo'" # Just a Firm logo
   end
 
-  def SettingsName
+  def settingsName
     query("* id:'settings_name'","text").first # "text" # User's First and Last names on Settings screen
   end
 
-  def SettingsPosition
+  def settingsPosition
     query("* id:'settings_position_name'","text").first # User Position on Settings screen
   end
 
-  def SettingsFirmName
+  def settingsFirmName
     query("* id:'settings_company_name'","text").first#,"text" # Name of Company on on Settings screen
   end
 
-  def SettingsFirmNameButton
+  def settingsFirmNameButton
     "* id:'settings_company_name'"#,"text" # Name of Company on on Settings screen
   end
 
-  def EditProfileButton
+  def editProfileButton
     "* id:'settings_edit_profile'"
   end
 
-  def ManageInterestsButton
+  def manageInterestsButton
   "* id:'settings_interests'"
   end
 
-  def PreferencesButton
+  def preferencesButton
     "* id:'settings_preferences'"
   end
 
-  def ChangePasswordButton
+  def changePasswordButton
     "* id:'settings_change_password'"
   end
 
-  def AttachPhoneNumberButton
+  def attachPhoneNumberButton
     "* id:'settings_text_phone_number'"
   end
 
-  def PhoneNumberConfirmedButton
+  def phoneNumberConfirmedButton
   "* id:'settings_text_phone_number_confirmed'" # Visible if text is not empty
 
   end
 
-  def AboutButton
+  def aboutButton
     "* id:'settings_about'"
   end
 
-  def SettingsTermsButton
+  def settingsTermsButton
     "* id:'settings_terms'"
   end
 
-  def SettingsPrivacyPolicyButton
+  def settingsPrivacyPolicyButton
     "* id:'settings_privacy_policy'"
   end
 
-  def FeedbackButton
+  def feedbackButton
     "* id:'settings_leave_feedback'"
   end
 
-  def LogOutButton
+  def logOutButton
     "* id:'settings_logout'"
   end
 
-  def AppVersion
+  def appVersion
     "* id:'settings_version'"
   end
 
@@ -87,7 +87,7 @@ class SettingsPage < Calabash::ABase
   end
 
 
-def ShowBottom
+def showBottom
   perform_action('drag', 50, 50, 70, 20, 30)
 end
 
