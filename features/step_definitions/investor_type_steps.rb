@@ -24,6 +24,13 @@ When(/^I proceed as Other$/) do
   
 end
 
+When(/^I select type Other$/) do #Need to select from Edit Profile screen
+
+  @current_page = page(InvestorTypePage).await(timeout: 30)
+  @current_page.proceed_as_partner("Other")
+
+end
+
 When(/^I proceed as Consultant$/) do
 
   @current_page = page(InvestorTypePage).await(timeout: 30)

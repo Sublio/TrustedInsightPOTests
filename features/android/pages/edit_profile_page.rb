@@ -10,59 +10,59 @@ class EditProfilePage < Calabash::ABase
     "TextView text:'Edit Profile'"  #this is a title of Edit profile screen
     end
 
-    def BackButton  
+    def backButton  
     "* marked:'Navigate up'" # this is a "Back" button in left right corner on "Edit Profile" screen
     end
 
-    def DoneButton  
+    def doneButton  
     "* marked:'action_ok'" # this is a "V" button in top right corner on "Edit Profile" screen
     end
 
-    def IconEditPhoto
+    def iconEditPhoto
     "* id:'edit_dashed_image'" # This is an icon on Avatar on Edit Profile screen
     end
 
-    def AvatarOverlay
+    def avatarOverlay
     "* id:'edit_profile_overlay_image'" # This is an icon on Avatar on Edit Profile screen
     end
     
-    def AvatarImage
+    def avatarImage
     "* id:'edit_profile_image'" # This is avatar on "Edit Profile" screen
     end
 
-    def FirstNameLabel
+    def firstNameLabel
     "TextInputLayout hint:'First name'"# This is a "First name" label
     end
  
-    def FirstNameField
+    def firstNameField
     "* tag:'First name'"# This is a "First name" field
     end
  
-    def LastNameLabel
+    def lastNameLabel
     "TextInputLayout hint:'Last name'"# This is a "First name" label
     end
  
-    def LastNameField
+    def lastNameField
     "* tag:'Last name'"# This is a "Last name" field
     end
  
-    def CompanyLabel
+    def companyLabel
     "TextInputLayout hint:'Company'"# This is a "Company" label
     end
 
-    def CompanyField
+    def companyField
     "* tag:'Company'"# This is a "Company" field
     end
 
-    def TitlePositionLabel
+    def titlePositionLabel
     "TextInputLayout hint:'Title / Position'"# This is a "Title / Position" label
     end
 
-    def TitlePositionField
+    def titlePositionField
     "* tag:'Title / Position'"# This is a "Title / Position" field
     end
 
-    def CountryLabel
+    def countryLabel
     "TextInputLayout hint:'Country'"# This is a "Country" label
     end
 
@@ -86,7 +86,7 @@ class EditProfilePage < Calabash::ABase
     "* id:'buttonDefaultNegative'"
     end
 
-    def ShortBioLabel
+    def shortBioLabel
     "* :'edit_text_header'"# This is a "Bio" label
     end   
 
@@ -94,27 +94,31 @@ class EditProfilePage < Calabash::ABase
     "* tag:'Short Bio'"# This is a "Short Bio" field
     end
 
-    def InvestorTypeLabel
+    def investorTypeLabel
     "TextInputLayout hint:'Investor type"# This is a "Investor type" label
     end   
 
-    def InvestorLevelLabel
+    def investorTypeField
+    "* tag:'Investor type'"# This is a "Country" field
+    end
+
+    def investorLevelLabel
     "TextInputLayout hint:'Investor level'"# This is a "Investor level" label
     end       
  
-    def TitleOnAlert
+    def titleOnAlert
    "AppCompatTextView id:'title'"# This is a title of alert
     end 
 
-    def TextOnAlert
+    def textOnAlert
    "AppCompatTextView id:'content'"# This is a text on alert
     end 
 
-    def CancelOnAlert
+    def cancelOnAlert
    "* marked:'Cancel'"# This is a Cancel button
     end 
 
-    def ContinueOnAlert
+    def continueOnAlert
    "* marked:'Continue'"# This is a Continue button
     end 
 
@@ -126,7 +130,7 @@ class EditProfilePage < Calabash::ABase
     perform_action('drag', 50, 50, 70, 20, 30)
     end
 
-    def HideKeyboard
+    def hideKeyboard
         hide_soft_keyboard
     end
 
@@ -138,11 +142,11 @@ class EditProfilePage < Calabash::ABase
         clear_text_in("* tag:'Short Bio'")
     end
 
-    def ClearTextInCompany
+    def clearTextInCompany
         clear_text_in("* tag:'Company'")
     end
 
-    def ClearTextInPosition
+    def clearTextInPosition
         clear_text_in("* tag:'Title / Position'")
     end
 
@@ -155,13 +159,13 @@ class EditProfilePage < Calabash::ABase
     end
 
 
-    def RandomTitlePosition
+    def randomTitlePosition
     random_set= (('A'..'Z').to_a)
     random_title = (0...7).map { |n| random_set.sample }.join
     end
 
     def alertAboutMandatoryField
-    alert_mandatory = query("* marked:'Please fill out this field'","text").first
+    alert_mandatory = query("* marked:'Please fill out this field'","text")
     if (alert_mandatory.empty?)
         fail("Alert that field is mandatory not found")
     else
@@ -170,7 +174,7 @@ class EditProfilePage < Calabash::ABase
     end
 
     def noAlertAboutMandatoryField
-    alert_mandatory = query("* marked:'Please fill out this field'","text").first
+    alert_mandatory = query("* marked:'Please fill out this field'","text")
     if (alert_mandatory.empty?)
         puts("Alert about mandatory field disappears")
     else
