@@ -24,6 +24,7 @@ Background:
  * I tap Skip button on Complete your profie screen
  * I tap Settings button on bottombar
 
+@logoutAtAnyCost
 Scenario: Change Last name
 And I am on Settings screen and check user name
 And I tap Edit Profile button on Settings screen

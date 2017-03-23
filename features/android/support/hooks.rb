@@ -435,3 +435,16 @@ findWelcome
 end
 
 
+Before('@logoutAtAnyCost') do
+
+end
+
+
+After('@logoutAtAnyCost') do
+	if element_exists("* id:'join_welcome'")
+puts("Welcome to Welcome screen.")
+	else 
+#	findBottomBar
+findWelcome
+	end
+end
