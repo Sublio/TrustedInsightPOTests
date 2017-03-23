@@ -18,6 +18,7 @@ Feature: As new user I can select investor type
       * I tap SKIP button
       * I wait for Investor Type page
 
+
   Scenario: I can select investor type
 
       * I proceed as Fund of Funds

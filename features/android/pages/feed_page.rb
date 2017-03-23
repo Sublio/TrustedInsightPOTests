@@ -42,7 +42,8 @@ def settingsTab
 
   def firstCellHeader
 
-   query("android.support.v7.widget.RecyclerView descendant android.widget.FrameLayout index:0 RelativeLayout android.widget.TextView") #return all text from cell!!!!!!!
+   query("android.support.v7.widget.RecyclerView descendant android.widget.FrameLayout index:0 RelativeLayout android.widget.TextView",:text).first #return all text from cell!!!!!!!
+
   end
 
   def cellBookmarksButton

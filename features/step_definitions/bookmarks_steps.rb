@@ -32,6 +32,7 @@ When (/^I add one bookmark with news content$/) do
 
   @currentPage=page(FeedPage).await(timeout:30)
 
+  sleep(5)
   @currentPage.swipeOnFirstCellInRightSide
   touch(@currentPage.cellBookmarksButton)
   sleep(3) #We really need to avoid sleeps everywhere!!!!

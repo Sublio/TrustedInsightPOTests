@@ -5,6 +5,7 @@ require_relative '../support/global_helpers'
 
 When(/^I add first cell to bookmarks$/) do
   @current_page = page(FeedPage).await(timeout: 60)
+  sleep(6) #we need to wait while feed content has been fully loaded
   @cellHeaderBefore = @current_page.firstCellHeader
   @current_page.swipeOnFirstCellInRightSide
   sleep(2)
@@ -62,6 +63,7 @@ end
 Then (/^I swipe on first cell$/) do
 
   @current_page = page(FeedPage).await(timeout:10)
+  sleep(8);
   @current_page.swipeOnFirstCellInRightSide
 
 end

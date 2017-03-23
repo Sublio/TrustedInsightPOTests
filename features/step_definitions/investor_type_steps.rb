@@ -168,9 +168,8 @@ When(/^I proceed as Other in Limited Partner$/) do
 
   @current_page = page(InvestorTypePage).await(timeout: 30)
   @current_page.proceed_as_partner("Other")
+  sleep(2);
   @current_page = page(YourInterestsPage).await(timeout: 30)
-  @current_page.tap_back_button
-  
 end
 
 When(/^I wait for Your Interests Page$/) do

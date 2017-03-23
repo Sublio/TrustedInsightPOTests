@@ -1,3 +1,5 @@
+
+
 When(/^I select avatar from camera$/) do
 
   @current_page = page(CompleteYourProfilePage).await(timeout: 30)

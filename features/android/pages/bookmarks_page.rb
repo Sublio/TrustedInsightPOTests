@@ -18,7 +18,7 @@ class BookmarksPage < Calabash::ABase
 
   def firstCellHeader
 
-    query ("android.support.v7.widget.RecyclerView descendant android.widget.FrameLayout index:0 RelativeLayout android.widget.TextView")
+    query('android.support.v7.widget.RecyclerView index:1 android.widget.TextView',:text).first
 
   end
 

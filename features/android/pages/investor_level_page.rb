@@ -33,6 +33,7 @@ end
 
   def proceed_as_partner(partner_string)
 
+    sleep(2)
     touch("* marked:'#{partner_string}'")
 
   end

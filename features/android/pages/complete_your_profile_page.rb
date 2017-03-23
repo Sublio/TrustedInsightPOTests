@@ -90,9 +90,9 @@ class CompleteYourProfilePage < Calabash::ABase
   	touch(avatarimage)
   	touch(gallerybutton)
   	sleep 3
-  	system("adb shell input tap 200 650")
+  	system("adb shell input tap 200 230")
   	sleep 3
-  	system("adb shell input tap 115 365")
+  	system("adb shell input tap 127 377")
   	sleep 3
   	touch(confirmbutton)
 
@@ -104,10 +104,10 @@ class CompleteYourProfilePage < Calabash::ABase
   	sleep 2
   	touch(camerabutton)
   	sleep 3
-  	system("adb shell input tap 360 1070")
+  	system("adb shell input tap 200 230")
   	sleep 3
-  	system("adb shell input tap 360 1070")
-  	sleep 3
+  	system("adb shell input tap 127 377")
+  	sleep 10
   	touch(confirmbutton)
   end
 

@@ -2,7 +2,7 @@ Feature: As new user I can select job and firm title using autocomplete and sele
 
 
   Background:
-
+      * I want to find Welcome screen
       * I am on the welcome screen
       * I tap on Access wit email button
       * I see Text field for inputting my email

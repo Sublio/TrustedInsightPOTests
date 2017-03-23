@@ -2,14 +2,14 @@ require 'faker'
 
 mail = Faker::Internet.unique.email
 password = Faker::Vehicle.unique.vin
-firstname = Faker::Name.unique.name
+firstname = Faker::Name.unique.first_name
 lastname = Faker::Name.unique.last_name
 bio = Faker::Hacker.say_something_smart
 
 CREDENTIALS = {
     valid_user: {
-        mail: 'sublio1260@thetrustedinsight.com',
-        password:  'true',
+        mail: 'sublio1260@gmail.com',
+        password:  'avatar1260',
         firstname: 'Denis',
         lastname:  'Test'
     },
