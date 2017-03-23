@@ -4,7 +4,6 @@ As an Rosberry Tester
 I want to change First name and save it
 
 
-
 Background:
  * I want to find Welcome screen
  * I am on the welcome screen
@@ -22,7 +21,7 @@ Background:
  * I pick random job title from given results
  * I pick random firm title from given results
  * I pick country and make sure that it appears
- * I tap Skip button on Investor type screen on wizard
+ * I select type Other
  * I tap Skip button on What are you interest screen
  * I tap Skip button on Complete your profie screen
  * I tap Settings button on bottombar
