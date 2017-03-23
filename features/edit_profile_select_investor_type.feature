@@ -2,6 +2,7 @@ Feature: Select Investor Type on Edit Profile screen
 As a Trusted Inight user
 I want to select  Investor Type on Edit Profile screen save it
 
+
 Background:
  * I want to find Welcome screen
  * I am on the welcome screen
