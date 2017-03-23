@@ -310,16 +310,16 @@ settings_button = query("* id:'bottomBarItemFive'")
 end
 
 def returnToPreviousScreen
-tapiconTopBack
-tap_password_back
-tapContinue
-tap_email_back
-tapCancel
-tapLevelOnWizard
-skipOnWizard
-tapBackOnSearch
+	tapiconTopBack
+	tap_password_back
+	tapContinue
+	tap_email_back
+	tapCancel
+	tapLevelOnWizard
+	skipOnWizard
+	tapBackOnSearch
 
-findWelcome
+	findWelcome
 end
 
 def tapiconTopBack
