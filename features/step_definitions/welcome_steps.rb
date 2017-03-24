@@ -2,6 +2,7 @@
 
 Given(/^I am on the welcome screen$/) do
 
+  sleep(5)
   @current_page = page(WelcomePage).await(timeout: 60)
  
 end
