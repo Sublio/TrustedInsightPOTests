@@ -16,6 +16,5 @@ And I check that alert has been dismissed
 And I am on Edit profile screen
 And I try to leave Edit Profile screen without saving
 And I tap Continue button on alert to leave Edit Profile without saving
-And I check that alert has been dismissed
 And I check that I returned to Settings screen
 And I check that changes has not been applied

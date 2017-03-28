@@ -3,6 +3,7 @@
 
 And /^I am on Settings screen and check user name$/ do
 @current_page = page(SettingsPage).await(timeout:60)
+sleep(2)
 @name_before = (@current_page.settingsName)
 end
 
@@ -25,8 +26,6 @@ end
 
 And /^I try to leave Edit Profile screen without saving$/ do
 	@current_page = page(EditProfilePage)
-	@current_page.hide_soft_keyboard
-
 	sleep(1)
 	touch(@current_page.backButton)
 	 sleep(3)
@@ -34,11 +33,11 @@ end
 
 And /^I see alert with constant text$/ do
 	@current_page = page(EditProfilePage)
-	alert_title = query(@current_page.titleOnAlert,"text").first
+	alert_title = @current_page.titleOnAlert
 		if (alert_title.empty?)
 			fail("Alert title not found")
 		end
-	alert_text = query(@current_page.textOnAlert,"text").first
+	alert_text = @current_page.textOnAlert
 		if (alert_text.empty?)
 			fail("Alert text not found")
 		end
@@ -48,22 +47,27 @@ end
 And /^I tap Cancel button to return to Edit Profile screen$/ do
 	@current_page = page(EditProfilePage)
 	touch(@current_page.cancelOnAlert)
+  sleep(2)
+end
+
+And /^I tap Continue button on alert to leave Edit Profile without saving$/ do
+	sleep(2)
+	@current_page = page(EditProfilePage)
+	touch(@current_page.continueOnAlert)
 end
 
 And /^I check that alert has been dismissed$/ do
 	@current_page = page(EditProfilePage)
-	alert_title = query(@current_page.titleOnAlert,"text")
-	if (alert_title.empty?)
+	alert_title = @current_page.titleOnAlert
+  sleep(2)
+	if (alert_title.nil?)
 		puts("Alert has been dismissed")
 	else
 		fail("Cancel button doesn't work")
 	end
 end
 
-And /^I tap Continue button on alert to leave Edit Profile without saving$/ do
-	@current_page = page(EditProfilePage).await(timeout:60)
-	touch(@current_page.continueOnAlert)
-end
+
 
 And /^I check that I returned to Settings screen$/ do
 	@current_page = page(SettingsPage).await(timeout:60)

@@ -120,6 +120,7 @@ end
 
 Before('@landingBookmarks') do
 
+  sleep(5)
 	if element_exists("* id:'bottomBarItemTwo'")
 		touch("* id:'bottomBarItemTwo'")
 	else

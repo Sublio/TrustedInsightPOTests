@@ -107,11 +107,11 @@ class EditProfilePage < Calabash::ABase
     end       
  
     def titleOnAlert
-   "AppCompatTextView id:'title'"# This is a title of alert
+      query("AppCompatTextView id:'title'",:text).first # This is a title of alert
     end 
 
     def textOnAlert
-   "AppCompatTextView id:'content'"# This is a text on alert
+      query("AppCompatTextView id:'content'",:text).first # This is a text on alert
     end 
 
     def cancelOnAlert

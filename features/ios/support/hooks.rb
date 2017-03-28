@@ -300,6 +300,7 @@ end
 
 After('@shouldLoginAsCherepashkin') do
 
+	sleep(2)
 	touch("* marked:'Settings'")
 #	scroll("UITableView", :down)
 #	sleep(1)

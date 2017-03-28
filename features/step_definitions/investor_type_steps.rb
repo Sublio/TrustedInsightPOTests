@@ -1,7 +1,7 @@
 
 When(/^I tap SKIP button$/) do
 
-  #wait_for_none_animating
+  sleep(5)
   touch("* marked:'SKIP'")
 
 end

@@ -6,34 +6,43 @@ require 'calabash-cucumber/ibase'
 class EditProfilePage < Calabash::IBase
 
     def trait
+     sleep(2)
     "UINavigationBar id:'Edit profile'"  #this is a title of Edit profile screen
     end
 
-    def BackButton  
+    def backButton
     "* marked:'iconTopBack'" # this is a "Back" button in left right corner on "Edit Profile" screen
     end
 
-    def DoneButton  
+    def doneButton
     "* marked:'iconTopDone'" # this is a "V" button in top right corner on "Edit Profile" screen
     end
 
-    def IconEditPhoto
+    def iconEditPhoto
     "* id:'iconEditPhoto'" # This is an icon on Avatar on Edit Profile screen
     end
-    
-    def AvatarImage
+
+    def titleOnAlert
+        query("view marked:'Are you sure?' label",:text).first  # This is a title of alert
+    end
+
+    def textOnAlert
+        query("view marked:'All changed will be lost'",:text).first
+    end
+
+    def avatarImage
     "TIEditAccountImageView" # This is avatar on "Edit Profile" screen
     end
 
-    def FirstNameLabel
+    def firstNameLabel
     "UILabel marked:'First name'"# This is a "First name" label
     end
-=begin
-    def FirstNameField
-    "UITextField label:'First name'"# This is a "First name" field
+
+    def firstNameField
+    "UITextField index:0"# This is a "First name" field
     end
-=end
-    def LastNameLabel
+
+    def lastNameLabel
     "UILabel marked:'Last name'"# This is a "First name" label
     end
 =begin
@@ -41,7 +50,7 @@ class EditProfilePage < Calabash::IBase
     "UITextField label:'Last name'"# This is a "Last name" field
     end
 =end
-    def CompanyLabel
+    def companyLabel
     "UILabel marked:'Company'"# This is a "First name" label
     end
 =begin
@@ -49,7 +58,7 @@ class EditProfilePage < Calabash::IBase
     "UITextField label:'Company'"# This is a "Company" field
     end
 =end
-    def TitlePositionLabel
+    def titlePositionLabel
     "UILabel marked:'Title / Position'"# This is a "First name" label
     end
 =begin
@@ -57,7 +66,7 @@ class EditProfilePage < Calabash::IBase
     "UITextField label:'Title / Position'"# This is a "Title / Position" field
     end
 =end
-    def CountryLabel
+    def countryLabel
     "UILabel marked:'Country'"# This is a "Company" field
     end   
     
@@ -65,29 +74,39 @@ class EditProfilePage < Calabash::IBase
     "* marked:'iconInputSelect'" # this is an icon on country selection field
     end
 
-    def ShortBioLabel
+    def shortBioLabel
     "UILabel marked:'Short Bio'"# This is a "Company" field
     end   
 
-    def BioField
+    def bioField
     "TITextView label:'Short Bio'"# This is a "Short Bio" field
     end
 
-    def InvestorTypeLabel
+    def investorTypeLabel
     "UILabel marked:'Investor type"# This is a "Company" field
     end   
 
-    def InvestorLevelLabel
+    def investorLevelLabel
     "UILabel marked:'Investor level'"# This is a "Company" field
-    end       
+    end
+
+    def cancelOnAlert
+        "view marked:'Cancel'"
+
+    end
+
+    def continueOnAlert
+        "view marked:'Continue'"    # This is a Continue button
+    end
 
 
 
-       
-  
 
-def ShowBottom
-scroll("UITableView", :down)
-end
+
+
+
+    def ShowBottom
+       scroll("UITableView", :down)
+    end
 
 end

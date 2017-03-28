@@ -9,16 +9,7 @@ class SettingsPage < Calabash::IBase
    "UINavigationBar id:'Settings'"   #this is a title of Settings screen
   end
 
-=begin
-  def SettingsTitle
 
-    settings_title = query("UILabel text:'Settings'")[1]
-    if settings_title.empty?
-      fail("Settings screen not found!")
-    else
-    end
-    
-=end
 
   def SettingsAvatar   
     "* marked:'user_avatar_image'" # this is avatar on Settings screen
@@ -28,7 +19,7 @@ class SettingsPage < Calabash::IBase
     "* marked:'firm_logo_image'" # Just a Firm logo
    end
 
-  def SettingsName
+  def settingsName
    "UILabel text:'Fedor Cherepashkin'" # User's First and Last names on Settings screen
   end
 
@@ -44,7 +35,7 @@ def SettingsFirmNameButton
     "UILabel text:'Ros'"  # Name of Company on Settings screen
   end
 
-  def EditProfileButton
+  def editProfileButton
    "* marked:'Edit profile'"
   end
 
