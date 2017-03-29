@@ -9,7 +9,7 @@ And /^I logged in as Fedor Cherepashkin and I can see First and Last names$/ do
 	sleep(1)
 #	username = @current_page.SettingsName
 # 	puts(@current_page.SettingsName)
-		if (@current_page.settingsName).empty?
+		if (@current_page.settingsName).nil?
 			fail("First and Last name not found")
 		else
 			puts(@current_page.settingsName)
@@ -19,7 +19,7 @@ end
 
 And /^I logged in as  Assistant Vice President and I can see my Position$/ do
 	@current_page = page(SettingsPage)
-		if (@current_page.settingsPosition.empty?)
+		if (@current_page.settingsPosition).nil?
 			fail("Position not found")
 		else
 			puts("Position #{@current_page.settingsPosition} appear on Settings screen")
@@ -29,7 +29,7 @@ end
 And /^I logged in as worker from Ros company and I can see my Company$/ do
 	@current_page = page(SettingsPage)
 	firmname = @current_page.settingsPosition
-		if (firmname.empty?)
+		if (firmname.nil?)
 			fail("Firm name not found")
 		else
 			puts("Firm #{firmname} appears on your Settings screen")
@@ -147,6 +147,7 @@ end
 
 
 And /^I see Leave Feedback button$/ do
+	sleep(2)
 	@current_page = page(SettingsPage)
 	feedback_button = query(@current_page.feedbackButton)
 		if (feedback_button.empty?)

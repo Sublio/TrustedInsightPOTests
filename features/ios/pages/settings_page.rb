@@ -11,78 +11,81 @@ class SettingsPage < Calabash::IBase
 
 
 
-  def SettingsAvatar   
-    "* marked:'user_avatar_image'" # this is avatar on Settings screen
+  def settingsAvatar
+    #PLEASE FIX ME!!! WE ARE AVATAR AND FIRMLOGO
+  "TIFeedImageView"   
+   # "* marked:'user_avatar_image'" # this is avatar on Settings screen
   end
 
-  def SettingsFirmLogo
-    "* marked:'firm_logo_image'" # Just a Firm logo
+  def settingsFirmLogo
+    #PLEASE FIX ME!!! I PLACEHOLDER
+    "TIFadeImageView"   # Just a Firm logo
    end
 
   def settingsName
-   "UILabel text:'Fedor Cherepashkin'" # User's First and Last names on Settings screen
+    query("* marked:'settings_name'",:text).first # User's First and Last names on Settings screen
   end
 
-  def SettingsPosition
-    "UILabel text:'Assistant Vice President'" # User Position on Settings screen
+  def settingsPosition
+    query("* marked:'settings_position_name'",:text).first # User Position on Settings screen
   end
 
-  def SettingsFirmName
-    "UILabel text:'Ros'"  # Name of Company on Settings screen
+  def settingsFirmName
+    query("* marked:'settings_company_name' label",:text).first  # Name of Company on Settings screen
   end
 
-def SettingsFirmNameButton
-    "UILabel text:'Ros'"  # Name of Company on Settings screen
+def settingsFirmNameButton
+    "* marked:'settings_company_name'"  # Name of Company on Settings screen
   end
 
   def editProfileButton
    "* marked:'Edit profile'"
   end
 
-  def ManageInterestsButton
+  def manageInterestsButton
   "* marked:'Manage interests'"
   end
 
-  def PreferencesButton
+  def preferencesButton
     "* marked:'Preferences'"
   end
 
-  def ChangePasswordButton
+  def changePasswordButton
     "* marked:'Change password'"
   end
 
-  def AttachPhoneNumberButton
+  def attachPhoneNumberButton
     "* marked:'Add phone number'"
   end
 =begin
   def PhoneNumberConfirmedButton
   "* id:'settings_text_phone_number_confirmed'" # Visible if text is not empty
 =end
-  def SettingsAboutButton
+  def aboutButton
     "* marked:'About'"
   end
 
-  def SettingsTermsButton
+  def settingsTermsButton
    "* marked:'Terms of Use'"
   end
 
-  def SettingsPrivacyPolicyButton
+  def settingsPrivacyPolicyButton
     "* marked:'Privacy Policy'"
   end
 
-  def FeedbackButton
-    "* marked:'Leave FeedBack'"
+  def feedbackButton
+    "* marked:'Leave Feedback'"
   end
 
-  def LogOutButton
+  def logOutButton
     "* marked:'Log out'"
   end
 
-  def AppVersion
+  def appVersion
     "label {text BEGINSWITH 'TrustedInsight '}"
   end
 
-  def ShowBottom
+  def showBottom
     scroll("UITableView", :down)
   end
 
