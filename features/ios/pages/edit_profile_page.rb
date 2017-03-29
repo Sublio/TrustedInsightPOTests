@@ -45,6 +45,7 @@ class EditProfilePage < Calabash::IBase
     def lastNameLabel
     "UILabel marked:'Last name'"# This is a "First name" label
     end
+
 =begin
     def LastNameField
     "UITextField label:'Last name'"# This is a "Last name" field
