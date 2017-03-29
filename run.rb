@@ -19,7 +19,7 @@ if target == 'android'
 
   exec("export APP=prebuilt/TrustedInsight.apk && bundle exec calabash-android run $APP -p android   #{ARGV.join(' ')}")
 elsif target == 'ios'
-  exec("export APP=prebuilt/TrustedInsight.app && export APP_BUNDLE_PATH=$APP && bundle exec cucumber -p ios feautures/edit_profile_change_bio.feature#{ARGV.join(' ')}")
+  exec("export APP=prebuilt/TrustedInsight.app && export APP_BUNDLE_PATH=$APP && bundle exec cucumber -p ios #{ARGV.join(' ')}")
 else
   puts "Invalid target #{target}"
 end
