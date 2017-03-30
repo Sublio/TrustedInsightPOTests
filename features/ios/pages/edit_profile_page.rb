@@ -22,6 +22,10 @@ class EditProfilePage < Calabash::IBase
     "* id:'iconEditPhoto'" # This is an icon on Avatar on Edit Profile screen
     end
 
+    def tapReturnOnKeyboard
+      tap_keyboard_action_key
+    end
+
     def titleOnAlert
         query("view marked:'Are you sure?' label",:text).first  # This is a title of alert
     end
@@ -46,6 +50,12 @@ class EditProfilePage < Calabash::IBase
     "UILabel marked:'Last name'"# This is a "First name" label
     end
 
+    def selectRosberryFromDropDown
+
+      touch("view marked:'Rosberry'")
+      sleep(1)
+    end
+
 =begin
     def LastNameField
     "UITextField label:'Last name'"# This is a "Last name" field
@@ -54,13 +64,19 @@ class EditProfilePage < Calabash::IBase
     def companyLabel
     "UILabel marked:'Company'"# This is a "First name" label
     end
-=begin
-    def CompanyField
-    "UITextField label:'Company'"# This is a "Company" field
+
+    def companyField
+       "textField index:2"# This is a "Company" field
     end
-=end
+
     def titlePositionLabel
     "UILabel marked:'Title / Position'"# This is a "First name" label
+    end
+
+    def clearTextInCompany
+
+      touch("textField index:2")
+      clear_text("textField index:2")
     end
 =begin
     def TitlePositionField

@@ -18,6 +18,10 @@ class EditProfilePage < Calabash::ABase
     "* marked:'action_ok'" # this is a "V" button in top right corner on "Edit Profile" screen
     end
 
+    def selectRosberryFromDropDown
+      puts "ha ha - fake method"
+    end
+
     def iconEditPhoto
     "* id:'edit_dashed_image'" # This is an icon on Avatar on Edit Profile screen
     end
@@ -72,7 +76,11 @@ class EditProfilePage < Calabash::ABase
 
     def countryContainer
     "listview"
-    end   
+    end
+    def tapReturnOnKeyboard
+
+      puts "Haha"
+    end
 
     def countryItself
     "* id:'title'"

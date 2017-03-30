@@ -15,6 +15,7 @@ end
 	
 
 And /^I am on Edit profile screen$/ do
+  sleep(2)
 	@current_page = page(EditProfilePage).await(timeout:60)
 end		
 
@@ -70,6 +71,7 @@ end
 
 
 And /^I check that I returned to Settings screen$/ do
+  sleep(3)
 	@current_page = page(SettingsPage).await(timeout:60)
 
 end
@@ -89,12 +91,8 @@ end
 
 ################################CHANGE FIRST NAME
 And /^I tap Done button on Edit profile screen$/ do
-	@current_page = page(EditProfilePage).await(timeout:60)
-	touch(@current_page.doneButton)	
-=begin ***Just for test***	
-	touch(@current_page.BackButton)
-	touch(@current_page.ContinueOnAlert)
-=end
+	touch(@current_page.doneButton)
+  #sleep(3)
 end
 
  And /^I check that user name has been changed$/ do
@@ -189,6 +187,8 @@ And /^I change my Company Name$/ do
 	@current_page = page(EditProfilePage)
 	touch(@current_page.companyField)
 	keyboard_enter_text("berry")
+  sleep(3)
+  @current_page.selectRosberryFromDropDown
 end
 
 And /^I check that Company name has been changed$/ do
@@ -208,8 +208,9 @@ end
 And /^I return Company name back$/ do
 	@current_page = page(EditProfilePage)
 	@current_page.clearTextInCompany
-#	touch(@current_page.companyField)
 	keyboard_enter_text("#{@company_before}")
+  @current_page.tapReturnOnKeyboard
+  sleep(2)
 end
 
 ##################Change Country
