@@ -245,7 +245,9 @@ And(/^I input random phrase in Bio field$/) do
 	@current_page = page(EditProfilePage).await(timeout: 60)
  	@current_page.showBottom
  sleep(1)
-  touch(@current_page.bioField)
+  #touch(@current_page.bioField)
+  @current_page.bioField
+  puts("I touch bioField")
   user = CREDENTIALS[:strange_user]                                    
   @current_page.inputUserBio(user[:bio])
 end

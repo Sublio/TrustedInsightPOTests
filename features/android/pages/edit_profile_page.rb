@@ -91,7 +91,7 @@ class EditProfilePage < Calabash::ABase
     end   
 
     def bioField
-    "* tag:'Short Bio'"# This is a "Short Bio" field
+    touch("* tag:'Short Bio'")# This is a "Short Bio" field
     end
 
     def investorTypeLabel

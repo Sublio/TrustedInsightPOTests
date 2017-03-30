@@ -110,8 +110,11 @@ end
         
     end
 
+
+
 def checkClearedField
     textfield = query("UIFieldEditor",:text).first
+    puts textfield
         if (textfield).empty?
             puts ("Cleared!")
         else
@@ -139,7 +142,54 @@ end
     end   
 
     def bioField
-    "TITextView label:'Short Bio'"# This is a "Short Bio" field
+count = query("UITableViewCell").count
+index=0
+
+count.times do 
+    cell = query("UITableViewCell index: #{index}")
+    label = query("UITableViewCell index:#{index} label",:text).first
+    index +=1
+    scroll_to_cell(:row => index, :section => 0)
+
+    if label == "Short Bio".to_s
+        puts("Short Bio detected") 
+        touch cell
+ #       clear_text
+        break
+    end
+end
+end# This is a "Short Bio" field
+
+
+def clearTextInBio
+    scroll("UITableView", :down)
+       count = query("UITableViewCell").count
+index=0
+
+count.times do 
+    cell = query("UITableViewCell index: #{index}")
+    label = query("UITableViewCell index:#{index} label",:text).first
+    index +=1
+    scroll_to_cell(:row => index, :section => 0)
+
+    if label == "Short Bio".to_s
+        puts("Short Bio detected") 
+        touch cell
+        #sleep(5)
+        #touch cell
+        #        sleep(5)
+        #touch cell
+        #touch("* marked:'Select All'")
+        150.times do
+        keyboard_enter_char("Delete")
+        end 
+        break
+    end
+end        
+end
+
+    def inputUserBio(bio)
+    keyboard_enter_text(bio)
     end
 
     def investorTypeLabel
