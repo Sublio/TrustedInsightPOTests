@@ -276,7 +276,7 @@ end
 
 
 Before('@shouldLoginAsCherepashkin') do
-	checkWelcome
+	findWelcome
 	sleep(1)	
 	touch("button marked:'ACCESS WITH EMAIL'")
 	sleep(3)
@@ -312,12 +312,12 @@ end
 #mail = user[:mail]
 
 #Return to "Welcome Screen" hook
-#Before('@checkWelcome') do
+#Before('@findWelcome') do
 
 #####################################################
 #Check Welcome 
 #####################################################
-def checkWelcome
+def findWelcome
 	welcomescreen = query("* marked:'Welcome to Trusted Insight'")
  	if (welcomescreen.empty?)
  		findBottomBar
@@ -330,7 +330,7 @@ def findBottomBar
 	checkBottomBar = query("UITabBarButton")
 	if (checkBottomBar.empty?)
 		returnToPreviousScreen
-#		checkWelcome
+#		findWelcome
 	else
 		touch("* marked:'Settings'")
 		touch("* marked:'Settings'")
@@ -341,7 +341,7 @@ def findBottomBar
 		touch("* marked:'Log out'")
 		sleep(2)
 	end
-	checkWelcome
+	findWelcome
 end
 
 def returnToPreviousScreen
@@ -354,7 +354,7 @@ skipOnWizard
 
 #	touch("* marked:'iconTopBack'")
 #	findBottomBar
-checkWelcome
+findWelcome
 end
 
 def tapiconTopBack
@@ -412,12 +412,26 @@ skip_on_wizard = query("* marked:'SKIP'")
 	end
 end	
 
- # Just a hook for checkWelcome
-Before('@checkWelcome') do
+ # Just a hook for findWelcome
+Before('@findWelcome') do
 welcomescreen = query("* marked:'Welcome to Trusted Insight'")
  	if (welcomescreen.empty?)
  		findBottomBar
 	else 
 		puts("Congrats! \nYou are on Welcome screen.\n Let's run your test!")
+	end
+end
+
+Before('@logoutAtAnyCost') do
+
+end
+
+
+After('@logoutAtAnyCost') do
+	if element_exists("* marked:'Welcome to Trusted Insight'")
+puts("Welcome to Welcome screen.")
+	else 
+#	findBottomBar
+findWelcome
 	end
 end
