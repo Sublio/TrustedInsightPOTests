@@ -285,21 +285,25 @@ end
 And /^I tap Skip button on Investor type screen on wizard$/ do
 	@current_page = page(InvestorTypePage).await(timeout: 60)
 	touch(@current_page.skipOnWizard)
+	sleep(2)
 end
 
 And /^I tap Skip button on What are you interest screen$/ do
 	@current_page = page(WhatAreYourInterests).await(timeout: 60)
 	touch(@current_page.skipOnWizard)
+	sleep(2)
 end
 
 And /^I tap Skip button on Complete your profie screen$/ do
 	@current_page = page(CompleteYourProfile).await(timeout: 60)
 	touch(@current_page.skipOnWizard)
+	sleep(2)
 end
 
 And /^I tap Settings button on bottombar$/ do
 	@current_page = page(FeedPage).await(timeout: 60)
 	touch(@current_page.settingsTab)
+	sleep(2)
 end
 
 And /^I scroll down on Edit profile screen$/ do
