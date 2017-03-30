@@ -62,11 +62,70 @@ class EditProfilePage < Calabash::IBase
     def titlePositionLabel
     "UILabel marked:'Title / Position'"# This is a "First name" label
     end
-=begin
-    def TitlePositionField
-    "UITextField label:'Title / Position'"# This is a "Title / Position" field
+
+
+    def titlePositionField
+count = query("UITableViewCell").count
+index=0
+
+count.times do 
+    cell = query("UITableViewCell index: #{index}")
+    label = query("UITableViewCell index:#{index} label",:text).first
+    index +=1
+    scroll_to_cell(:row => index, :section => 0)
+
+    if label == "Title / Position".to_s
+        puts("Title / Position field detected") 
+        touch cell
+ #       clear_text
+        break
     end
-=end
+end
+end
+
+
+    def clearTextInPosition
+       count = query("UITableViewCell").count
+index=0
+
+count.times do 
+    cell = query("UITableViewCell index: #{index}")
+    label = query("UITableViewCell index:#{index} label",:text).first
+    index +=1
+    scroll_to_cell(:row => index, :section => 0)
+
+    if label == "Title / Position".to_s
+        puts("Title / Position field detected") 
+        touch cell
+        checkClearedField
+ #       scroll_to_cell(:row => index, :section => 0)
+#        swipe :up, :query => ("UITableViewWrapperView"), force: :light, animate: false
+ #       sleep 5
+
+  #      touch("* marked:'Clear text'")
+ #       clear_text
+        break
+    end
+end
+        
+    end
+
+def checkClearedField
+    textfield = query("UIFieldEditor",:text).first
+        if (textfield).empty?
+            puts ("Cleared!")
+        else
+        keyboard_enter_char("Delete")
+        textfield = query("UIFieldEditor",:text).first
+        checkClearedField
+    end
+end
+
+    def randomTitlePosition
+    random_set= (('A'..'Z').to_a)
+    random_title = (0...7).map { |n| random_set.sample }.join
+    end
+
     def countryLabel
     "UILabel marked:'Country'"# This is a "Company" field
     end   
@@ -100,13 +159,15 @@ class EditProfilePage < Calabash::IBase
         "view marked:'Continue'"    # This is a Continue button
     end
 
+    def hideKeyboard
+    keyboard_enter_char("Return")
+    puts ("Ha-ha You can't hide keyboard using iPhone!")
+    end
 
 
 
 
-
-
-    def ShowBottom
+    def showBottom
        scroll("UITableView", :down)
     end
 

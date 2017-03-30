@@ -138,7 +138,7 @@ And /^I change my Title Position$/ do
 #	sleep(1)
 #	touch(@current_page.titlePositionField)
 	keyboard_enter_text(@current_page.randomTitlePosition)
-	hide_soft_keyboard
+	@current_page.hideKeyboard
 	sleep(1)
 end
 
@@ -164,7 +164,7 @@ And /^I return Title Position back$/ do
 	#@current_page.clearTextInPosition
 	touch(@current_page.titlePositionField)
 	keyboard_enter_text(@current_page.randomTitlePosition)
-	hide_soft_keyboard
+	@current_page.hideKeyboard
 	sleep(1)
 	else
 	@current_page.clearTextInPosition
@@ -172,7 +172,8 @@ And /^I return Title Position back$/ do
 	#sleep(1)
 	#touch(@current_page.titlePositionField)
 	keyboard_enter_text("#{@position_before}")
-	hide_soft_keyboard
+	sleep(2)
+	@current_page.hideKeyboard
 	sleep(1)
 end
 end
@@ -223,7 +224,7 @@ end
 
 And /^I tap Back button to return to Settings screen$/ do
   @current_page = page(EditProfilePage)
-  @current_page.hide_soft_keyboard
+  @current_page.hideKeyboard
     sleep(1)
   touch(@current_page.backButton)
     sleep(3)
@@ -236,7 +237,7 @@ And /^I remove info from Bio filed$/ do
 	sleep(1)
 	@current_page.clearTextInBio
 	sleep(1)
-	@current_page.hide_soft_keyboard
+	@current_page.hideKeyboard
 end
 
 
@@ -255,21 +256,21 @@ And /^I delete my First name from First name field$/ do
 	#touch(@current_page.FirstNameField)
 	@current_page.clearTextInFirstName
 sleep(1)
-	@current_page.hide_soft_keyboard	
+	@current_page.hideKeyboard	
 end
 
 And /^I delete my Last name from Last name field$/ do
 	@current_page = page(EditProfilePage)
 	@current_page.clearTextInLastName
 sleep(1)
-	@current_page.hide_soft_keyboard	
+	@current_page.hideKeyboard
 end
 
 And /^I delete my Company from Company field$/ do
 	@current_page = page(EditProfilePage)
 	@current_page.clearTextInCompany
 sleep(1)
-	@current_page.hide_soft_keyboard		
+	@current_page.hideKeyboard		
 end
 
 And /^I check that alert about mandatory field appears$/ do
