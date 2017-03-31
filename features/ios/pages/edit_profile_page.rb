@@ -7,7 +7,7 @@ class EditProfilePage < Calabash::IBase
 
   def trait
     sleep(2)
-    "UINavigationBar id:'Edit profile'" #this is a title of Edit profile screen
+    "UINavigationBar id:'Edit profile'"  #this is a title of Edit profile screen
   end
 
   def backButton
@@ -23,11 +23,11 @@ class EditProfilePage < Calabash::IBase
   end
 
   def titleOnAlert
-    query("view marked:'Are you sure?' label", :text).first # This is a title of alert
+    query("view marked:'Are you sure?' label",:text).first  # This is a title of alert
   end
 
   def textOnAlert
-    query("view marked:'All changed will be lost'", :text).first
+    query("view marked:'All changed will be lost'",:text).first
   end
 
   def avatarImage
@@ -35,11 +35,11 @@ class EditProfilePage < Calabash::IBase
   end
 
   def firstNameLabel
-    "UILabel marked:'First name'" # This is a "First name" label
+    "UILabel marked:'First name'"# This is a "First name" label
   end
 
   def firstNameField
-    "UITextField index:0" # This is a "First name" field
+    "UITextField index:0"# This is a "First name" field
   end
 
   def clearTextInFirstName
@@ -68,6 +68,24 @@ class EditProfilePage < Calabash::IBase
     end
   end
 
+  def alertInvestorTypeMandatoryField
+    touch(lastNameField)
+    keyboard_enter_text("enko")
+    sleep(2)
+    touch doneButton
+    sleep(2)
+    alert_mandatory = query("label {text BEGINSWITH 'Please make sure you filled '}", "text")
+    alert_mandatory_text = query("label {text BEGINSWITH 'Please make sure you filled '}", "text").first
+    if (alert_mandatory.empty?)
+      fail("Alert that field is mandatory not found")
+    else
+      puts("Alert #{alert_mandatory_text} appears!")
+      puts("Let me close this alert")
+      sleep(2)
+      touch("* marked:'OK'")
+    end
+  end
+
   def noAlertAboutMandatoryField
     alert_mandatory = query("label {text BEGINSWITH 'Please make sure you filled '}", "text")
     if (alert_mandatory.empty?)
@@ -78,12 +96,12 @@ class EditProfilePage < Calabash::IBase
   end
 
   def lastNameLabel
-    "UILabel marked:'Last name'" # This is a "First name" label
+    "UILabel marked:'Last name'"# This is a "First name" label
   end
 
 
   def lastNameField
-    "UITextField index:1" # This is a "Last name" field
+    "UITextField index:1"# This is a "Last name" field
   end
 
   def clearTextInLastName
@@ -100,7 +118,7 @@ class EditProfilePage < Calabash::IBase
   end
 
   def companyLabel
-    "UILabel marked:'Company'" # This is a "First name" label
+    "UILabel marked:'Company'"# This is a "First name" label
   end
 
   def companyField
@@ -147,7 +165,7 @@ class EditProfilePage < Calabash::IBase
   end
 
   def titlePositionLabel
-    "UILabel marked:'Title / Position'" # This is a "First name" label
+    "UILabel marked:'Title / Position'"# This is a "First name" label
   end
 
 
@@ -157,7 +175,7 @@ class EditProfilePage < Calabash::IBase
 
     count.times do
       cell = query("UITableViewCell index: #{index}")
-      label = query("UITableViewCell index:#{index} label", :text).first
+      label = query("UITableViewCell index:#{index} label",:text).first
       index +=1
       scroll_to_cell(:row => index, :section => 0)
 
@@ -177,7 +195,7 @@ class EditProfilePage < Calabash::IBase
 
     count.times do
       cell = query("UITableViewCell index: #{index}")
-      label = query("UITableViewCell index:#{index} label", :text).first
+      label = query("UITableViewCell index:#{index} label",:text).first
       index +=1
       scroll_to_cell(:row => index, :section => 0)
 
@@ -198,14 +216,15 @@ class EditProfilePage < Calabash::IBase
   end
 
 
+
   def checkClearedField
-    textfield = query("UIFieldEditor", :text).first
+    textfield = query("UIFieldEditor",:text).first
     puts textfield
     if (textfield).empty?
       puts ("Cleared!")
     else
       keyboard_enter_char("Delete")
-      textfield = query("UIFieldEditor", :text).first
+      textfield = query("UIFieldEditor",:text).first
       checkClearedField
     end
   end
@@ -216,7 +235,7 @@ class EditProfilePage < Calabash::IBase
   end
 
   def countryLabel
-    "UILabel marked:'Country'" # This is a "Country" label
+    "UILabel marked:'Country'"# This is a "Country" label
   end
 
   def countryItself
@@ -241,8 +260,8 @@ class EditProfilePage < Calabash::IBase
     touch(countryField)
     wait_for_none_animating
 
-    rand(0..10).times do
-      elements = query(countryItself).uniq! { |e| e["text"] }
+    rand(1..10).times do
+      elements = query(countryItself).uniq! {|e| e["text"] }
       swipe :down, query: countryContainer, force: :strong
       wait_for_none_animating
       if elements.length >= 4
@@ -260,7 +279,7 @@ class EditProfilePage < Calabash::IBase
   end
 
   def shortBioLabel
-    "UILabel marked:'Short Bio'" # This is a "Company" field
+    "UILabel marked:'Short Bio'"# This is a "Company" field
   end
 
   def bioField
@@ -269,7 +288,7 @@ class EditProfilePage < Calabash::IBase
 
     count.times do
       cell = query("UITableViewCell index: #{index}")
-      label = query("UITableViewCell index:#{index} label", :text).first
+      label = query("UITableViewCell index:#{index} label",:text).first
       index +=1
       scroll_to_cell(:row => index, :section => 0)
 
@@ -280,9 +299,7 @@ class EditProfilePage < Calabash::IBase
         break
       end
     end
-  end
-
-  # This is a "Short Bio" field
+  end# This is a "Short Bio" field
 
 
   def clearTextInBio
@@ -292,7 +309,7 @@ class EditProfilePage < Calabash::IBase
 
     count.times do
       cell = query("UITableViewCell index: #{index}")
-      label = query("UITableViewCell index:#{index} label", :text).first
+      label = query("UITableViewCell index:#{index} label",:text).first
       index +=1
       scroll_to_cell(:row => index, :section => 0)
 
@@ -317,11 +334,21 @@ class EditProfilePage < Calabash::IBase
   end
 
   def investorTypeLabel
-    "UILabel marked:'Investor type" # This is a "Company" field
+    "UILabel marked:'Investor type"# This is a "Company" field
+  end
+
+  def investorTypeField
+    showBottom
+    sleep(2)
+    showBottom
+    sleep(2)
+    showBottom
+    sleep(2)
+    touch("* marked:'iconInputSelect' index:1")
   end
 
   def investorLevelLabel
-    "UILabel marked:'Investor level'" # This is a "Company" field
+    "UILabel marked:'Investor level'"# This is a "Company" field
   end
 
   def cancelOnAlert
@@ -330,7 +357,7 @@ class EditProfilePage < Calabash::IBase
   end
 
   def continueOnAlert
-    "view marked:'Continue'" # This is a Continue button
+    "view marked:'Continue'"    # This is a Continue button
   end
 
   def hideKeyboard
@@ -339,6 +366,8 @@ class EditProfilePage < Calabash::IBase
       puts ("Ha-ha You can't hide keyboard using iPhone!")
     end
   end
+
+
 
 
   def showBottom

@@ -25,7 +25,11 @@ class FeedPage < Calabash::IBase
 
   end
 
+  def settingsTab
 
+    "* marked:'Settings'"
+
+  end
 
 
   def firstCell

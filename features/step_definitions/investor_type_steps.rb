@@ -26,6 +26,7 @@ end
 When(/^I select type Other$/) do #Need to select from Edit Profile screen
 
   @current_page = page(InvestorTypePage).await(timeout: 30)
+  sleep(5)
   @current_page.proceed_as_partner("Other")
 
 end

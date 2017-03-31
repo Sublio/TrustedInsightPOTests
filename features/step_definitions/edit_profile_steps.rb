@@ -2,7 +2,7 @@
 #Edit Profile Steps
 
 And /^I am on Settings screen and check user name$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   sleep(2)
   @name_before = (@current_page.settingsName)
 end
@@ -15,7 +15,7 @@ end
 
 
 And /^I am on Edit profile screen$/ do
-  @current_page = page(EditProfilePage).await(timeout: 60)
+  @current_page = page(EditProfilePage).await(timeout:60)
 end
 
 And /^I change my First Name$/ do
@@ -68,13 +68,14 @@ And /^I check that alert has been dismissed$/ do
 end
 
 
+
 And /^I check that I returned to Settings screen$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
 
 end
 
 And /^I check that changes has not been applied$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   sleep(3)
   name_after = (@current_page.settingsName)
   result = @name_before <=> name_after
@@ -88,7 +89,7 @@ end
 
 ################################CHANGE FIRST NAME
 And /^I tap Done button on Edit profile screen$/ do
-  @current_page = page(EditProfilePage).await(timeout: 60)
+  @current_page = page(EditProfilePage).await(timeout:60)
   touch(@current_page.doneButton)
 =begin ***Just for test***
 	touch(@current_page.BackButton)
@@ -97,7 +98,7 @@ And /^I tap Done button on Edit profile screen$/ do
 end
 
 And /^I check that user name has been changed$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   sleep(4)
   name_after = (@current_page.settingsName)
 #	puts name_after
@@ -121,7 +122,7 @@ end
 
 ################################CHANGE TITLE POSITION
 And /^I am on Settings screen and check Title Position$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   sleep(2)
   @position_before = (@current_page.settingsPosition)
   puts("User position is #{@position_before}.")
@@ -142,7 +143,7 @@ And /^I change my Title Position$/ do
 end
 
 And /^I check that Title Position has been changed$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   sleep(3)
   position_after = (@current_page.settingsPosition)
   puts("Compare #{@position_before} and #{position_after}")
@@ -179,7 +180,7 @@ end
 
 ################################CHANGE COMPANY
 And /^I am on Settings screen and check Company name$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   @company_before = (@current_page.settingsFirmName)
   puts @company_before
 end
@@ -191,7 +192,7 @@ And /^I change my Company Name$/ do
 end
 
 And /^I check that Company name has been changed$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   sleep(3)
   company_after = (@current_page.settingsFirmName)
   puts company_after
@@ -310,16 +311,21 @@ end
 
 And /^I scroll down on Edit profile screen$/ do
   @current_page = page(EditProfilePage).await(timeout: 60)
-  2.times do
-    @current_page.showBottom
+  2.times do @current_page.showBottom
   end
 end
 
 And /^I tap Investor Type field$/ do
   @current_page = page(EditProfilePage).await(timeout: 60)
-  touch(@current_page.investorTypeField)
+#	touch(@current_page.investorTypeField)
+  @current_page.investorTypeField
 end
 
 And /^I want to find Welcome screen$/ do
   findWelcome
+end
+
+And /^I check that alert about Investor Type mandatory field appears$/ do
+  @current_page = page(EditProfilePage)
+  @current_page.alertInvestorTypeMandatoryField
 end

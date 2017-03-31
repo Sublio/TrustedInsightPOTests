@@ -17,6 +17,10 @@ class InvestorTypePage < Calabash::IBase
 
   end
 
+  def skipOnWizard
+    "* marked:'SKIP'"
+  end
+
   def proceed_as_partner(partner_string)
 
     touch("* marked:'#{partner_string}'")
