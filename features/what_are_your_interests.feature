@@ -3,6 +3,7 @@ Feature: As new user I can select interests
 
   Background:
 
+    * I want to find Welcome screen
     * I am on the welcome screen
     * I tap on Access wit email button
     * I see Text field for inputting my email
