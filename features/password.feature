@@ -4,7 +4,7 @@ Feature: Password inputing experience
 
 
   Background:
-
+    Given I want to find Welcome screen
     Given I am on the welcome screen
     And I tap on Access wit email button
     Then I input untestor user email
