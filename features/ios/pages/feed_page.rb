@@ -6,10 +6,9 @@ require 'calabash-cucumber/ibase'
 
 class FeedPage < Calabash::IBase
 
-
   def trait
 
-    "view marked:'iconNavSearch'" #this is a home cell locator for Search button from topBar
+    "view marked:'iconNavSearch'" # this is a home cell locator for Search button from topBar
 
   end
 
@@ -27,6 +26,8 @@ class FeedPage < Calabash::IBase
   end
 
 
+
+
   def firstCell
 
     "UITableViewCell label"
@@ -38,6 +39,8 @@ class FeedPage < Calabash::IBase
     query("UITableViewCell index:0 label", :text).first
 
   end
+
+
 
   def cellBookmarksButton
 
