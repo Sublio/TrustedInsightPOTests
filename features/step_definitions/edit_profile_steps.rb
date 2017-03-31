@@ -2,7 +2,7 @@
 #Edit Profile Steps
 
 And /^I am on Settings screen and check user name$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   sleep(2)
   @name_before = (@current_page.settingsName)
 end
@@ -15,8 +15,7 @@ end
 
 
 And /^I am on Edit profile screen$/ do
-  sleep(2)
-  @current_page = page(EditProfilePage).await(timeout: 60)
+  @current_page = page(EditProfilePage).await(timeout:60)
 end
 
 And /^I change my First Name$/ do
@@ -69,14 +68,14 @@ And /^I check that alert has been dismissed$/ do
 end
 
 
+
 And /^I check that I returned to Settings screen$/ do
-  sleep(3)
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
 
 end
 
 And /^I check that changes has not been applied$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   sleep(3)
   name_after = (@current_page.settingsName)
   result = @name_before <=> name_after
@@ -90,12 +89,16 @@ end
 
 ################################CHANGE FIRST NAME
 And /^I tap Done button on Edit profile screen$/ do
+  @current_page = page(EditProfilePage).await(timeout:60)
   touch(@current_page.doneButton)
-  #sleep(3)
+=begin ***Just for test***
+	touch(@current_page.BackButton)
+	touch(@current_page.ContinueOnAlert)
+=end
 end
 
 And /^I check that user name has been changed$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   sleep(4)
   name_after = (@current_page.settingsName)
 #	puts name_after
@@ -119,7 +122,7 @@ end
 
 ################################CHANGE TITLE POSITION
 And /^I am on Settings screen and check Title Position$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   sleep(2)
   @position_before = (@current_page.settingsPosition)
   puts("User position is #{@position_before}.")
@@ -135,12 +138,12 @@ And /^I change my Title Position$/ do
 #	sleep(1)
 #	touch(@current_page.titlePositionField)
   keyboard_enter_text(@current_page.randomTitlePosition)
-  hide_soft_keyboard
+  @current_page.hideKeyboard
   sleep(1)
 end
 
 And /^I check that Title Position has been changed$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   sleep(3)
   position_after = (@current_page.settingsPosition)
   puts("Compare #{@position_before} and #{position_after}")
@@ -161,7 +164,7 @@ And /^I return Title Position back$/ do
     #@current_page.clearTextInPosition
     touch(@current_page.titlePositionField)
     keyboard_enter_text(@current_page.randomTitlePosition)
-    hide_soft_keyboard
+    @current_page.hideKeyboard
     sleep(1)
   else
     @current_page.clearTextInPosition
@@ -169,14 +172,15 @@ And /^I return Title Position back$/ do
     #sleep(1)
     #touch(@current_page.titlePositionField)
     keyboard_enter_text("#{@position_before}")
-    hide_soft_keyboard
+    sleep(2)
+    @current_page.hideKeyboard
     sleep(1)
   end
 end
 
 ################################CHANGE COMPANY
 And /^I am on Settings screen and check Company name$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   @company_before = (@current_page.settingsFirmName)
   puts @company_before
 end
@@ -186,12 +190,10 @@ And /^I change my Company Name$/ do
   @current_page = page(EditProfilePage)
   touch(@current_page.companyField)
   keyboard_enter_text("berry")
-  sleep(3)
-  @current_page.selectRosberryFromDropDown
 end
 
 And /^I check that Company name has been changed$/ do
-  @current_page = page(SettingsPage).await(timeout: 60)
+  @current_page = page(SettingsPage).await(timeout:60)
   sleep(3)
   company_after = (@current_page.settingsFirmName)
   puts company_after
@@ -207,9 +209,8 @@ end
 And /^I return Company name back$/ do
   @current_page = page(EditProfilePage)
   @current_page.clearTextInCompany
+#	touch(@current_page.companyField)
   keyboard_enter_text("#{@company_before}")
-  @current_page.tapReturnOnKeyboard
-  sleep(2)
 end
 
 ##################Change Country
@@ -223,7 +224,7 @@ end
 
 And /^I tap Back button to return to Settings screen$/ do
   @current_page = page(EditProfilePage)
-  @current_page.hide_soft_keyboard
+  @current_page.hideKeyboard
   sleep(1)
   touch(@current_page.backButton)
   sleep(3)
@@ -236,7 +237,7 @@ And /^I remove info from Bio filed$/ do
   sleep(1)
   @current_page.clearTextInBio
   sleep(1)
-  @current_page.hide_soft_keyboard
+  @current_page.hideKeyboard
 end
 
 
@@ -244,7 +245,8 @@ And(/^I input random phrase in Bio field$/) do
   @current_page = page(EditProfilePage).await(timeout: 60)
   @current_page.showBottom
   sleep(1)
-  touch(@current_page.bioField)
+  #touch(@current_page.bioField)
+  @current_page.bioField
   user = CREDENTIALS[:strange_user]
   @current_page.inputUserBio(user[:bio])
 end
@@ -255,21 +257,21 @@ And /^I delete my First name from First name field$/ do
   #touch(@current_page.FirstNameField)
   @current_page.clearTextInFirstName
   sleep(1)
-  @current_page.hide_soft_keyboard
+  @current_page.hideKeyboard
 end
 
 And /^I delete my Last name from Last name field$/ do
   @current_page = page(EditProfilePage)
   @current_page.clearTextInLastName
   sleep(1)
-  @current_page.hide_soft_keyboard
+  @current_page.hideKeyboard
 end
 
 And /^I delete my Company from Company field$/ do
   @current_page = page(EditProfilePage)
   @current_page.clearTextInCompany
   sleep(1)
-  @current_page.hide_soft_keyboard
+  @current_page.hideKeyboard
 end
 
 And /^I check that alert about mandatory field appears$/ do
@@ -285,27 +287,30 @@ end
 And /^I tap Skip button on Investor type screen on wizard$/ do
   @current_page = page(InvestorTypePage).await(timeout: 60)
   touch(@current_page.skipOnWizard)
+  sleep(2)
 end
 
 And /^I tap Skip button on What are you interest screen$/ do
   @current_page = page(WhatAreYourInterests).await(timeout: 60)
   touch(@current_page.skipOnWizard)
+  sleep(2)
 end
 
 And /^I tap Skip button on Complete your profie screen$/ do
   @current_page = page(CompleteYourProfile).await(timeout: 60)
   touch(@current_page.skipOnWizard)
+  sleep(2)
 end
 
 And /^I tap Settings button on bottombar$/ do
   @current_page = page(FeedPage).await(timeout: 60)
   touch(@current_page.settingsTab)
+  sleep(2)
 end
 
 And /^I scroll down on Edit profile screen$/ do
   @current_page = page(EditProfilePage).await(timeout: 60)
-  2.times do
-    @current_page.showBottom
+  2.times do @current_page.showBottom
   end
 end
 

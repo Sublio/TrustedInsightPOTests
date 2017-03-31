@@ -270,7 +270,7 @@ end
 
 
 Before('@shouldLoginAsCherepashkin') do
-  checkWelcome
+  findWelcome
   sleep(1)
   touch("button marked:'ACCESS WITH EMAIL'")
   sleep(3)
@@ -311,7 +311,7 @@ end
 #####################################################
 #Check Welcome 
 #####################################################
-def checkWelcome
+def findWelcome
   welcomescreen = query("* marked:'Welcome to Trusted Insight'")
   if (welcomescreen.empty?)
     findBottomBar
@@ -335,7 +335,7 @@ def findBottomBar
     touch("* marked:'Log out'")
     sleep(2)
   end
-  checkWelcome
+  findWelcome
 end
 
 def returnToPreviousScreen
@@ -348,7 +348,7 @@ def returnToPreviousScreen
 
 #	touch("* marked:'iconTopBack'")
 #	findBottomBar
-  checkWelcome
+  findWelcome
 end
 
 def tapiconTopBack
