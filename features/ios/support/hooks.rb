@@ -280,7 +280,7 @@ Before('@shouldLoginAsCherepashkin') do
 	sleep(1)	
 	touch("button marked:'ACCESS WITH EMAIL'")
 	sleep(3)
-	keyboard_enter_text("test1@xttk.ru")
+	keyboard_enter_text("test2@xttk.ru")
 #	enter_text("* id:'join_email_et'", 'test1@xttk.ru')
 	touch("* marked:'NEXT'") 
 	sleep(4)

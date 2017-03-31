@@ -188,8 +188,7 @@ end
 
 And /^I change my Company Name$/ do
 	@current_page = page(EditProfilePage)
-	touch(@current_page.companyField)
-	keyboard_enter_text("berry")
+	@current_page.changeCompanyName
 end
 
 And /^I check that Company name has been changed$/ do
@@ -208,9 +207,10 @@ end
 
 And /^I return Company name back$/ do
 	@current_page = page(EditProfilePage)
-	@current_page.clearTextInCompany
+	@current_page.clearTextInCompanyR
 #	touch(@current_page.companyField)
 	keyboard_enter_text("#{@company_before}")
+	@current_page.tapReturnOnKeyboard
 end
 
 ##################Change Country
@@ -247,7 +247,6 @@ And(/^I input random phrase in Bio field$/) do
  sleep(1)
   #touch(@current_page.bioField)
   @current_page.bioField
-  puts("I touch bioField")
   user = CREDENTIALS[:strange_user]                                    
   @current_page.inputUserBio(user[:bio])
 end
@@ -255,6 +254,7 @@ end
 ##################Mandatory
 And /^I delete my First name from First name field$/ do
 	@current_page = page(EditProfilePage)
+sleep(5)
 	#touch(@current_page.FirstNameField)
 	@current_page.clearTextInFirstName
 sleep(1)
@@ -317,9 +317,15 @@ end
 
 And /^I tap Investor Type field$/ do
 	@current_page = page(EditProfilePage).await(timeout: 60)
-	touch(@current_page.investorTypeField)
+#	touch(@current_page.investorTypeField)
+	@current_page.investorTypeField
 end
 
 And /^I want to find Welcome screen$/ do
 	findWelcome 
+end
+
+And /^I check that alert about Investor Type mandatory field appears$/ do
+	@current_page = page(EditProfilePage)
+	@current_page.alertInvestorTypeMandatoryField
 end

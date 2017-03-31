@@ -30,7 +30,7 @@ And I tap Settings button on bottombar
 And I tap Edit Profile button on Settings screen
 And I am on Edit profile screen
 And I scroll down on Edit profile screen
-And I check that alert about mandatory field appears
+And I check that alert about Investor Type mandatory field appears
 And I tap Investor Type field
 And I select type Other
 And I check that alert about mandatory field disappears

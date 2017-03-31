@@ -54,6 +54,11 @@ class EditProfilePage < Calabash::ABase
     "* tag:'Company'"# This is a "Company" field
     end
 
+    def changeCompanyName
+    touch companyField
+    keyboard_enter_text("berry")
+    end
+
     def titlePositionLabel
     "TextInputLayout hint:'Title / Position'"# This is a "Title / Position" label
     end
@@ -99,7 +104,7 @@ class EditProfilePage < Calabash::ABase
     end   
 
     def investorTypeField
-    "* tag:'Investor type'"# This is a "Country" field
+    touch("* tag:'Investor type'")# This is a "Country" field
     end
 
     def investorLevelLabel
@@ -146,6 +151,10 @@ class EditProfilePage < Calabash::ABase
         clear_text_in("* tag:'Company'")
     end
 
+    def clearTextInCompanyR
+        clear_text_in("* tag:'Company'")
+    end
+
     def clearTextInPosition
         clear_text_in("* tag:'Title / Position'")
     end
@@ -158,6 +167,10 @@ class EditProfilePage < Calabash::ABase
         clear_text_in("* tag:'Last name'")
     end
 
+    def tapReturnOnKeyboard # NEED FOR IOS TEST
+    sleep(1)
+    end
+
 
     def randomTitlePosition
     random_set= (('A'..'Z').to_a)
@@ -165,6 +178,17 @@ class EditProfilePage < Calabash::ABase
     end
 
     def alertAboutMandatoryField
+    alert_mandatory = query("* marked:'Please fill out this field'","text")
+    if (alert_mandatory.empty?)
+        fail("Alert that field is mandatory not found")
+    else
+        puts("Alert \"Please fill out this field\" appears!")
+    end
+    end
+
+
+
+    def alertInvestorTypeMandatoryField #DUPLICATED BECAUSE IOS NEEDED
     alert_mandatory = query("* marked:'Please fill out this field'","text")
     if (alert_mandatory.empty?)
         fail("Alert that field is mandatory not found")

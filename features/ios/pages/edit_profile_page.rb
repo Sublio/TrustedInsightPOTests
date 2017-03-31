@@ -42,6 +42,59 @@ class EditProfilePage < Calabash::IBase
     "UITextField index:0"# This is a "First name" field
     end
 
+    def clearTextInFirstName
+    sleep(3)
+    touch(firstNameField)
+    sleep(3)
+    touch(firstNameField)
+    sleep(3)
+    touch("* marked:'Select All'")
+    sleep(3)
+    keyboard_enter_char("Delete")
+    sleep(2)
+    touch doneButton
+    end
+
+   def alertAboutMandatoryField
+    alert_mandatory = query("label {text BEGINSWITH 'Please make sure you filled '}", "text")
+    alert_mandatory_text = query("label {text BEGINSWITH 'Please make sure you filled '}", "text").first
+    if (alert_mandatory.empty?)
+        fail("Alert that field is mandatory not found")
+    else
+        puts("Alert #{alert_mandatory_text} appears!")
+        puts("Let me close this alert")
+        sleep(2)
+        touch("* marked:'OK'")
+    end
+    end
+
+   def alertInvestorTypeMandatoryField
+    touch(lastNameField)
+    keyboard_enter_text("enko")
+    sleep(2)
+    touch doneButton
+    sleep(2)
+    alert_mandatory = query("label {text BEGINSWITH 'Please make sure you filled '}", "text")
+    alert_mandatory_text = query("label {text BEGINSWITH 'Please make sure you filled '}", "text").first
+    if (alert_mandatory.empty?)
+        fail("Alert that field is mandatory not found")
+    else
+        puts("Alert #{alert_mandatory_text} appears!")
+        puts("Let me close this alert")
+        sleep(2)
+        touch("* marked:'OK'")
+    end
+    end
+
+    def noAlertAboutMandatoryField
+    alert_mandatory = query("label {text BEGINSWITH 'Please make sure you filled '}", "text")
+    if (alert_mandatory.empty?)
+        puts("Alert about mandatory field disappears")
+    else
+        fail("Alert about mandatory field still appears!")
+    end
+    end
+
     def lastNameLabel
     "UILabel marked:'Last name'"# This is a "First name" label
     end
@@ -51,14 +104,66 @@ class EditProfilePage < Calabash::IBase
     "UITextField index:1"# This is a "Last name" field
     end
 
+    def clearTextInLastName
+    sleep(3)
+    touch(lastNameField)
+    sleep(3)
+    touch(lastNameField)
+    sleep(3)
+    touch("* marked:'Select All'")
+    sleep(3)
+    keyboard_enter_char("Delete")
+    sleep(2)
+    touch doneButton
+    end
+
     def companyLabel
     "UILabel marked:'Company'"# This is a "First name" label
     end
-=begin
-    def CompanyField
-    "UITextField label:'Company'"# This is a "Company" field
+
+    def companyField
+    "UITextField index:2"
     end
-=end
+
+    def changeCompanyName
+    touch companyField
+    keyboard_enter_text("berry")
+    sleep(2)
+    keyboard_enter_char("Return")
+    end
+
+    def clearTextInCompany #for Checking Mandatory Fields Alert
+    sleep(3)
+    clear_text(companyField)
+    sleep 1
+    touch(companyField)
+    sleep 1
+    keyboard_enter_text("o")
+    keyboard_enter_char("Delete")
+    #sleep(3)
+    #touch(@company_cell)
+    #sleep(3)
+    #touch("* marked:'Select All'")
+    #sleep(3)
+    #keyboard_enter_char("Delete")
+    sleep(2)
+    touch doneButton
+    end
+
+
+    def clearTextInCompanyR #for Checking Mandatory Fields Alert
+    sleep(3)
+    clear_text(companyField)
+    sleep 1
+    touch(companyField)
+    sleep 1
+    end
+
+    def tapReturnOnKeyboard
+    sleep(2)
+    keyboard_enter_char("Return")
+    end
+
     def titlePositionLabel
     "UILabel marked:'Title / Position'"# This is a "First name" label
     end
@@ -130,10 +235,46 @@ end
     end
 
     def countryLabel
-    "UILabel marked:'Country'"# This is a "Company" field
+    "UILabel marked:'Country'"# This is a "Country" label
     end   
     
-    def iconInputSelect
+  def countryItself
+
+    "TIPickerView UILabel"
+
+  end
+
+  def countryContainer
+
+    "TIPickerView"
+
+  end
+
+def countryOkButton
+    "* marked:'DONE'"
+end
+
+def pickCountryFromTheList(countryField, countryContainer, countryItself, countryOkButton, showBottom)
+    showBottom
+    sleep(3)
+    touch(countryField)
+    wait_for_none_animating
+
+     rand(1..10).times do
+      elements = query(countryItself).uniq! {|e| e["text"] }
+      swipe :down, query: countryContainer, force: :strong
+      wait_for_none_animating
+      if elements.length >= 4
+    else
+        swipe :up, query: countryContainer, force: :strong
+    end
+end
+    sleep(2)
+    touch(countryOkButton)
+    sleep(10)
+end
+
+    def countryField
     "* marked:'iconInputSelect'" # this is an icon on country selection field
     end
 
@@ -196,6 +337,16 @@ end
     "UILabel marked:'Investor type"# This is a "Company" field
     end   
 
+    def investorTypeField
+    showBottom
+    sleep(2)
+    showBottom
+    sleep(2)
+    showBottom
+    sleep(2)
+touch("* marked:'iconInputSelect' index:1")
+    end
+
     def investorLevelLabel
     "UILabel marked:'Investor level'"# This is a "Company" field
     end
@@ -210,8 +361,10 @@ end
     end
 
     def hideKeyboard
+    if keyboard_visible?
     keyboard_enter_char("Return")
     puts ("Ha-ha You can't hide keyboard using iPhone!")
+    end
     end
 
 
