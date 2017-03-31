@@ -6,41 +6,41 @@ require 'calabash-cucumber/ibase'
 
 class BottomNavBarPage < Calabash::IBase
 
-    def trait
+  def trait
 
-      "UITabBar UITabBarButton marked:'Bookmarks'" #tabbar bookmark locator
+    "UITabBar UITabBarButton marked:'Bookmarks'" #tabbar bookmark locator
 
-    end
+  end
 
 
-    def feedButton
+  def feedButton
 
-      "UITabBar UITabBarButton marked:'Home'"
+    "UITabBar UITabBarButton marked:'Home'"
 
-    end
+  end
 
-    def bookmarkButton
+  def bookmarkButton
 
-      "UITabBar UITabBarButton marked:'Bookmarks'"
+    "UITabBar UITabBarButton marked:'Bookmarks'"
 
-    end
+  end
 
-    def contactsButton
+  def contactsButton
 
-      "UITabBar UITabBarButton marked:'Contacts'"
+    "UITabBar UITabBarButton marked:'Contacts'"
 
-    end
+  end
 
-    def notificationsButton
+  def notificationsButton
 
-      "UITabBar UITabBarButton marked:'Notifications'"
+    "UITabBar UITabBarButton marked:'Notifications'"
 
-    end
+  end
 
-    def settingsButton
+  def settingsButton
 
-      "UITabBar UITabBarButton marked:'Settings'"
-    end
+    "UITabBar UITabBarButton marked:'Settings'"
+  end
 end
 
 

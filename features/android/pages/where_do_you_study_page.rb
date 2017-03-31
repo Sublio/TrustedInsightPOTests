@@ -7,14 +7,14 @@ class WhereDoYouStudyPage < Calabash::ABase
 
   def trait
 
-    "* marked:'Where do you study?'"   #this is a textField locator
+    "* marked:'Where do you study?'" #this is a textField locator
 
   end
 
-  def tapBackButton 
+  def tapBackButton
 
     touch("* id:'back_btn'") #this is a backButton locator
 
   end
 
- end
+end

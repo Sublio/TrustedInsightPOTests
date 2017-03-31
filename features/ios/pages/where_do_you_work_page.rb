@@ -7,7 +7,7 @@ class WhereDoYouWorkPage < Calabash::IBase
 
   def trait
 
-    "TITextField index:0"  
+    "TITextField index:0"
 
   end
 
@@ -94,13 +94,13 @@ class WhereDoYouWorkPage < Calabash::IBase
 
   end
 
-  def retiredCheckbox 
+  def retiredCheckbox
 
     touch("UIButtonLabel marked:'Retired'")
 
   end
 
-  def tapBackButton 
+  def tapBackButton
 
     touch("* marked:'BACK'") #this is a backButton locator
 
@@ -123,12 +123,12 @@ class WhereDoYouWorkPage < Calabash::IBase
 
     "* marked:'NEXT'"
 
-  end  
+  end
 
   def unableToConnect
 
     "* text:'Unable to connect'"
-    
+
   end
 
 
@@ -173,7 +173,7 @@ class WhereDoYouWorkPage < Calabash::IBase
 
   def checkIfCleared(textfield, container, closebutton)
 
-    enter_text(textfield, 1.times.map{[*'a'..'x'].sample}.join)
+    enter_text(textfield, 1.times.map { [*'a'..'x'].sample }.join)
     wait_for_elements_exist(container)
     #text_before = query(textfield).first["text"]
     wait_for_elements_exist(closebutton)
@@ -193,7 +193,7 @@ class WhereDoYouWorkPage < Calabash::IBase
     wait_for_none_animating
 
     loop do
-      elements = query(countryElementString).uniq! {|e| e["text"] }
+      elements = query(countryElementString).uniq! { |e| e["text"] }
       swipe :down, query: pickerViewString, force: :strong
       wait_for_none_animating
       break if elements.length == 4
@@ -201,30 +201,30 @@ class WhereDoYouWorkPage < Calabash::IBase
 
     i = 0
     loop do
-    #puts(i)
-      elements = query(countryElementString).uniq! {|e| e["text"] }
+      #puts(i)
+      elements = query(countryElementString).uniq! { |e| e["text"] }
       elements.each do |element|
         #puts(element["text"])
       end
       for element in elements do
-          if element["text"] == countryTitleString
-            wait_for_none_animating
-            sleep 2
-            wait_for_none_animating
-            touch(element)
-            wait_for_none_animating
-            #puts("did the touch")
-            i = i + 1
-            #puts(i)
-            break
-          else
-            next
-          end
+        if element["text"] == countryTitleString
+          wait_for_none_animating
+          sleep 2
+          wait_for_none_animating
+          touch(element)
+          wait_for_none_animating
+          #puts("did the touch")
+          i = i + 1
+          #puts(i)
+          break
+        else
+          next
+        end
       end
-    break if (i == 1)
-    wait_for_none_animating
-    swipe :up, query: pickerViewString, force: :normal
-    wait_for_none_animating
+      break if (i == 1)
+      wait_for_none_animating
+      swipe :up, query: pickerViewString, force: :normal
+      wait_for_none_animating
     end
     touch(nextButton)
 

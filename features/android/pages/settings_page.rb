@@ -6,10 +6,10 @@ require 'calabash-android/abase'
 class SettingsPage < Calabash::ABase
 
   def trait
-    "* marked:'Settings'"   #this is a title of Settings screen
+    "* marked:'Settings'" #this is a title of Settings screen
   end
 
-  def settingsAvatar   
+  def settingsAvatar
     "* id:'settings_photo'" # this is avatar on Settings screen
   end
 
@@ -18,19 +18,19 @@ class SettingsPage < Calabash::ABase
   end
 
   def settingsName
-    query("* id:'settings_name'","text").first # "text" # User's First and Last names on Settings screen
+    query("* id:'settings_name'", "text").first # "text" # User's First and Last names on Settings screen
   end
 
   def settingsPosition
-    query("* id:'settings_position_name'","text").first # User Position on Settings screen
+    query("* id:'settings_position_name'", "text").first # User Position on Settings screen
   end
 
   def settingsFirmName
-    query("* id:'settings_company_name'","text").first#,"text" # Name of Company on on Settings screen
+    query("* id:'settings_company_name'", "text").first #,"text" # Name of Company on on Settings screen
   end
 
   def settingsFirmNameButton
-    "* id:'settings_company_name'"#,"text" # Name of Company on on Settings screen
+    "* id:'settings_company_name'" #,"text" # Name of Company on on Settings screen
   end
 
   def editProfileButton
@@ -38,7 +38,7 @@ class SettingsPage < Calabash::ABase
   end
 
   def manageInterestsButton
-  "* id:'settings_interests'"
+    "* id:'settings_interests'"
   end
 
   def preferencesButton
@@ -54,7 +54,7 @@ class SettingsPage < Calabash::ABase
   end
 
   def phoneNumberConfirmedButton
-  "* id:'settings_text_phone_number_confirmed'" # Visible if text is not empty
+    "* id:'settings_text_phone_number_confirmed'" # Visible if text is not empty
 
   end
 
@@ -83,12 +83,12 @@ class SettingsPage < Calabash::ABase
   end
 
   def goToBottom
-      scroll("ResponsiveScrollView",:down)
+    scroll("ResponsiveScrollView", :down)
   end
 
 
-def showBottom
-  perform_action('drag', 50, 50, 70, 20, 30)
-end
+  def showBottom
+    perform_action('drag', 50, 50, 70, 20, 30)
+  end
 
 end 

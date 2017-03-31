@@ -2,7 +2,6 @@ require 'calabash-cucumber'
 require_relative '../support/global_helpers'
 
 
-
 When(/^I add first cell to bookmarks$/) do
   @current_page = page(FeedPage).await(timeout: 60)
   sleep(6) #we need to wait while feed content has been fully loaded
@@ -14,16 +13,16 @@ end
 
 
 And(/^I Open Bookmarks tab$/) do
-    sleep(2)
-    @current_page=page(FeedPage).await(timeout:30)
-    touch(@current_page.bookmarkTab)
-    sleep(2)
+  sleep(2)
+  @current_page=page(FeedPage).await(timeout: 30)
+  touch(@current_page.bookmarkTab)
+  sleep(2)
 end
 
 
 Then (/^I should see first cell on Bookmark tab with the same description as on feed page$/) do
 
-  @current_page = page(BookmarksPage).await(timeout:20)
+  @current_page = page(BookmarksPage).await(timeout: 20)
 
 
   @cellHeaderAfter = @current_page.firstCellHeader
@@ -62,7 +61,7 @@ end
 
 Then (/^I swipe on first cell$/) do
 
-  @current_page = page(FeedPage).await(timeout:10)
+  @current_page = page(FeedPage).await(timeout: 10)
   sleep(8);
   @current_page.swipeOnFirstCellInRightSide
 

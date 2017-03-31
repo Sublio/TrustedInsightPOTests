@@ -14,10 +14,10 @@ class LoginPage < Calabash::IBase
   end
 
 
-  def tapBackButton 
+  def tapBackButton
 
     touch("* id:'iconTopCancel'") #this is a backButton locator
-    
+
   end
 
 
@@ -33,14 +33,14 @@ class LoginPage < Calabash::IBase
 
   end
 
-  def ensureInvalidEmailAlert 
+  def ensureInvalidEmailAlert
 
     touch(nextButton)
 
     wait_for(timeout: 60,
-         timeout_message: "Could not find alert") do
-       element_exists("* marked:'Invalid Email'")
-    end  
+             timeout_message: "Could not find alert") do
+      element_exists("* marked:'Invalid Email'")
+    end
   end
 
 

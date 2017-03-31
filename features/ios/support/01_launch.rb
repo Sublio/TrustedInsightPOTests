@@ -34,9 +34,9 @@ module Calabash::Launcher
 
   def self.environment
     {
-      :simctl => self.simctl,
-      :instruments => self.instruments,
-      :xcode => self.xcode
+        :simctl => self.simctl,
+        :instruments => self.instruments,
+        :xcode => self.xcode
     }
   end
 
@@ -63,7 +63,7 @@ module Calabash::Launcher
       ideviceinstaller.install_app
     end
   end
-  
+
 end
 
 Before("@no_relaunch") do
@@ -71,9 +71,8 @@ Before("@no_relaunch") do
 end
 
 
-
-ENV['DEVICE_TARGET'] = 'iPhone 5 (9.3)'
-#ENV['DEVICE_TARGET'] = 'iPhone 5 (10.3)'
+#ENV['DEVICE_TARGET'] = 'iPhone 5 (9.3)'
+ENV['DEVICE_TARGET'] = 'iPhone 5 (10.3)'
 #ENV['DEVICE_TARGET'] = 'iPhone 7 (10.2)'
 #ENV['DEVICE_TARGET'] = '5cdb1910f92bf7645bc981e80d47ec67fda487ca'
 #ENV['DEVICE_ENDPOINT'] = 'http://10.1.0.143:37265'
@@ -98,10 +97,8 @@ RunLoop::Xcrun::DEFAULT_OPTIONS[:timeout] = 320
 RunLoop::Xcrun::DEFAULT_OPTIONS[:log_cmd] = true
 
 
-
-
 Calabash::Cucumber::WaitHelpers::DEFAULT_OPTS[:screenshot_on_error] = false #switch off screenshot generating on failer
-RunLoop::Shell::DEFAULT_OPTIONS[:timeout] = 300  #default timeout for launch
+RunLoop::Shell::DEFAULT_OPTIONS[:timeout] = 300 #default timeout for launch
 #RunLoop::Shell::DEFAULT_OPTIONS[:log_cmd] = true 
 RunLoop::CoreSimulator::DEFAULT_OPTIONS[:launch_app_timeout] = 60
 RunLoop::CoreSimulator::DEFAULT_OPTIONS[:wait_for_state_timeout] = 60
@@ -119,15 +116,14 @@ puts RunLoop::Core.default_simulator #print default system simulator
 puts RunLoop::Xcrun::DEFAULT_OPTIONS
 
 
-
 Before do |scenario|
   launcher = Calabash::Launcher.launcher
 
   options = {
-    #:uia_strategy => :host,
-    #:uia_strategy => :shared_element,
-    :uia_strategy => :preferences,
-    :relaunch_simulator => false
+      #:uia_strategy => :host,
+      #:uia_strategy => :shared_element,
+      :uia_strategy => :preferences,
+      :relaunch_simulator => false
   }
 
   relaunch = true
@@ -160,7 +156,7 @@ Before do |scenario|
   # Re-installing the app on a device does not clear the Keychain settings,
   # so we must clear them manually.
   if scenario.source_tag_names.include?("@reinstall")
-      keychain_clear
+    keychain_clear
   end
 end
 
@@ -173,7 +169,7 @@ After do |scenario|
   #
   # http://calabashapi.xamarin.com/ios/file.ENVIRONMENT_VARIABLES.html#label-QUIT_APP_AFTER_SCENARIO
   # http://calabashapi.xamarin.com/ios/Calabash/Cucumber/Core.html#console_attach-instance_method
-  
+
 
   if launcher.quit_app_after_scenario?
     calabash_exit

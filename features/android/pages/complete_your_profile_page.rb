@@ -17,63 +17,63 @@ class CompleteYourProfilePage < Calabash::ABase
 
   def tap_skip_button
 
-  	touch("* id:'skip_btn'")
+    touch("* id:'skip_btn'")
 
   end
 
   def tap_next_button
 
-  	touch("* id:'next_btn'")
+    touch("* id:'next_btn'")
 
   end
 
   def shortBio
 
-  	"* id:'short_bio_input'"
+    "* id:'short_bio_input'"
 
   end
 
   def avatarImage
 
-  	"* id:'profile_image'"
+    "* id:'profile_image'"
 
   end
 
   def dialogCameraButton
 
-  	"* marked:'Camera'"
+    "* marked:'Camera'"
 
   end
 
   def dialogGalleryButton
 
-  	"* marked:'Gallery'"
+    "* marked:'Gallery'"
 
   end
 
   def dialogCancelButton
 
-  	"* marked:'Cancel'"
+    "* marked:'Cancel'"
 
   end
 
   def imageConfirmCancelButton
 
-  	"* marked:'Cancel'"
+    "* marked:'Cancel'"
 
   end
 
   def imageConfirmDoneButton
 
-  	"* marked:'DONE'"
+    "* marked:'DONE'"
 
   end
 
   def enterBio(biofield)
 
-  	enter_text(biofield, 'This is test short bio')
-  	hide_soft_keyboard
-  	sleep 1
+    enter_text(biofield, 'This is test short bio')
+    hide_soft_keyboard
+    sleep 1
 
   end
 
@@ -82,33 +82,33 @@ class CompleteYourProfilePage < Calabash::ABase
     system("adb shell input tap 360 1070")
     sleep 3
     system("adb shell input tap 360 1070")
-    
+
   end
 
   def selectAvatarFromGallery(avatarimage, gallerybutton, confirmbutton)
 
-  	touch(avatarimage)
-  	touch(gallerybutton)
-  	sleep 3
-  	system("adb shell input tap 200 230")
-  	sleep 3
-  	system("adb shell input tap 127 377")
-  	sleep 3
-  	touch(confirmbutton)
+    touch(avatarimage)
+    touch(gallerybutton)
+    sleep 3
+    system("adb shell input tap 200 230")
+    sleep 3
+    system("adb shell input tap 127 377")
+    sleep 3
+    touch(confirmbutton)
 
   end
 
   def selectAvatarFromCamera(avatarimage, camerabutton, confirmbutton, capturebutton)
 
-  	touch(avatarimage)
-  	sleep 2
-  	touch(camerabutton)
-  	sleep 3
-  	system("adb shell input tap 200 230")
-  	sleep 3
-  	system("adb shell input tap 127 377")
-  	sleep 10
-  	touch(confirmbutton)
+    touch(avatarimage)
+    sleep 2
+    touch(camerabutton)
+    sleep 3
+    system("adb shell input tap 200 230")
+    sleep 3
+    system("adb shell input tap 127 377")
+    sleep 10
+    touch(confirmbutton)
   end
 
- end
+end

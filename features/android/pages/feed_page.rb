@@ -5,13 +5,11 @@ require 'calabash-android/operations'
 #Android
 
 
-
-
 class FeedPage < Calabash::ABase
 
   def trait
 
-    "* text:'Home'"   #this is a search field locator
+    "* text:'Home'" #this is a search field locator
 
   end
 
@@ -26,7 +24,7 @@ class FeedPage < Calabash::ABase
 
   end
 
-def settingsTab
+  def settingsTab
 
     "* id:'bottomBarItemFive'"
 
@@ -42,7 +40,7 @@ def settingsTab
 
   def firstCellHeader
 
-   query("android.support.v7.widget.RecyclerView descendant android.widget.FrameLayout index:0 RelativeLayout android.widget.TextView",:text).first #return all text from cell!!!!!!!
+    query("android.support.v7.widget.RecyclerView descendant android.widget.FrameLayout index:0 RelativeLayout android.widget.TextView", :text).first #return all text from cell!!!!!!!
 
   end
 
@@ -58,7 +56,7 @@ def settingsTab
 
   def scrollToTheTopOfFeed
 
-    scroll_to_row("android.support.v7.widget.RecyclerView",0)
+    scroll_to_row("android.support.v7.widget.RecyclerView", 0)
 
   end
 
@@ -71,7 +69,7 @@ def settingsTab
 
     scroll_count.times {
 
-      scroll("android.support.v7.widget.RecyclerView",:down)
+      scroll("android.support.v7.widget.RecyclerView", :down)
       break if element_exists("* text:'#{text}'")
     }
   end
@@ -90,6 +88,6 @@ def settingsTab
     system("exit")
   end
 
-  end
+end
 
 

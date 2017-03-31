@@ -14,11 +14,10 @@ class FeedPage < Calabash::IBase
   end
 
 
-
   def searchButton
 
     "button marked:'iconNavSearch'"
-    
+
   end
 
   def bookmarkTab
@@ -36,7 +35,7 @@ class FeedPage < Calabash::IBase
 
   def firstCellHeader
 
-    query("UITableViewCell index:0 label",:text).first
+    query("UITableViewCell index:0 label", :text).first
 
   end
 
@@ -62,7 +61,7 @@ class FeedPage < Calabash::IBase
 
     section=0
 
-    scroll_to_cell(:row => 0, :section => 0)  #scroll to top of table
+    scroll_to_cell(:row => 0, :section => 0) #scroll to top of table
 
     sleep 1
     #Below code loops through each cell to check if the appropriate text was found
@@ -84,7 +83,7 @@ class FeedPage < Calabash::IBase
 
   def swipeOnFirstCellInRightSide
 
-    swipe :left, :query => "UITableViewCell index:0", :offset => {:x => 123, :y => 30}, :"swipe-delta" =>{:vertical => {:dx=> 0, :dy=> 250} }
+    swipe :left, :query => "UITableViewCell index:0", :offset => {:x => 123, :y => 30}, :"swipe-delta" => {:vertical => {:dx => 0, :dy => 250}}
     wait_for_none_animating
   end
 

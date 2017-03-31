@@ -14,9 +14,9 @@ end
 
 When(/^I scroll all the way to the top$/) do
 
-	puts("Entry point")
+  puts("Entry point")
   @current_page.scroll_back(@current_page.recycler)
-  	puts("end")
-  	#sleep 10
+  puts("end")
+  #sleep 10
 
 end

@@ -9,9 +9,9 @@ bio = Faker::Hacker.say_something_smart
 CREDENTIALS = {
     valid_user: {
         mail: 'sublio1260@gmail.com',
-        password:  'avatar1260',
+        password: 'avatar1260',
         firstname: 'Denis',
-        lastname:  'Test'
+        lastname: 'Test'
     },
     invalid_user: {
         mail: 'donaldTrump@w',
@@ -27,24 +27,24 @@ CREDENTIALS = {
 
     borsch_user: {
         mail: 'test@xttk.ru',
-        password:  'Qwerty123',
+        password: 'Qwerty123',
         firstname: 'Vladislav',
-        lastname:  'Borsch'
+        lastname: 'Borsch'
     },
 
     random_user: {
-    	mail: mail,
-    	password: password,
+        mail: mail,
+        password: password,
         firstname: firstname,
-        lastname: lastname       
+        lastname: lastname
     },
-    
+
     strange_user: {
         mail: mail,
         password: password,
         firstname: firstname,
         lastname: lastname,
-        bio: bio 
+        bio: bio
 
     },
 

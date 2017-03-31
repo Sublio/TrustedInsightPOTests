@@ -6,189 +6,190 @@ require 'calabash-android/abase'
 #Android
 class EditProfilePage < Calabash::ABase
 
-    def trait
-    "TextView text:'Edit Profile'"  #this is a title of Edit profile screen
-    end
+  def trait
+    "TextView text:'Edit Profile'" #this is a title of Edit profile screen
+  end
 
-    def backButton  
+  def backButton
     "* marked:'Navigate up'" # this is a "Back" button in left right corner on "Edit Profile" screen
-    end
+  end
 
-    def doneButton  
+  def doneButton
     "* marked:'action_ok'" # this is a "V" button in top right corner on "Edit Profile" screen
-    end
+  end
 
-    def selectRosberryFromDropDown
-      puts "ha ha - fake method"
-    end
+  def selectRosberryFromDropDown
+    puts "ha ha - fake method"
+  end
 
-    def iconEditPhoto
+  def iconEditPhoto
     "* id:'edit_dashed_image'" # This is an icon on Avatar on Edit Profile screen
-    end
+  end
 
-    def avatarOverlay
+  def avatarOverlay
     "* id:'edit_profile_overlay_image'" # This is an icon on Avatar on Edit Profile screen
-    end
-    
-    def avatarImage
+  end
+
+  def avatarImage
     "* id:'edit_profile_image'" # This is avatar on "Edit Profile" screen
-    end
+  end
 
-    def firstNameLabel
-    "TextInputLayout hint:'First name'"# This is a "First name" label
-    end
- 
-    def firstNameField
-    "* tag:'First name'"# This is a "First name" field
-    end
- 
-    def lastNameLabel
-    "TextInputLayout hint:'Last name'"# This is a "First name" label
-    end
- 
-    def lastNameField
-    "* tag:'Last name'"# This is a "Last name" field
-    end
- 
-    def companyLabel
-    "TextInputLayout hint:'Company'"# This is a "Company" label
-    end
+  def firstNameLabel
+    "TextInputLayout hint:'First name'" # This is a "First name" label
+  end
 
-    def companyField
-    "* tag:'Company'"# This is a "Company" field
-    end
+  def firstNameField
+    "* tag:'First name'" # This is a "First name" field
+  end
 
-    def titlePositionLabel
-    "TextInputLayout hint:'Title / Position'"# This is a "Title / Position" label
-    end
+  def lastNameLabel
+    "TextInputLayout hint:'Last name'" # This is a "First name" label
+  end
 
-    def titlePositionField
-    "* tag:'Title / Position'"# This is a "Title / Position" field
-    end
+  def lastNameField
+    "* tag:'Last name'" # This is a "Last name" field
+  end
 
-    def countryLabel
-    "TextInputLayout hint:'Country'"# This is a "Country" label
-    end
+  def companyLabel
+    "TextInputLayout hint:'Company'" # This is a "Company" label
+  end
 
-    def countryField
-    "* tag:'Country_field'"# This is a "Country" field
-    end
+  def companyField
+    "* tag:'Company'" # This is a "Company" field
+  end
 
-    def countryContainer
+  def titlePositionLabel
+    "TextInputLayout hint:'Title / Position'" # This is a "Title / Position" label
+  end
+
+  def titlePositionField
+    "* tag:'Title / Position'" # This is a "Title / Position" field
+  end
+
+  def countryLabel
+    "TextInputLayout hint:'Country'" # This is a "Country" label
+  end
+
+  def countryField
+    "* tag:'Country_field'" # This is a "Country" field
+  end
+
+  def countryContainer
     "listview"
-    end
-    def tapReturnOnKeyboard
+  end
 
-      puts "Haha"
-    end
+  def tapReturnOnKeyboard
 
-    def countryItself
+    puts "Haha"
+  end
+
+  def countryItself
     "* id:'title'"
-    end
+  end
 
-    def countryOkButton
+  def countryOkButton
     "* id:'buttonDefaultPositive'"
-    end
+  end
 
-    def countryCancelButton
+  def countryCancelButton
     "* id:'buttonDefaultNegative'"
-    end
+  end
 
-    def shortBioLabel
-    "* :'edit_text_header'"# This is a "Bio" label
-    end   
+  def shortBioLabel
+    "* :'edit_text_header'" # This is a "Bio" label
+  end
 
-    def bioField
-    "* tag:'Short Bio'"# This is a "Short Bio" field
-    end
+  def bioField
+    "* tag:'Short Bio'" # This is a "Short Bio" field
+  end
 
-    def investorTypeLabel
-    "TextInputLayout hint:'Investor type"# This is a "Investor type" label
-    end   
+  def investorTypeLabel
+    "TextInputLayout hint:'Investor type" # This is a "Investor type" label
+  end
 
-    def investorTypeField
-    "* tag:'Investor type'"# This is a "Country" field
-    end
+  def investorTypeField
+    "* tag:'Investor type'" # This is a "Country" field
+  end
 
-    def investorLevelLabel
-    "TextInputLayout hint:'Investor level'"# This is a "Investor level" label
-    end       
- 
-    def titleOnAlert
-      query("AppCompatTextView id:'title'",:text).first # This is a title of alert
-    end 
+  def investorLevelLabel
+    "TextInputLayout hint:'Investor level'" # This is a "Investor level" label
+  end
 
-    def textOnAlert
-      query("AppCompatTextView id:'content'",:text).first # This is a text on alert
-    end 
+  def titleOnAlert
+    query("AppCompatTextView id:'title'", :text).first # This is a title of alert
+  end
 
-    def cancelOnAlert
-   "* marked:'Cancel'"# This is a Cancel button
-    end 
+  def textOnAlert
+    query("AppCompatTextView id:'content'", :text).first # This is a text on alert
+  end
 
-    def continueOnAlert
-   "* marked:'Continue'"# This is a Continue button
-    end 
+  def cancelOnAlert
+    "* marked:'Cancel'" # This is a Cancel button
+  end
 
-     def goToBottom
-    scroll("ResponsiveScrollView",:down)
-    end
+  def continueOnAlert
+    "* marked:'Continue'" # This is a Continue button
+  end
 
-    def showBottom
+  def goToBottom
+    scroll("ResponsiveScrollView", :down)
+  end
+
+  def showBottom
     perform_action('drag', 50, 50, 70, 20, 30)
-    end
+  end
 
-    def hideKeyboard
-        hide_soft_keyboard
-    end
+  def hideKeyboard
+    hide_soft_keyboard
+  end
 
-    def inputUserBio(bio)
+  def inputUserBio(bio)
     keyboard_enter_text(bio)
-    end
+  end
 
-    def clearTextInBio
-        clear_text_in("* tag:'Short Bio'")
-    end
+  def clearTextInBio
+    clear_text_in("* tag:'Short Bio'")
+  end
 
-    def clearTextInCompany
-        clear_text_in("* tag:'Company'")
-    end
+  def clearTextInCompany
+    clear_text_in("* tag:'Company'")
+  end
 
-    def clearTextInPosition
-        clear_text_in("* tag:'Title / Position'")
-    end
+  def clearTextInPosition
+    clear_text_in("* tag:'Title / Position'")
+  end
 
-     def clearTextInFirstName
-        clear_text_in("* tag:'First name'")
-    end
+  def clearTextInFirstName
+    clear_text_in("* tag:'First name'")
+  end
 
-    def clearTextInLastName
-        clear_text_in("* tag:'Last name'")
-    end
+  def clearTextInLastName
+    clear_text_in("* tag:'Last name'")
+  end
 
 
-    def randomTitlePosition
+  def randomTitlePosition
     random_set= (('A'..'Z').to_a)
     random_title = (0...7).map { |n| random_set.sample }.join
-    end
+  end
 
-    def alertAboutMandatoryField
-    alert_mandatory = query("* marked:'Please fill out this field'","text")
+  def alertAboutMandatoryField
+    alert_mandatory = query("* marked:'Please fill out this field'", "text")
     if (alert_mandatory.empty?)
-        fail("Alert that field is mandatory not found")
+      fail("Alert that field is mandatory not found")
     else
-        puts("Alert \"Please fill out this field\" appears!")
+      puts("Alert \"Please fill out this field\" appears!")
     end
-    end
+  end
 
-    def noAlertAboutMandatoryField
-    alert_mandatory = query("* marked:'Please fill out this field'","text")
+  def noAlertAboutMandatoryField
+    alert_mandatory = query("* marked:'Please fill out this field'", "text")
     if (alert_mandatory.empty?)
-        puts("Alert about mandatory field disappears")
+      puts("Alert about mandatory field disappears")
     else
-        fail("Alert about mandatory field still appears!")
+      fail("Alert about mandatory field still appears!")
     end
-    end
+  end
 
   def pickCountryFromTheList(countryfield, container, country, confirmbutton, showbottom)
     showbottom

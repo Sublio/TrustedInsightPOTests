@@ -14,7 +14,7 @@ class YourBackgroundPage < Calabash::ABase
   def levelsCells
 
     query("recyclerview cardview appcompattextview")
-    
+
   end
 
   def proceedAsWorker(levelsCellsArray)
@@ -46,7 +46,7 @@ class YourBackgroundPage < Calabash::ABase
   def unableToConnect
 
     "* text:'Unable to connect'"
-    
+
   end
 
 end

@@ -12,17 +12,17 @@ class InvestorTypePage < Calabash::ABase
   end
 
 
- def hideKeyboard
+  def hideKeyboard
 
-       hide_soft_keyboard
+    hide_soft_keyboard
 
- end
+  end
 
-def skipOnWizard #Tap Skip Button on Wizard
+  def skipOnWizard #Tap Skip Button on Wizard
 
-      "* marked:'SKIP'"
+    "* marked:'SKIP'"
 
-end	
+  end
 
 
   def cell

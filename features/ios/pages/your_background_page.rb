@@ -14,7 +14,7 @@ class YourBackgroundPage < Calabash::IBase
   def levelsCells
 
     query("UITableViewLabel")
-    
+
   end
 
   def pickCell
@@ -50,7 +50,7 @@ class YourBackgroundPage < Calabash::IBase
   def unableToConnect
 
     "* text:'Unable to connect'"
-    
+
   end
 
 end

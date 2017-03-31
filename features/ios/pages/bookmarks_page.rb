@@ -17,7 +17,7 @@ class BookmarksPage < Calabash::IBase
 
   def firstCellHeader
 
-    query("UITableViewCell index:0 label",:text).first
+    query("UITableViewCell index:0 label", :text).first
 
   end
 
@@ -36,17 +36,17 @@ class BookmarksPage < Calabash::IBase
 
   def swipeOnFirstCellInRightSide
 
-    swipe :left, :query => "UITableViewCell label", :offset => {:x => 123, :y => 30}, :"swipe-delta" =>{:vertical => {:dx=> 0, :dy=> 250} }
+    swipe :left, :query => "UITableViewCell label", :offset => {:x => 123, :y => 30}, :"swipe-delta" => {:vertical => {:dx => 0, :dy => 250}}
   end
 
 
   def selectTypeFromTypePicker(type)
 
-      touch("TIDropDownButton")
+    touch("TIDropDownButton")
 
-      sleep(1)
+    sleep(1)
 
-      touch("view marked:'#{type}'")
+    touch("view marked:'#{type}'")
 
   end
 

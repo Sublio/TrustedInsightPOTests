@@ -11,12 +11,12 @@ class CompleteYourProfile < Calabash::ABase
 
   end
 
- def hideKeyboard
-            hide_soft_keyboard
- end
+  def hideKeyboard
+    hide_soft_keyboard
+  end
 
-def skipOnWizard 
-"* marked:'SKIP'"
-end	
+  def skipOnWizard
+    "* marked:'SKIP'"
+  end
 
- end
+end

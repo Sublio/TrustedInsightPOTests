@@ -7,7 +7,7 @@ class WhereDoYouWorkPage < Calabash::ABase
 
   def trait
 
-    "AppCompatEditText id:'business_job_title_et'"  
+    "AppCompatEditText id:'business_job_title_et'"
 
   end
 
@@ -90,17 +90,17 @@ class WhereDoYouWorkPage < Calabash::ABase
 
   def inTransitionCheckbox
 
-    "* id:'currently_transition'" 
+    "* id:'currently_transition'"
 
   end
 
-  def retiredCheckbox 
+  def retiredCheckbox
 
     touch("* id:'retired'")
 
   end
 
-  def tapBackButton 
+  def tapBackButton
 
     touch("* id:'back_btn'") #this is a backButton locator
 
@@ -123,64 +123,64 @@ class WhereDoYouWorkPage < Calabash::ABase
 
     "* id:'next_btn'"
 
-  end  
+  end
 
   def unableToConnect
 
     "* text:'Unable to connect'"
-    
+
   end
 
 end
 
 #######################
 
-  def pickItemFromAutocompleteList(textfield, container, element)
+def pickItemFromAutocompleteList(textfield, container, element)
 
-    enter_text(textfield, 1.times.map { [*'a'..'x'].sample }.join)
-    wait_for_elements_exist(container)
-    elements = query(element)
-    picked_element = elements[rand(0..elements.length - 1)]
-    picked_element_title = picked_element["text"]
-    puts ("Picked element title is #{picked_element_title}")
-    sleep 1
-    touch(picked_element)
-    sleep 1
-    final_element_title = query(textfield).first["text"]
-    puts ("Final element title is #{final_element_title}")
-    sleep 1
-    if final_element_title.include? picked_element_title
-      puts("Element picked successfully")
-    else
-      puts("Element doesn't match!")
-    end
-
+  enter_text(textfield, 1.times.map { [*'a'..'x'].sample }.join)
+  wait_for_elements_exist(container)
+  elements = query(element)
+  picked_element = elements[rand(0..elements.length - 1)]
+  picked_element_title = picked_element["text"]
+  puts ("Picked element title is #{picked_element_title}")
+  sleep 1
+  touch(picked_element)
+  sleep 1
+  final_element_title = query(textfield).first["text"]
+  puts ("Final element title is #{final_element_title}")
+  sleep 1
+  if final_element_title.include? picked_element_title
+    puts("Element picked successfully")
+  else
+    puts("Element doesn't match!")
   end
 
+end
 
-  def checkIfCleared(textfield, container, closebutton)
 
-    enter_text(textfield, 1.times.map { [*'a'..'x'].sample }.join)
-    wait_for_elements_exist(container)
-    text_before = query(textfield).first["text"]
-    puts(text_before)
-    touch(closebutton)
-    text_after = query(textfield).first["text"]
-    puts(text_after)
-    if text_after.empty?
-      puts("Clear!")
-    end
+def checkIfCleared(textfield, container, closebutton)
 
+  enter_text(textfield, 1.times.map { [*'a'..'x'].sample }.join)
+  wait_for_elements_exist(container)
+  text_before = query(textfield).first["text"]
+  puts(text_before)
+  touch(closebutton)
+  text_after = query(textfield).first["text"]
+  puts(text_after)
+  if text_after.empty?
+    puts("Clear!")
   end
+
+end
 
 #query("listview", :getAdapter).first["count"].to_i - количество позиций
 #query("ListView",{:smoothScrollToPosition=>100}) - скролл до позиции 
 
-  def pickCountryFromTheList(countryTitleEditText, countryElementString, pickerViewString, countryTitleString, confirmCountryButton, nextButton)
+def pickCountryFromTheList(countryTitleEditText, countryElementString, pickerViewString, countryTitleString, confirmCountryButton, nextButton)
 
-    touch(countryTitleEditText)
-    i = 0
-    loop do 
+  touch(countryTitleEditText)
+  i = 0
+  loop do
     countries = query(countryElementString)
     for country in countries do
       if country["text"] == countryTitleString
@@ -193,11 +193,11 @@ end
     end
     break if i == 1
     pan pickerViewString, :up
-    end
-    touch(confirmCountryButton)
-    touch(nextButton)
-
   end
+  touch(confirmCountryButton)
+  touch(nextButton)
+
+end
 
 =begin
 #deprecated

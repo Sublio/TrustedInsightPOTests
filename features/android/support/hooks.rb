@@ -1,72 +1,67 @@
-
 ###Android hooks
 
 Before('@shouldLogin') do
-  wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
-	touch("* text:'ACCESS WITH EMAIL'")
-	enter_text("* id:'join_input_et'","sublio1260@gmail.com") #login
+  wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'") }
+  touch("* text:'ACCESS WITH EMAIL'")
+  enter_text("* id:'join_input_et'", "sublio1260@gmail.com") #login
   sleep(1)
-	touch("* id:'join_action_button'") 
-	wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
-	enter_text("* id:'join_input_et'","avatar1260") #password
+  touch("* id:'join_action_button'")
+  wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'") }
+  enter_text("* id:'join_input_et'", "avatar1260") #password
   sleep(1)
-	touch("* id:'join_action_button'")
-	
-	if element_exists("* text:'ENABLE NOTIFICATIONS'")
+  touch("* id:'join_action_button'")
 
-		touch("* text:'ENABLE NOTIFICATIONS'")
-	end
+  if element_exists("* text:'ENABLE NOTIFICATIONS'")
 
-	wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
+    touch("* text:'ENABLE NOTIFICATIONS'")
+  end
+
+  wait_for(:timeout => 20) { element_exists("* marked:'Home'") }
 
 end
 
 
 After('@shouldLogin') do
 
-	wait_for(:timeout => 20) { element_exists("* id:'bottomBarItemFive'")}
-	touch("* id:'bottomBarItemFive'")
-	sleep(3)
-	scroll("ResponsiveScrollView", :down)
-	wait_for(:timeout => 20) { element_exists("* text:'Log out'")}
-	touch("* text:'Log out'")
-	page(WelcomePage).await(timeout: 60) 
+  wait_for(:timeout => 20) { element_exists("* id:'bottomBarItemFive'") }
+  touch("* id:'bottomBarItemFive'")
+  sleep(3)
+  scroll("ResponsiveScrollView", :down)
+  wait_for(:timeout => 20) { element_exists("* text:'Log out'") }
+  touch("* text:'Log out'")
+  page(WelcomePage).await(timeout: 60)
 
 end
 
 
-
 After('@shouldLogout') do
 
-	wait_for(:timeout => 20) { element_exists("* id:'bottomBarItemFive'")}
-	touch("* id:'bottomBarItemFive'")
-	sleep(3)
-	scroll("ResponsiveScrollView", :down)
-	wait_for(:timeout => 20) { element_exists("* text:'Log out'")}
-	touch("* text:'Log out'")
-	page(WelcomePage).await(timeout: 60)
+  wait_for(:timeout => 20) { element_exists("* id:'bottomBarItemFive'") }
+  touch("* id:'bottomBarItemFive'")
+  sleep(3)
+  scroll("ResponsiveScrollView", :down)
+  wait_for(:timeout => 20) { element_exists("* text:'Log out'") }
+  touch("* text:'Log out'")
+  page(WelcomePage).await(timeout: 60)
 
 end
 
 
 Before('@shouldLogoutBefore') do
 
-	sleep(5)
-	if element_exists("* id:'bottomBarItemFive'") 
-		touch("* id:'bottomBarItemFive'")
-		sleep(3)
-		scroll("ResponsiveScrollView", :down)
-		wait_for(:timeout => 20) { element_exists("* text:'Log out'")}
-		touch("* text:'Log out'")
-		page(WelcomePage).await(timeout: 60) 
-		
-	else
-		puts ("Can't logout")
-	end
+  sleep(5)
+  if element_exists("* id:'bottomBarItemFive'")
+    touch("* id:'bottomBarItemFive'")
+    sleep(3)
+    scroll("ResponsiveScrollView", :down)
+    wait_for(:timeout => 20) { element_exists("* text:'Log out'") }
+    touch("* text:'Log out'")
+    page(WelcomePage).await(timeout: 60)
+
+  else
+    puts ("Can't logout")
+  end
 end
-
-
-
 
 
 ######################Landing Hooks Android#############################
@@ -77,41 +72,41 @@ end
 
 Before('@landingHome') do
 
-	if element_exists("* id:'bottomBarItemOne'")
-		touch("* id:'bottomBarItemOne'")
-	else
+  if element_exists("* id:'bottomBarItemOne'")
+    touch("* id:'bottomBarItemOne'")
+  else
 
-		wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
-		touch("* text:'ACCESS WITH EMAIL'")
-		enter_text("* id:'join_input_et'","sublio1260@gmail.com") #login
+    wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'") }
+    touch("* text:'ACCESS WITH EMAIL'")
+    enter_text("* id:'join_input_et'", "sublio1260@gmail.com") #login
     sleep(1)
-		touch("* id:'join_action_button'")
-		wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
-		enter_text("* id:'join_input_et'","avatar1260") #password
+    touch("* id:'join_action_button'")
+    wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'") }
+    enter_text("* id:'join_input_et'", "avatar1260") #password
     sleep(1)
-		touch("* id:'join_action_button'")
-		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
-		touch("* id:'bottomBarItemOne'")
+    touch("* id:'join_action_button'")
+    wait_for(:timeout => 20) { element_exists("* marked:'Home'") }
+    touch("* id:'bottomBarItemOne'")
 
-	end
+  end
 
 end
 
 
 After('@landingHome') do
 
-	sleep(5)
-	if element_exists("* id:'bottomBarItemFive'")
-		touch("* id:'bottomBarItemFive'")
-		sleep(3)
-		scroll("ResponsiveScrollView", :down)
-		wait_for(:timeout => 20) { element_exists("* text:'Log out'")}
-		touch("* text:'Log out'")
-		page(WelcomePage).await(timeout: 60)
+  sleep(5)
+  if element_exists("* id:'bottomBarItemFive'")
+    touch("* id:'bottomBarItemFive'")
+    sleep(3)
+    scroll("ResponsiveScrollView", :down)
+    wait_for(:timeout => 20) { element_exists("* text:'Log out'") }
+    touch("* text:'Log out'")
+    page(WelcomePage).await(timeout: 60)
 
-	else
-		puts ("Can't logout")
-	end
+  else
+    puts ("Can't logout")
+  end
 
 end
 
@@ -121,42 +116,42 @@ end
 Before('@landingBookmarks') do
 
   sleep(5)
-	if element_exists("* id:'bottomBarItemTwo'")
-		touch("* id:'bottomBarItemTwo'")
-	else
+  if element_exists("* id:'bottomBarItemTwo'")
+    touch("* id:'bottomBarItemTwo'")
+  else
 
-		wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
-		touch("* text:'ACCESS WITH EMAIL'")
-		enter_text("* id:'join_input_et'","sublio1260@gmail.com") #login
+    wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'") }
+    touch("* text:'ACCESS WITH EMAIL'")
+    enter_text("* id:'join_input_et'", "sublio1260@gmail.com") #login
     sleep(1)
-		touch("* id:'join_action_button'")
-		wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
-		enter_text("* id:'join_input_et'","avatar1260") #password
+    touch("* id:'join_action_button'")
+    wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'") }
+    enter_text("* id:'join_input_et'", "avatar1260") #password
     sleep(1)
-		touch("* id:'join_action_button'")
+    touch("* id:'join_action_button'")
 
-		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
-		touch("* id:'bottomBarItemTwo'")
+    wait_for(:timeout => 20) { element_exists("* marked:'Home'") }
+    touch("* id:'bottomBarItemTwo'")
 
-	end
+  end
 
 end
 
 
 After('@landingBookmarks') do
 
-	sleep(5)
-	if element_exists("* id:'bottomBarItemFive'")
-		touch("* id:'bottomBarItemFive'")
-		sleep(3)
-		scroll("ResponsiveScrollView", :down)
-		wait_for(:timeout => 20) { element_exists("* text:'Log out'")}
-		touch("* text:'Log out'")
-		page(WelcomePage).await(timeout: 60)
+  sleep(5)
+  if element_exists("* id:'bottomBarItemFive'")
+    touch("* id:'bottomBarItemFive'")
+    sleep(3)
+    scroll("ResponsiveScrollView", :down)
+    wait_for(:timeout => 20) { element_exists("* text:'Log out'") }
+    touch("* text:'Log out'")
+    page(WelcomePage).await(timeout: 60)
 
-	else
-		puts ("Can't logout")
-	end
+  else
+    puts ("Can't logout")
+  end
 
 end
 
@@ -164,102 +159,102 @@ end
 
 
 Before('@landingContacts') do
-	if element_exists("* id:'bottomBarItemThree'")
-		touch("* id:'bottomBarItemThree'")
-	else
+  if element_exists("* id:'bottomBarItemThree'")
+    touch("* id:'bottomBarItemThree'")
+  else
 
-		wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
-		touch("* text:'ACCESS WITH EMAIL'")
-		enter_text("* id:'join_input_et'","sublio1260@gmail.com") #login
+    wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'") }
+    touch("* text:'ACCESS WITH EMAIL'")
+    enter_text("* id:'join_input_et'", "sublio1260@gmail.com") #login
     sleep(1)
-		touch("* id:'join_action_button'")
-		wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
-		enter_text("* id:'join_input_et'","avatar1260") #password
+    touch("* id:'join_action_button'")
+    wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'") }
+    enter_text("* id:'join_input_et'", "avatar1260") #password
     sleep(1)
-		touch("* id:'join_action_button'")
+    touch("* id:'join_action_button'")
 
-		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
-		touch("* id:'bottomBarItemThree'")
+    wait_for(:timeout => 20) { element_exists("* marked:'Home'") }
+    touch("* id:'bottomBarItemThree'")
 
-	end
+  end
 end
 
 #Landing Notifications
 
 Before('@landingNotifications') do
-	if element_exists("* id:'bottomBarItemFour'")
-		touch("* id:'bottomBarItemFour'")
-	else
+  if element_exists("* id:'bottomBarItemFour'")
+    touch("* id:'bottomBarItemFour'")
+  else
 
-		wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
-		touch("* text:'ACCESS WITH EMAIL'")
-		enter_text("* id:'join_input_et'","sublio1260@gmail.com") #login
+    wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'") }
+    touch("* text:'ACCESS WITH EMAIL'")
+    enter_text("* id:'join_input_et'", "sublio1260@gmail.com") #login
     sleep(1)
-		touch("* id:'join_action_button'")
-		wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
-		enter_text("* id:'join_input_et'","avatar1260") #password
+    touch("* id:'join_action_button'")
+    wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'") }
+    enter_text("* id:'join_input_et'", "avatar1260") #password
     sleep(1)
-		touch("* id:'join_action_button'")
+    touch("* id:'join_action_button'")
 
-		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
-		touch("* id:'bottomBarItemFour'")
+    wait_for(:timeout => 20) { element_exists("* marked:'Home'") }
+    touch("* id:'bottomBarItemFour'")
 
-	end
+  end
 end
 
 #Landing Settings
 
 Before('@landingSettings') do
-	if element_exists("* id:'bottomBarItemFive'")
-		touch("* id:'bottomBarItemFive'")
-	else
+  if element_exists("* id:'bottomBarItemFive'")
+    touch("* id:'bottomBarItemFive'")
+  else
 
-		wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
-		touch("* text:'ACCESS WITH EMAIL'")
-		enter_text("* id:'join_input_et'","sublio1260@gmail.com") #login
+    wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'") }
+    touch("* text:'ACCESS WITH EMAIL'")
+    enter_text("* id:'join_input_et'", "sublio1260@gmail.com") #login
     sleep(1)
-		touch("* id:'join_action_button'")
-		wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
-		enter_text("* id:'join_input_et'","avatar1260") #password
+    touch("* id:'join_action_button'")
+    wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'") }
+    enter_text("* id:'join_input_et'", "avatar1260") #password
     sleep(1)
-		touch("* id:'join_action_button'")
+    touch("* id:'join_action_button'")
 
-		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
-		touch("* id:'bottomBarItemFive'")
+    wait_for(:timeout => 20) { element_exists("* marked:'Home'") }
+    touch("* id:'bottomBarItemFive'")
 
-	end
+  end
 end
 
 #Login and go to Settings
 Before('@shouldLoginAsCherepashkin') do
-findWelcome
+  findWelcome
 =begin  #old login
 	touch("* id:'join_email'")
 	keyboard_enter_text("test1@xttk.ru")
 	touch("* id:'join_action_button'") 
 =end
-		wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'")}
-		touch("* text:'ACCESS WITH EMAIL'")
-		enter_text("* id:'join_input_et'","test1@xttk.ru")#login
-		hide_soft_keyboard 
-sleep(2)
+  wait_for(:timeout => 20) { element_exists("* text:'ACCESS WITH EMAIL'") }
+  touch("* text:'ACCESS WITH EMAIL'")
+  enter_text("* id:'join_input_et'", "test1@xttk.ru") #login
+  hide_soft_keyboard
+  sleep(2)
 =begin #old password
 	keyboard_enter_text("Qwerty123")
 	perform_action('drag', 50, 50, 70, 20, 30)
 =end
-		touch("* id:'join_action_button'")
-		wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'")}
-		sleep(1)
-		enter_text("* id:'join_input_et'","Qwerty123")
-		sleep(2)
-		hide_soft_keyboard
+  touch("* id:'join_action_button'")
+  wait_for(:timeout => 20) { element_exists("* text:'Forgot password?'") }
+  sleep(1)
+  enter_text("* id:'join_input_et'", "Qwerty123")
+  sleep(2)
+  hide_soft_keyboard
 #		perform_action('drag', 50, 50, 70, 20, 30) #password
-sleep(2)
-		touch("* id:'join_action_button'")
-sleep(1)
-		wait_for(:timeout => 20) { element_exists("* marked:'Home'")}
-		touch("* id:'bottomBarItemFive'")
-sleep(2)
+  sleep(2)
+  touch("* id:'join_action_button'")
+  sleep(1)
+  wait_for(:timeout => 20) { element_exists("* marked:'Home'") }
+  touch("* id:'bottomBarItemFive'")
+  sleep(2)
 
 end
 
@@ -271,7 +266,7 @@ After('@shouldLoginAsCherepashkin') do
 #	if element_exists("ResponsiveScrollView")
 #		scroll("ResponsiveScrollView",:down)
 #	end
-findWelcome 
+  findWelcome
 #	perform_action('drag', 50, 50, 70, 20, 30)
 #	touch("* id:'settings_logout'")
 #	sleep(2)
@@ -280,126 +275,126 @@ end
 
 #Return to "Welcome Screen" hook
 def findWelcome
-	if element_exists("* id:'join_welcome'")
-		puts("Welcome to Welcome screen.")
-	else 
-		findBottomBar
-	end
+  if element_exists("* id:'join_welcome'")
+    puts("Welcome to Welcome screen.")
+  else
+    findBottomBar
+  end
 end
 
 def findBottomBar
-	checkBottomBar = query("BottomBar")
-	if (checkBottomBar.empty?)
-		returnToPreviousScreen
-	else
-		findSettingsButton
-	end
-	findWelcome
+  checkBottomBar = query("BottomBar")
+  if (checkBottomBar.empty?)
+    returnToPreviousScreen
+  else
+    findSettingsButton
+  end
+  findWelcome
 end
 
 def findSettingsButton
-settings_button = query("* id:'bottomBarItemFive'") 
-	if (settings_button.empty?)
-		perform_action('drag', 50, 50, 20, 70, 30)
-	else
-		touch("* id:'bottomBarItemFive'")
-		sleep(1)
-		perform_action('drag', 50, 50, 70, 20, 30)
-		touch("* id:'settings_logout'")
-		sleep(3)
-	end
+  settings_button = query("* id:'bottomBarItemFive'")
+  if (settings_button.empty?)
+    perform_action('drag', 50, 50, 20, 70, 30)
+  else
+    touch("* id:'bottomBarItemFive'")
+    sleep(1)
+    perform_action('drag', 50, 50, 70, 20, 30)
+    touch("* id:'settings_logout'")
+    sleep(3)
+  end
 end
 
 def returnToPreviousScreen
-	tapiconTopBack
-	tap_password_back
-	tapContinue
-	tap_email_back
-	tapCancel
-	tapLevelOnWizard
-	skipOnWizard
-	tapBackOnSearch
+  tapiconTopBack
+  tap_password_back
+  tapContinue
+  tap_email_back
+  tapCancel
+  tapLevelOnWizard
+  skipOnWizard
+  tapBackOnSearch
 
-	findWelcome
+  findWelcome
 end
 
 def tapiconTopBack
-iconTopBack = query("* marked:'Navigate up'")
-	if (iconTopBack.empty?)
-		hideKeyboard
-	else
-		touch("* marked:'Navigate up'")
-	end
+  iconTopBack = query("* marked:'Navigate up'")
+  if (iconTopBack.empty?)
+    hideKeyboard
+  else
+    touch("* marked:'Navigate up'")
+  end
 
 end
 
 def tap_email_back
-join_email_back = query("* marked:'join_email_back'")
-	if (join_email_back.empty?)
-		hideKeyboard
-	else
-		touch("* marked:'join_email_back'")
-	end
+  join_email_back = query("* marked:'join_email_back'")
+  if (join_email_back.empty?)
+    hideKeyboard
+  else
+    touch("* marked:'join_email_back'")
+  end
 
 end
 
 def tap_password_back
-join_password_back = query("* marked:'join_password_back'")
-	if (join_password_back.empty?)
-		hideKeyboard
-	else
-		touch("* marked:'join_password_back'")
-	end
+  join_password_back = query("* marked:'join_password_back'")
+  if (join_password_back.empty?)
+    hideKeyboard
+  else
+    touch("* marked:'join_password_back'")
+  end
 
 end
 
 def tapCancel
-cancel_button = query("* marked:'Cancel'")
-	if (cancel_button.empty?)
-		hideKeyboard
-	else
-		touch("* marked:'Cancel'")
-	end
+  cancel_button = query("* marked:'Cancel'")
+  if (cancel_button.empty?)
+    hideKeyboard
+  else
+    touch("* marked:'Cancel'")
+  end
 end
 
 def tapLevelOnWizard
-level_container = query("* id:'level_container'")
-	if (level_container.empty?)
-		hideKeyboard
-	else
-		touch("* id:'level_container'")
-	end
-end	
+  level_container = query("* id:'level_container'")
+  if (level_container.empty?)
+    hideKeyboard
+  else
+    touch("* id:'level_container'")
+  end
+end
 
 def skipOnWizard
-skip_on_wizard = query("* marked:'SKIP'")
-	if (skip_on_wizard.empty?)
-		hideKeyboard
-	else
-		touch("* marked:'SKIP'")
-	end
-end	
+  skip_on_wizard = query("* marked:'SKIP'")
+  if (skip_on_wizard.empty?)
+    hideKeyboard
+  else
+    touch("* marked:'SKIP'")
+  end
+end
 
 def tapContinue
-contunue_button = query("* marked:'Continue'")
-	if (contunue_button.empty?)
-		hideKeyboard
-	else
-		touch("* marked:'Continue'")
-	end
-end	
+  contunue_button = query("* marked:'Continue'")
+  if (contunue_button.empty?)
+    hideKeyboard
+  else
+    touch("* marked:'Continue'")
+  end
+end
 
 def tapBackOnSearch
-back_from_search = query("* id:'action_up_btn'")
-	if (back_from_search.empty?)
-		hideKeyboard
-	else
-		touch("* id:'action_up_btn'")
-	end
+  back_from_search = query("* id:'action_up_btn'")
+  if (back_from_search.empty?)
+    hideKeyboard
+  else
+    touch("* id:'action_up_btn'")
+  end
 end
 
 def hideKeyboard
-            hide_soft_keyboard
+  hide_soft_keyboard
 end
 
 =begin #How to find bottombar
@@ -415,23 +410,23 @@ puts title_of_screen
 end
 =end
 def do_nothing
-    # do nothing
-end	
+  # do nothing
+end
 
- # Just a hook for findWelcome
+# Just a hook for findWelcome
 Before('@findWelcome') do
-	if element_exists("* id:'join_welcome'")
-puts("Welcome to Welcome screen.")
-	else 
+  if element_exists("* id:'join_welcome'")
+    puts("Welcome to Welcome screen.")
+  else
 #	findBottomBar
-findWelcome
-	end
+    findWelcome
+  end
 end
 
 
 After('@findWelcome') do
 
-findWelcome 
+  findWelcome
 
 end
 
@@ -442,10 +437,10 @@ end
 
 
 After('@logoutAtAnyCost') do
-	if element_exists("* id:'join_welcome'")
-puts("Welcome to Welcome screen.")
-	else 
+  if element_exists("* id:'join_welcome'")
+    puts("Welcome to Welcome screen.")
+  else
 #	findBottomBar
-findWelcome
-	end
+    findWelcome
+  end
 end

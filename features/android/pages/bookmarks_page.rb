@@ -18,7 +18,7 @@ class BookmarksPage < Calabash::ABase
 
   def firstCellHeader
 
-    query('android.support.v7.widget.RecyclerView index:1 android.widget.TextView',:text).first
+    query('android.support.v7.widget.RecyclerView index:1 android.widget.TextView', :text).first
 
   end
 
@@ -51,7 +51,7 @@ class BookmarksPage < Calabash::ABase
 
     bookmarksTypeRecycler = query("recyclerView id:'bookmarks_filters_container'").first
 
-    attempts=0  #attempts counter
+    attempts=0 #attempts counter
 
     while (query("* text:'#{type}'")).empty?
 
@@ -67,17 +67,17 @@ class BookmarksPage < Calabash::ABase
 
 
   def deleteAllBookmarks
-      while query("* text:'No bookmarks added yet'").empty?
+    while query("* text:'No bookmarks added yet'").empty?
 
-        touch("recyclerView id:'bookmarks_container' relativeLayout")
-        sleep(2)
-        touch("* contentDescription:'Add Bookmark'")
-        sleep(1)
-        touch("* contentDescription:'Navigate up'")
-        sleep(1)
-        touch("* id:'bb_bottom_bar_item_container' descendant * id:'bottomBarItemOne'")
-        touch("* id:'bb_bottom_bar_item_container' descendant * id:'bottomBarItemTwo'")
-      end
+      touch("recyclerView id:'bookmarks_container' relativeLayout")
+      sleep(2)
+      touch("* contentDescription:'Add Bookmark'")
+      sleep(1)
+      touch("* contentDescription:'Navigate up'")
+      sleep(1)
+      touch("* id:'bb_bottom_bar_item_container' descendant * id:'bottomBarItemOne'")
+      touch("* id:'bb_bottom_bar_item_container' descendant * id:'bottomBarItemTwo'")
+    end
   end
 
 end

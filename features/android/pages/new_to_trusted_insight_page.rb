@@ -8,16 +8,16 @@ class NewToTrustedInsightPage < Calabash::ABase
 
   def trait
 
-	hide_soft_keyboard #we need to hide keyb in case it will cover some ui that will be in trait :(
+    hide_soft_keyboard #we need to hide keyb in case it will cover some ui that will be in trait :(
     "* marked:'New to Trusted Insight?'" #this is a NEW TO TRUSTED INSIGHT? label locator
 
   end
 
 
-  def backButton 
+  def backButton
 
     "* marked:'join_email_back'" #this is a backButton locator
-    
+
   end
 
   def firstName
@@ -41,7 +41,7 @@ class NewToTrustedInsightPage < Calabash::ABase
 
   def inputFirstName(firstName)
 
-  	#touch('* marked:"First name"')
+    #touch('* marked:"First name"')
     #keyboard_enter_text(firstName)
 
     enter_text("* id:'firstname_et'", firstName)
@@ -50,8 +50,8 @@ class NewToTrustedInsightPage < Calabash::ABase
 
   def inputLastName(lastName)
 
-  	#touch('* marked:"Last name"')
-  	#keyboard_enter_text(lastName)
+    #touch('* marked:"Last name"')
+    #keyboard_enter_text(lastName)
 
     enter_text("* id:'lastname_et'", lastName)
 
@@ -59,8 +59,8 @@ class NewToTrustedInsightPage < Calabash::ABase
 
   def inputPassword(password)
 
-  	#touch("* marked:'Password'")
-  	#keyboard_enter_text(password)
+    #touch("* marked:'Password'")
+    #keyboard_enter_text(password)
 
     enter_text("* id:'password_et'", password)
 
@@ -83,19 +83,19 @@ class NewToTrustedInsightPage < Calabash::ABase
     hide_soft_keyboard
     clear_text_in("* id:'password_et'")
 
-  end  
+  end
 
   def signUpButton
 
-  	hide_soft_keyboard
+    hide_soft_keyboard
     "* marked:'SIGN UP'"
 
   end
 
-  def showPasswordButton 
+  def showPasswordButton
 
-   hide_soft_keyboard
-   "* marked:'password_visibility_img'"
+    hide_soft_keyboard
+    "* marked:'password_visibility_img'"
 
   end
 
@@ -104,32 +104,32 @@ class NewToTrustedInsightPage < Calabash::ABase
     passwd_visible = query(passwdField, :inputType).first
     touch(eyeButton)
     passwd_hidden = query(passwdField, :inputType).first
-    if passwd_visible == passwd_hidden 
+    if passwd_visible == passwd_hidden
       fail('Password didnt show up')
     elsif passwd_visible != passwd_hidden
       puts('Password show up!')
     end
-      
+
   end
 
 
   def invalidPasswordAlert
 
-  	wait_for_elements_exist("* marked:'Invalid password'")
+    wait_for_elements_exist("* marked:'Invalid password'")
 
   end
 
 
   def signUpButtonIsAvailable
 
-  	query("* marked:'SIGN UP'", :enabled).first
+    query("* marked:'SIGN UP'", :enabled).first
 
   end
 
 
   def okButton
 
-  	touch("* marked:'OK'")
+    touch("* marked:'OK'")
 
   end
 

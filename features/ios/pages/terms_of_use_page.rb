@@ -1,46 +1,45 @@
 require 'calabash-cucumber/ibase'
 
 
-
 #IOS
 
 class TermsOfUsePage < Calabash::IBase
 
-	def trait
+  def trait
 
-	    "UINavigationItemView marked:'Terms of Use'"
-	    
-	end
+    "UINavigationItemView marked:'Terms of Use'"
 
-
-	def backButton
-
-		"button marked:'iconTopBack'"
-
-	end
+  end
 
 
-	def openInSafariButton
+  def backButton
 
-		"button marked:'iconTopExport'"
-	end
+    "button marked:'iconTopBack'"
+
+  end
 
 
-	def webViewContainter
+  def openInSafariButton
 
-		"WKWebView"
-	end
+    "button marked:'iconTopExport'"
+  end
 
-	def ensureWebViewHasLoadedContent
 
-		wait_for(:timeout => 60) { element_does_not_exist("RSBLoaderView") }
+  def webViewContainter
 
-		title = query("WKWebView",:title).first
+    "WKWebView"
+  end
 
-		if title !="Trusted Insight | Terms of Service | Trusted Insight Platform"
+  def ensureWebViewHasLoadedContent
 
-			raise "There is no loaded content inside WKWebView"
-		end
-	end
+    wait_for(:timeout => 60) { element_does_not_exist("RSBLoaderView") }
+
+    title = query("WKWebView", :title).first
+
+    if title !="Trusted Insight | Terms of Service | Trusted Insight Platform"
+
+      raise "There is no loaded content inside WKWebView"
+    end
+  end
 
 end

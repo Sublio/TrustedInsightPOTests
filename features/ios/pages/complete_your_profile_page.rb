@@ -13,49 +13,49 @@ class CompleteYourProfilePage < Calabash::IBase
 
   def tap_skip_button
 
-  	touch("* id:'skip_btn'")
+    touch("* id:'skip_btn'")
 
   end
 
   def tap_next_button
 
-  	touch("* marked:'DONE'")
+    touch("* marked:'DONE'")
 
   end
 
   def shortBio
 
-  	"TITextView"
+    "TITextView"
 
   end
 
   def avatarImage
 
-  	"UIButton"
+    "UIButton"
 
   end
 
   def dialogCameraButton
 
-  	"* marked:'Camera'"
+    "* marked:'Camera'"
 
   end
 
   def dialogGalleryButton
 
-  	"* marked:'Library'"
+    "* marked:'Library'"
 
   end
 
   def dialogCancelButton
 
-  	"* marked:'Cancel'"
+    "* marked:'Cancel'"
 
   end
 
   def imageConfirmCancelButton
 
-  	"UIImageView index:7"
+    "UIImageView index:7"
 
   end
 
@@ -67,7 +67,7 @@ class CompleteYourProfilePage < Calabash::IBase
 
   def enterBio(biofield)
 
-  	enter_text(biofield, 'This is test short bio')
+    enter_text(biofield, 'This is test short bio')
 
   end
 
@@ -80,11 +80,11 @@ class CompleteYourProfilePage < Calabash::IBase
   def selectAvatarFromGallery(avatarimage, gallerybutton, confirmbutton)
 
     wait_for_none_animating
-  	touch(avatarimage)
+    touch(avatarimage)
     wait_for_none_animating
-  	touch(gallerybutton)
+    touch(gallerybutton)
     wait_for_none_animating
-  	touch(confirmbutton)
+    touch(confirmbutton)
     wait_for_none_animating
     #flash("ImagePickerPhotoLibraryAlbumContentsViewCell UIImageView")[1]
 
@@ -102,4 +102,4 @@ class CompleteYourProfilePage < Calabash::IBase
 
   end
 
- end
+end

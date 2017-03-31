@@ -7,14 +7,14 @@ class PasswordPage < Calabash::ABase
 
   def trait
 
-    "* id:'forgot_password_btn'"   #this is a forgotPassword button
+    "* id:'forgot_password_btn'" #this is a forgotPassword button
 
   end
 
 
   def backButton
 
-   "* id:'join_password_back'"
+    "* id:'join_password_back'"
 
   end
 

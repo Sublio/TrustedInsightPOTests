@@ -14,10 +14,10 @@ class NewToTrustedInsightPage < Calabash::IBase
   end
 
 
-  def backButton 
+  def backButton
 
     "button marked:'iconTopBack'" #this is a backButton locator
-    
+
   end
 
   def firstName
@@ -98,7 +98,7 @@ class NewToTrustedInsightPage < Calabash::IBase
 
     clear_text("TITextField index:2")
 
-  end  
+  end
 
   def signUpButton
 
@@ -106,16 +106,16 @@ class NewToTrustedInsightPage < Calabash::IBase
 
   end
 
-  def showPasswordButton 
+  def showPasswordButton
 
-   "view marked:'iconShowPassword'"
+    "view marked:'iconShowPassword'"
 
   end
 
   def passwordVisibleOrHidden(passwdField, eyeButton)
 
     puts("Not yet released")
-      
+
   end
 
 
@@ -128,20 +128,20 @@ class NewToTrustedInsightPage < Calabash::IBase
 
   def signUpButtonIsAvailable
 
-  	query("TIArrowButton",:isEnabled).first
+    query("TIArrowButton", :isEnabled).first
 
   end
 
 
   def okButton
 
-  	"view marked:'OK'"
+    "view marked:'OK'"
 
   end
 
   def invalidFirstLastNameSnack
 
-    wait_for_elements_exist("* text:'First Name and Last name should be less than 30 characters!'")    
+    wait_for_elements_exist("* text:'First Name and Last name should be less than 30 characters!'")
     wait_for_elements_exist("* marked:'OK'")
     sleep(3)
     touch("* marked:'OK'")

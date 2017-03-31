@@ -1,40 +1,39 @@
 require 'calabash-android/abase'
 
 
-
 #Android
 
 class PrivacyPolicy < Calabash::ABase
 
-	def trait
+  def trait
 
-		"textView text:'Privacy Policy'"
-		    
-	end
+    "textView text:'Privacy Policy'"
 
-	def backButton
+  end
 
-		"ImageButton contentDescription:'Navigate up'"
+  def backButton
 
-	end
+    "ImageButton contentDescription:'Navigate up'"
 
-
-	def openInSafariButton
-
-		"* contentDescription:'Watch in Browser'"
-	end
+  end
 
 
-	def webViewContainter
+  def openInSafariButton
 
-		"ResponsiveWebView"
-	end
+    "* contentDescription:'Watch in Browser'"
+  end
 
-	def ensureWebViewHasLoadedContent
 
-		wait_for(:timeout => 60) { element_does_not_exist("CircularProgressView") }
+  def webViewContainter
 
-		element_exists(webViewContainter)
+    "ResponsiveWebView"
+  end
+
+  def ensureWebViewHasLoadedContent
+
+    wait_for(:timeout => 60) { element_does_not_exist("CircularProgressView") }
+
+    element_exists(webViewContainter)
 =begin
 		title = query("WKWebView",:title).first
 
@@ -44,7 +43,7 @@ class PrivacyPolicy < Calabash::ABase
 		end
 =end
 
-	end
+  end
 
 
 end

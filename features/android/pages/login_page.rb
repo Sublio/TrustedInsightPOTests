@@ -7,12 +7,12 @@ class LoginPage < Calabash::ABase
 
   def trait
 
-    "* id:'join_input_et'"   #this is a textField locator
+    "* id:'join_input_et'" #this is a textField locator
 
   end
 
 
-  def tapBackButton 
+  def tapBackButton
 
     touch("* id:'join_email_back'") #this is a backButton locator
 
@@ -35,7 +35,7 @@ class LoginPage < Calabash::ABase
   def unableToConnect
 
     "* text:'Unable to connect'"
-    
+
   end
 
 

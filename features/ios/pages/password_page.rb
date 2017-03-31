@@ -7,14 +7,14 @@ class PasswordPage < Calabash::IBase
 
   def trait
 
-    "button marked:'Forgot password?'"   #this is a forgotPassword button
+    "button marked:'Forgot password?'" #this is a forgotPassword button
 
   end
 
 
   def backButton
 
-   "button marked:'iconTopBack'"
+    "button marked:'iconTopBack'"
 
   end
 
@@ -26,7 +26,7 @@ class PasswordPage < Calabash::IBase
 
   def eyeButton
 
-   "button marked:'iconShowPassword'"
+    "button marked:'iconShowPassword'"
 
   end
 
@@ -68,7 +68,7 @@ class PasswordPage < Calabash::IBase
 
   def userMail
 
-  	"label {text CONTAINS 'mail'}"
+    "label {text CONTAINS 'mail'}"
   end
 
   def userAvatar
@@ -90,9 +90,8 @@ class PasswordPage < Calabash::IBase
 
   def okButton
 
-  	"view marked:'OK'"
+    "view marked:'OK'"
   end
-
 
 
 end
