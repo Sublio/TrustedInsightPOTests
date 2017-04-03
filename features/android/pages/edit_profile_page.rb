@@ -128,6 +128,7 @@ class EditProfilePage < Calabash::ABase
   end
 
   def continueOnAlert
+    hide_soft_keyboard()
     "* marked:'Continue'" # This is a Continue button
   end
 
@@ -157,6 +158,16 @@ class EditProfilePage < Calabash::ABase
 
   def clearTextInPosition
     clear_text_in("* tag:'Title / Position'")
+  end
+
+
+  def changeCompanyName
+    touch companyField
+    keyboard_enter_text("berry")
+  end
+
+  def clearTextInCompanyR
+    clear_text_in("* tag:'Company'")
   end
 
   def clearTextInFirstName
@@ -210,6 +221,16 @@ class EditProfilePage < Calabash::ABase
       fail("Country doesn't match!")
     end
 
+  end
+
+
+  def alertInvestorTypeMandatoryField #DUPLICATED BECAUSE IOS NEEDED
+    alert_mandatory = query("* marked:'Please fill out this field'","text")
+    if (alert_mandatory.empty?)
+      fail("Alert that field is mandatory not found")
+    else
+      puts("Alert \"Please fill out this field\" appears!")
+    end
   end
 
 end #end of class

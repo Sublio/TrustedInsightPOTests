@@ -27,6 +27,7 @@ end
 And /^I try to leave Edit Profile screen without saving$/ do
   @current_page = page(EditProfilePage)
   sleep(1)
+  @current_page.hideKeyboard
   touch(@current_page.backButton)
   sleep(3)
 end
@@ -46,6 +47,7 @@ end
 
 And /^I tap Cancel button to return to Edit Profile screen$/ do
   @current_page = page(EditProfilePage)
+  sleep(2)
   touch(@current_page.cancelOnAlert)
   sleep(2)
 end
