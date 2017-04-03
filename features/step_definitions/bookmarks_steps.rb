@@ -10,8 +10,9 @@ And (/^I Ensure there is no any bookmarks$/) do
 
   unless query(@currentPage.firstCell).empty?
 
-    warn("There are  some bookmarks")
+    warn("There are some bookmarks")
     #TODO Implement cell cleaner!
+    #TODO Implement "Enable notiifcations" handler on first login!!!
 
   end
 end

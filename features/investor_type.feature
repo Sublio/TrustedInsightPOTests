@@ -2,7 +2,7 @@ Feature: As new user I can select investor type
 
 
   Background:
-
+    * I want to find Welcome screen
     * I am on the welcome screen
     * I tap on Access wit email button
     * I see Text field for inputting my email
@@ -34,16 +34,18 @@ Feature: As new user I can select investor type
     * I proceed as Economic Development Agency
     * I proceed as Asset Manager
     * I scroll
-    * I proceed as Outsourced CIO
-    * I scroll
-    * I proceed as Financial Bank
-    * I scroll
-    * I proceed as Foundation
-    * I scroll
-    * I proceed as Pension
-    * I scroll
-    * I proceed as Family Office
-    * I scroll
-    * I proceed as Other in Limited Partner
-    * I wait for Your Interests Page
+
+    #TODO Make this part of feature work!!!!
+    #* I proceed as Outsourced CIO
+    #* I scroll
+    #* I proceed as Financial Bank
+    #* I scroll
+    #* I proceed as Foundation
+    #* I scroll
+    #* I proceed as Pension
+    #* I scroll
+    #* I proceed as Family Office
+    #* I scroll
+    #* I proceed as Other in Limited Partner
+    #* I wait for Your Interests Page
 

@@ -90,7 +90,7 @@ class FeedPage < Calabash::IBase
 
   def swipeOnFirstCellInRightSide
 
-    swipe :left, :query => "UITableViewCell index:0", :offset => {:x => 123, :y => 30}, :"swipe-delta" => {:vertical => {:dx => 0, :dy => 250}}
+    swipe :left, :query => "UITableViewCell index:0", :offset => {:x => 123, :y => 0}, :"swipe-delta" => {:vertical => {:dx => 0, :dy => 350}}
     wait_for_none_animating
   end
 

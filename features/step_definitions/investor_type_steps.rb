@@ -7,20 +7,25 @@ end
 
 When(/^I proceed as Fund of Funds$/) do
 
+  sleep(2)
   @current_page = page(InvestorTypePage).await(timeout: 30)
+  sleep(1)
   @current_page.proceed_as_partner("Fund of Funds")
+  sleep(1)
   @current_page = page(YourInterestsPage).await(timeout: 30)
+  sleep(1)
   @current_page.tap_back_button
+  sleep(2)
 
 end
 
 When(/^I proceed as Other$/) do
-
+  sleep(2)
   @current_page = page(InvestorTypePage).await(timeout: 30)
   @current_page.proceed_as_partner("Other")
   @current_page = page(YourInterestsPage).await(timeout: 30)
   @current_page.tap_back_button
-
+  sleep(2)
 end
 
 When(/^I select type Other$/) do #Need to select from Edit Profile screen

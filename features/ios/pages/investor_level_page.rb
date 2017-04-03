@@ -48,6 +48,7 @@ class InvestorTypePage < Calabash::IBase
 
   def scroll_down
 
+    wait_for_none_animating
     swipe :up, :query => "UITableView", force: :strong
     wait_for_none_animating
     sleep 1

@@ -36,7 +36,7 @@ class BookmarksPage < Calabash::IBase
 
   def swipeOnFirstCellInRightSide
 
-    swipe :left, :query => "UITableViewCell label", :offset => {:x => 123, :y => 30}, :"swipe-delta" => {:vertical => {:dx => 0, :dy => 250}}
+    swipe :left, :query => "UITableViewCell label", :offset => {:x => 123, :y => 0}, :"swipe-delta" => {:vertical => {:dx => 0, :dy => 350}}
   end
 
 
