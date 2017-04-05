@@ -36,16 +36,16 @@ Feature: As new user I can select investor type
     * I scroll
 
     #TODO Make this part of feature work!!!!
-    #* I proceed as Outsourced CIO
-    #* I scroll
-    #* I proceed as Financial Bank
-    #* I scroll
-    #* I proceed as Foundation
-    #* I scroll
-    #* I proceed as Pension
-    #* I scroll
-    #* I proceed as Family Office
-    #* I scroll
-    #* I proceed as Other in Limited Partner
-    #* I wait for Your Interests Page
+    * I proceed as Outsourced CIO
+    * I scroll
+    * I proceed as Financial Bank
+    * I scroll
+    * I proceed as Foundation
+    * I scroll
+    * I proceed as Pension
+    * I scroll
+    * I proceed as Family Office
+    * I scroll
+    * I proceed as Other in Limited Partner
+    * I wait for Your Interests Page
 
