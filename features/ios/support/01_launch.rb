@@ -72,7 +72,7 @@ end
 
 
 #ENV['DEVICE_TARGET'] = 'iPhone 5 (9.3)'
-#ENV['DEVICE_TARGET'] = 'iPhone 5 (10.3)'
+ENV['DEVICE_TARGET'] = 'iPhone 5 (10.3)'
 #ENV['DEVICE_TARGET'] = 'iPhone 7 (10.3)'
 #ENV['DEVICE_TARGET'] = '5cdb1910f92bf7645bc981e80d47ec67fda487ca'
 #ENV['DEVICE_ENDPOINT'] = 'http://10.1.0.143:37265'
@@ -82,7 +82,7 @@ end
 #ENV['QUIT_APP_AFTER_SCENARIO'] = '1'
 #ENV['MAX_CONNECT_RETRY'] = '20'
 
-ENV['DEBUG'] = '1'
+#ENV['DEBUG'] = '1'
 #ENV['DEBUG_HTTP'] = '1'
 #ENV['QUIT_APP_AFTER_SCENARIO'] = '0'
 #ENV['RESET_BETWEEN_SCENARIOS'] = '1'
@@ -105,7 +105,7 @@ RunLoop::CoreSimulator::DEFAULT_OPTIONS[:wait_for_state_timeout] = 60
 RunLoop::CoreSimulator::DEFAULT_OPTIONS[:app_launch_retries] = 10
 RunLoop::CoreSimulator::DEFAULT_OPTIONS[:launch_app_timeout] = 180
 RunLoop::CoreSimulator::DEFAULT_OPTIONS[:uninstall_app_timeout] = 180
-#RunLoop::CoreSimulator::DEFAULT_OPTIONS[:wait_for_state_timeout] = 180
+RunLoop::CoreSimulator::DEFAULT_OPTIONS[:wait_for_state_timeout] = 180
 RunLoop::CoreSimulator::DEFAULT_OPTIONS[:app_launch_retries] = 40
 RunLoop::DeviceAgent::Client::DEFAULTS[:http_timeout] = 360
 RunLoop::DeviceAgent::Client::WAIT_DEFAULTS[:timeout] = 90

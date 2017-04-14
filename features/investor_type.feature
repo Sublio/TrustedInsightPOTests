@@ -34,8 +34,6 @@ Feature: As new user I can select investor type
     * I proceed as Economic Development Agency
     * I proceed as Asset Manager
     * I scroll
-
-    #TODO Make this part of feature work!!!!
     * I proceed as Outsourced CIO
     * I scroll
     * I proceed as Financial Bank
