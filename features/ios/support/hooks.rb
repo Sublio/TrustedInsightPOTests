@@ -3,6 +3,7 @@ require_relative '../ios_helpers/i_helpers.rb'
 require 'calabash-cucumber'
 
 
+=begin
 Before('@shouldLogoutBefore') do
 
   if element_exists("* marked:'Settings'")
@@ -168,7 +169,7 @@ end
 After('@landingBookmarks') do
 
   sleep(2)
-  wait_for(:timeout => 20) {element_exists("* marked:'Settings'")}
+  wait_for(:timeout => 5) {element_exists("* marked:'Settings'")}
   touch("* marked:'Settings'")
   sleep(3)
   scroll("UITableView", :down)
@@ -292,6 +293,14 @@ Before('@shouldLoginAsCherepashkin') do
 
 end
 
+Before('@checkWelcome') do
+  welcomescreen = query("* marked:'Welcome to Trusted Insight'")
+  if (welcomescreen.empty?)
+    findBottomBar
+  else
+    puts("Congrats! \nYou are on Welcome screen.\n Let's run your test!")
+  end
+end
 
 After('@shouldLoginAsCherepashkin') do
 
@@ -347,7 +356,7 @@ After('@shouldLoginAsCherepashkin') do
 
   def tapiconTopCancel
     iconTopCancel = query("* marked:'iconTopCancel'")
-    if (iconTopCancel.empty?)
+    if iconTopCancel.empty?
       puts("Please wait...")
     else
       touch("* marked:'iconTopCancel'")
@@ -389,14 +398,6 @@ After('@shouldLoginAsCherepashkin') do
       touch("* marked:'SKIP'")
     end
   end
-
-# Just a hook for checkWelcome
-  Before('@checkWelcome') do
-    welcomescreen = query("* marked:'Welcome to Trusted Insight'")
-    if (welcomescreen.empty?)
-      findBottomBar
-    else
-      puts("Congrats! \nYou are on Welcome screen.\n Let's run your test!")
-    end
-  end
 end
+
+
